@@ -44,12 +44,7 @@ export default function Layout({ children, currentPageName }) {
       >
         <nav className="max-w-7xl mx-auto px-6 py-4 sm:py-5 flex items-center justify-between">
           {/* Logo */}
-          <Link to={createPageUrl("Home")} className="velvet-transition hover:opacity-70" aria-label="Ir para página inicial">
-            <span className="text-xl sm:text-2xl" 
-              style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 400, fontStyle: 'italic', color: '#7A5A5A' }}>
-              Pequena Deusa
-            </span>
-          </Link>
+          <Logo size="sm" />
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-10">
