@@ -1,4 +1,4 @@
-// Mock product data with real uploaded images
+// Mock product data - Pequena Duquesa
 export const PRODUCTS = [
   {
     id: "p1",

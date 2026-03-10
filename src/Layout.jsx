@@ -4,6 +4,7 @@ import { createPageUrl } from '@/utils';
 import { ShoppingBag, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from './components/store/useCart';
+import Logo from './components/store/Logo';
 
 const NAV_ITEMS = [
   { label: 'Início', page: 'Home' },
