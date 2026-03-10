@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const CART_KEY = 'pequena_deusa_cart';
+const CART_KEY = 'pequena_duquesa_cart';
 
 function getStoredCart() {
   const stored = localStorage.getItem(CART_KEY);

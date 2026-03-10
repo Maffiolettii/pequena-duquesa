@@ -26,21 +26,25 @@ export default function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5, ease: [0.23, 1, 0.32, 1] }}
         >
-          <p className="text-xs sm:text-sm tracking-[0.3em] uppercase mb-4 sm:mb-6"
+          <p className="text-xs sm:text-sm tracking-[0.3em] uppercase mb-6 sm:mb-8"
             style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C', fontWeight: 300 }}>
             Atelier de Moda Infantil
           </p>
         </motion.div>
         
-        <motion.h1
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.3, ease: [0.23, 1, 0.32, 1] }}
-          className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl leading-none"
-          style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontStyle: 'italic', color: '#7A5A5A' }}
+          className="flex justify-center"
         >
-          Pequena<br />Duquesa
-        </motion.h1>
+          <img
+            src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b06ea4922854e28166d780/60920f0e2_photo_2026-03-10_16-45-11.jpg"
+            alt="Pequena Duquesa"
+            className="w-48 sm:w-64 md:w-80 lg:w-96"
+            style={{ objectFit: 'contain' }}
+          />
+        </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
