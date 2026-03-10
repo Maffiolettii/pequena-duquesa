@@ -49,7 +49,7 @@ export default function HeroSection() {
           className="mt-6 sm:mt-8 text-sm sm:text-base max-w-lg mx-auto leading-relaxed"
           style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C', fontWeight: 300, letterSpacing: '0.08em' }}
         >
-          Vestidos artesanais bordados à mão, criados com amor para transformar cada momento em memória eterna.
+          Vestidos artesanais bordados à mão, criados com amor para transformar cada momento em memória eterna — para a sua pequena duquesa.
         </motion.p>
 
         <motion.div
