@@ -1,0 +1,226 @@
+// Mock product data with real uploaded images
+export const PRODUCTS = [
+  {
+    id: "p1",
+    name: "Vestido Floral com Gola Bordada",
+    description: "Vestido em linho creme com gola ampla bordada à mão com flores delicadas e laço rosa trançado. Acompanha calcinha bordada e sapatinho rosa com laço.",
+    price: 289.90,
+    category: "vestidos",
+    collection: "jardim",
+    sizes: ["P", "M", "G", "1", "2"],
+    image_url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68bc37bca4385f82fa4d811b/cdf6b7ae3_photo_1_2026-03-10_14-31-56.jpg",
+    featured: true,
+    in_stock: true
+  },
+  {
+    id: "p2",
+    name: "Vestido Cogumelos com Laços Xadrez",
+    description: "Vestido em linho cru com estampa bordada de cogumelos encantados, gola Peter Pan e laços laterais em xadrez rosa. Inclui calcinha e sapatinho.",
+    price: 319.90,
+    category: "vestidos",
+    collection: "jardim",
+    sizes: ["P", "M", "G", "1"],
+    image_url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68bc37bca4385f82fa4d811b/7f1519781_photo_2_2026-03-10_14-31-56.jpg",
+    featured: true,
+    in_stock: true
+  },
+  {
+    id: "p3",
+    name: "Vestido Rosa com Gola Laço Bordada",
+    description: "Vestido em linho rosa com ampla gola branca bordada com flores coloridas e laço frontal. Peça sofisticada para ocasiões especiais.",
+    price: 299.90,
+    category: "vestidos",
+    collection: "festiva",
+    sizes: ["M", "G", "1", "2"],
+    image_url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68bc37bca4385f82fa4d811b/ffaa22ed3_photo_3_2026-03-10_14-31-56.jpg",
+    featured: false,
+    in_stock: true
+  },
+  {
+    id: "p4",
+    name: "Vestido Bege com Bordados e Rendas",
+    description: "Vestido em linho bege com gola branca bordada, detalhes em renda, laços rosa e saia com babados. Uma peça de herança atemporal.",
+    price: 349.90,
+    category: "vestidos",
+    collection: "classica",
+    sizes: ["P", "M", "G"],
+    image_url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68bc37bca4385f82fa4d811b/e067683c2_photo_4_2026-03-10_14-31-56.jpg",
+    featured: true,
+    in_stock: true
+  },
+  {
+    id: "p5",
+    name: "Vestido Azul e Rosa com Bordados Florais",
+    description: "Vestido em duas camadas com corpete azul bordado com flores e saia rosa com acabamento em renda. Laços laterais rosa completam a peça.",
+    price: 339.90,
+    category: "vestidos",
+    collection: "festiva",
+    sizes: ["M", "G", "1", "2"],
+    image_url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68bc37bca4385f82fa4d811b/dc51c9fb7_photo_5_2026-03-10_14-31-56.jpg",
+    featured: false,
+    in_stock: true
+  },
+  {
+    id: "p6",
+    name: "Vestido Listrado Rosa com Bordados",
+    description: "Vestido listrado rosa e branco com gola ampla bordada, laço frontal branco e delicados bordados florais na barra. Estilo clássico atemporal.",
+    price: 279.90,
+    category: "vestidos",
+    collection: "classica",
+    sizes: ["P", "M", "G", "1"],
+    image_url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68bc37bca4385f82fa4d811b/f8e124bf2_photo_6_2026-03-10_14-31-56.jpg",
+    featured: false,
+    in_stock: true
+  },
+  {
+    id: "p7",
+    name: "Romper Xadrez Rosa com Morangos",
+    description: "Romper em xadrez vichy rosa com gola ondulada bordada com morangos e laços laterais. Peça encantadora para o dia a dia.",
+    price: 249.90,
+    category: "conjuntos",
+    collection: "jardim",
+    sizes: ["P", "M", "G"],
+    image_url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68bc37bca4385f82fa4d811b/eed46763e_photo_7_2026-03-10_14-31-56.jpg",
+    featured: true,
+    in_stock: true
+  },
+  {
+    id: "p8",
+    name: "Vestido Rosa com Renda e Bordados",
+    description: "Vestido em linho rosa claro com detalhes em renda branca, gola bordada com flores e faixa na cintura. Elegância pura para celebrações.",
+    price: 329.90,
+    category: "vestidos",
+    collection: "festiva",
+    sizes: ["M", "G", "1", "2"],
+    image_url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68bc37bca4385f82fa4d811b/1bb96ce96_photo_8_2026-03-10_14-31-56.jpg",
+    featured: false,
+    in_stock: true
+  },
+  {
+    id: "p9",
+    name: "Vestido Rosa com Babados Amarelos",
+    description: "Vestido rosa com gola dupla bordada, babados amarelos e laços laterais. Uma combinação alegre e sofisticada para sua pequena deusa.",
+    price: 309.90,
+    category: "vestidos",
+    collection: "festiva",
+    sizes: ["P", "M", "G", "1"],
+    image_url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68bc37bca4385f82fa4d811b/030e58820_photo_9_2026-03-10_14-31-56.jpg",
+    featured: false,
+    in_stock: true
+  },
+  {
+    id: "p10",
+    name: "Vestido Creme com Bordados de Ramos",
+    description: "Vestido em algodão creme com delicados bordados de ramos e flores por toda a peça, mangas bufantes e faixa na cintura. Pura poesia em tecido.",
+    price: 359.90,
+    category: "vestidos",
+    collection: "jardim",
+    sizes: ["M", "G", "1", "2"],
+    image_url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68bc37bca4385f82fa4d811b/888e5eef5_photo_10_2026-03-10_14-31-56.jpg",
+    featured: true,
+    in_stock: true
+  },
+  {
+    id: "p11",
+    name: "Vestido Azul Serenidade com Gola Floral",
+    description: "Vestido em linho azul celeste com ampla gola branca bordada com flores, laço frontal e acabamento em renda. Delicadeza em cada detalhe.",
+    price: 299.90,
+    category: "vestidos",
+    collection: "classica",
+    sizes: ["P", "M", "G", "1"],
+    image_url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68bc37bca4385f82fa4d811b/91ed1102c_photo_11_2026-03-10_14-31-56.jpg",
+    featured: false,
+    in_stock: true
+  },
+  {
+    id: "p12",
+    name: "Vestido Amarelo Sol com Colete Bordado",
+    description: "Vestido amarelo luminoso com colete branco bordado com flores e abelhas. Mangas bufantes e saia fluida. Uma peça que irradia alegria.",
+    price: 339.90,
+    category: "vestidos",
+    collection: "jardim",
+    sizes: ["M", "G", "1"],
+    image_url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68bc37bca4385f82fa4d811b/ae628a34f_photo_12_2026-03-10_14-31-56.jpg",
+    featured: false,
+    in_stock: true
+  },
+  {
+    id: "p13",
+    name: "Vestido Branco Cerejinhas Vermelhas",
+    description: "Vestido branco com bordados de cerejinhas vermelhas, gola Peter Pan, fita vermelha na cintura e acabamentos em viés vermelho. Clássico e encantador.",
+    price: 289.90,
+    category: "vestidos",
+    collection: "classica",
+    sizes: ["P", "M", "G", "1", "2"],
+    image_url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68bc37bca4385f82fa4d811b/17ea9f68e_photo_13_2026-03-10_14-31-56.jpg",
+    featured: true,
+    in_stock: true
+  },
+  {
+    id: "p14",
+    name: "Vestido Amarelo com Gola Bordada e Laço",
+    description: "Vestido amarelo claro com gola bordada, laço rosa e bordados florais na barra. Acompanha calcinha rosa com bordados combinando.",
+    price: 299.90,
+    category: "vestidos",
+    collection: "jardim",
+    sizes: ["M", "G", "1"],
+    image_url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68bc37bca4385f82fa4d811b/9aa1168f7_photo_15_2026-03-10_14-31-56.jpg",
+    featured: false,
+    in_stock: true
+  },
+  {
+    id: "p15",
+    name: "Bata Rosa com Babado e Flores Bordadas",
+    description: "Bata rosa com grande babado na gola, bordados florais delicados e calcinha combinando. Conforto e elegância para o dia a dia.",
+    price: 239.90,
+    category: "conjuntos",
+    collection: "jardim",
+    sizes: ["P", "M", "G"],
+    image_url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68bc37bca4385f82fa4d811b/ebdbb39a6_photo_16_2026-03-10_14-31-56.jpg",
+    featured: false,
+    in_stock: true
+  },
+  {
+    id: "p16",
+    name: "Vestido Jardim Encantado Rosa e Creme",
+    description: "Vestido em duas camadas com corpete creme bordado com jardim florido, saia rosa e mangas bufantes. Uma peça de conto de fadas.",
+    price: 349.90,
+    category: "vestidos",
+    collection: "festiva",
+    sizes: ["P", "M", "G", "1"],
+    image_url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68bc37bca4385f82fa4d811b/ca5086b12_photo_17_2026-03-10_14-31-56.jpg",
+    featured: false,
+    in_stock: true
+  },
+  {
+    id: "p17",
+    name: "Vestido Branco Puro com Gola Bordada",
+    description: "Vestido em linho branco com gola ampla ondulada bordada com flores, laços nas laterais e acabamento em renda. Perfeito para batizados.",
+    price: 369.90,
+    category: "vestidos",
+    collection: "batizado",
+    sizes: ["P", "M", "G", "1", "2"],
+    image_url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68bc37bca4385f82fa4d811b/595be2187_photo_18_2026-03-10_14-31-56.jpg",
+    featured: true,
+    in_stock: true
+  },
+  {
+    id: "p18",
+    name: "Vestido Salmão com Laços e Bordados",
+    description: "Vestido em linho salmão com gola branca bordada com folhagens, laços brancos e bordados de ramos na saia. Elegância natural.",
+    price: 329.90,
+    category: "vestidos",
+    collection: "classica",
+    sizes: ["M", "G", "1"],
+    image_url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68bc37bca4385f82fa4d811b/d453a026b_photo_14_2026-03-10_14-31-56.jpg",
+    featured: false,
+    in_stock: true
+  }
+];
+
+export const COLLECTIONS = [
+  { id: "classica", name: "Clássica", description: "Peças atemporais que transcendem gerações" },
+  { id: "festiva", name: "Festiva", description: "Para momentos especiais e celebrações" },
+  { id: "jardim", name: "Jardim Encantado", description: "Inspiradas na delicadeza da natureza" },
+  { id: "batizado", name: "Batizado", description: "Pureza e elegância para o grande dia" }
+];
