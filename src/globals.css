@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Montserrat:wght@200;300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --antique-white: #FBFAF5;
+  --rose-quartz: #F4E2E2;
+  --dusty-cedar: #A17C7C;
+  --champagne-silk: #F1E4D1;
+  --deep-cedar: #7A5A5A;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--antique-white);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--dusty-cedar);
+  border-radius: 10px;
+}
+
+/* Base Typography */
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  color: var(--dusty-cedar);
+  background-color: var(--antique-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  color: var(--deep-cedar);
+}
+
+/* Velvet Transitions */
+.velvet-transition {
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Gilded Frame */
+.gilded-frame {
+  border: 0.5px solid rgba(161, 124, 124, 0.2);
+}
+
+/* Focus States - A11y */
+*:focus-visible {
+  outline: 1px solid var(--dusty-cedar);
+  outline-offset: 4px;
+}
+
+/* Film Grain Overlay */
+.grain-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--rose-quartz);
+  color: var(--deep-cedar);
+}
+
+@layer base {
+  :root {
+    --background: 40 33% 97%;
+    --foreground: 0 18% 41%;
+    --card: 40 33% 97%;
+    --card-foreground: 0 18% 41%;
+    --popover: 40 33% 97%;
+    --popover-foreground: 0 18% 41%;
+    --primary: 0 18% 55%;
+    --primary-foreground: 40 33% 97%;
+    --secondary: 25 50% 91%;
+    --secondary-foreground: 0 18% 41%;
+    --muted: 0 30% 93%;
+    --muted-foreground: 0 12% 55%;
+    --accent: 0 30% 93%;
+    --accent-foreground: 0 18% 41%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 18% 55% / 0.15;
+    --input: 0 18% 55% / 0.15;
+    --ring: 0 18% 55%;
+    --radius: 0.5rem;
+  }
+}
