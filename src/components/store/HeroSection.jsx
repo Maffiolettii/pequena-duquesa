@@ -39,7 +39,7 @@ export default function HeroSection() {
           className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl leading-none"
           style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontStyle: 'italic', color: '#7A5A5A' }}
         >
-          Pequena<br />Deusa
+          Pequena<br />Duquesa
         </motion.h1>
 
         <motion.p

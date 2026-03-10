@@ -74,7 +74,7 @@ export default function NewsletterFooter() {
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs tracking-[0.15em]"
             style={{ fontFamily: 'Montserrat, sans-serif', color: '#F4E2E2', fontWeight: 300 }}>
-            © 2026 Pequena Deusa — Todos os direitos reservados
+            © 2026 Pequena Duquesa — Todos os direitos reservados
           </p>
           <div className="flex gap-8">
             <a href="#" className="text-xs tracking-[0.1em] velvet-transition hover:opacity-70 min-w-[44px] min-h-[44px] flex items-center"
