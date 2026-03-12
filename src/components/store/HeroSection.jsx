@@ -41,8 +41,8 @@ export default function HeroSection() {
           <img
             src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b06ea4922854e28166d780/60920f0e2_photo_2026-03-10_16-45-11.jpg"
             alt="Pequena Duquesa"
-            className="w-48 sm:w-64 md:w-80 lg:w-96"
-            style={{ objectFit: 'contain' }}
+            className="w-48 sm:w-64 md:w-80"
+            style={{ objectFit: 'cover', borderRadius: '50%', aspectRatio: '1/1', mixBlendMode: 'multiply' }}
           />
         </motion.div>
 
