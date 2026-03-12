@@ -22,7 +22,7 @@ export default function ProductDetail() {
   const [selectedSize, setSelectedSize] = useState('');
   const [addedToCart, setAddedToCart] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setSelectedSize('');
     setAddedToCart(false);
     window.scrollTo(0, 0);
