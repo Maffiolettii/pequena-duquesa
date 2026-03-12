@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { ArrowLeft, Check } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
@@ -16,8 +16,8 @@ const COLLECTION_LABELS = {
 };
 
 export default function ProductDetail() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const productId = urlParams.get('id');
+  const [searchParams] = useSearchParams();
+  const productId = searchParams.get('id');
 
   const [selectedSize, setSelectedSize] = useState('');
   const [addedToCart, setAddedToCart] = useState(false);
