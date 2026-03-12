@@ -21,6 +21,12 @@ export default function ProductDetail() {
 
   const [selectedSize, setSelectedSize] = useState('');
   const [addedToCart, setAddedToCart] = useState(false);
+
+  React.useEffect(() => {
+    setSelectedSize('');
+    setAddedToCart(false);
+    window.scrollTo(0, 0);
+  }, [productId]);
   const { addToCart } = useCart();
 
   const { data: product, isLoading } = useQuery({
