@@ -2,11 +2,16 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
+import { base44 } from '@/api/base44Client';
+import { useQuery } from '@tanstack/react-query';
 import ProductCard from './ProductCard';
-import { PRODUCTS } from './productData';
 
 export default function FeaturedProducts() {
-  const featured = PRODUCTS.filter(p => p.featured).slice(0, 6);
+  const { data: allProducts = [] } = useQuery({
+    queryKey: ['products'],
+    queryFn: () => base44.entities.Product.list(),
+  });
+  const featured = allProducts.filter(p => p.featured).slice(0, 6);
 
   return (
     <section className="py-20 sm:py-32 px-6" style={{ backgroundColor: '#FBFAF5' }}>
