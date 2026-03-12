@@ -81,7 +81,7 @@ export default function NewsletterFooter() {
               style={{ fontFamily: 'Montserrat, sans-serif', color: '#F4E2E2', fontWeight: 300 }}>
               Instagram
             </a>
-            <a href="#" className="text-xs tracking-[0.1em] velvet-transition hover:opacity-70 min-w-[44px] min-h-[44px] flex items-center"
+            <a href="https://chat.whatsapp.com/D4flZEqYQpxJVVOPlTFAHZ?mode=gi_t" target="_blank" rel="noopener noreferrer" className="text-xs tracking-[0.1em] velvet-transition hover:opacity-70 min-w-[44px] min-h-[44px] flex items-center"
               style={{ fontFamily: 'Montserrat, sans-serif', color: '#F4E2E2', fontWeight: 300 }}>
               WhatsApp
             </a>
