@@ -9,9 +9,9 @@ const WHATSAPP_NUMBER = '5581992656652';
 
 function buildWhatsAppMessage(cart, cartTotal) {
   const lines = cart.map(item =>
-    `• ${item.name} (Tam: ${item.size}) x${item.quantity} — R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}`
+    `• *${item.name}*\n  Tamanho: ${item.size} | Qtd: ${item.quantity} | R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}\n  🖼 ${item.image_url}`
   );
-  const msg = `Olá! Gostaria de finalizar meu pedido na Pequena Duquesa:\n\n${lines.join('\n')}\n\n*Total: R$ ${cartTotal.toFixed(2).replace('.', ',')}*\n\nAguardo instruções de pagamento e entrega. 💕`;
+  const msg = `Olá! Gostaria de finalizar meu pedido na Pequena Duquesa:\n\n${lines.join('\n\n')}\n\n*Total: R$ ${cartTotal.toFixed(2).replace('.', ',')}*\n\nAguardo instruções de pagamento e entrega. 💕`;
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 }
 
