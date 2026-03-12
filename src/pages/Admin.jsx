@@ -14,6 +14,40 @@ const TABS = [
 
 export default function Admin() {
   const [activeTab, setActiveTab] = useState('products');
+  const [user, setUser] = useState(null);
+  const [checking, setChecking] = useState(true);
+
+  useEffect(() => {
+    base44.auth.me()
+      .then(u => { setUser(u); setChecking(false); })
+      .catch(() => { setUser(null); setChecking(false); });
+  }, []);
+
+  if (checking) {
+    return (
+      <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: '#FBFAF5' }}>
+        <p style={{ fontFamily: 'Cormorant Garamond, serif', fontStyle: 'italic', color: '#A17C7C' }}>Verificando acesso...</p>
+      </div>
+    );
+  }
+
+  if (!user || user.role !== 'admin') {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center gap-6" style={{ backgroundColor: '#FBFAF5' }}>
+        <p className="text-xl" style={{ fontFamily: 'Cormorant Garamond, serif', fontStyle: 'italic', color: '#7A5A5A' }}>
+          Acesso restrito
+        </p>
+        <p className="text-sm" style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C', fontWeight: 300 }}>
+          Esta área é exclusiva para administradores.
+        </p>
+        <Link to={createPageUrl('Home')}
+          className="text-xs tracking-[0.2em] uppercase velvet-transition"
+          style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C' }}>
+          ← Voltar à loja
+        </Link>
+      </div>
+    );
+  }
 
   const { data: products = [] } = useQuery({
     queryKey: ['admin-products'],
