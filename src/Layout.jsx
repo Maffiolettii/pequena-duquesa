@@ -10,7 +10,6 @@ const NAV_ITEMS = [
   { label: 'Início', page: 'Home' },
   { label: 'Coleção', page: 'Products' },
   { label: 'Contato', page: 'Contact' },
-  { label: 'Admin', page: 'Admin' },
 ];
 
 export default function Layout({ children, currentPageName }) {
