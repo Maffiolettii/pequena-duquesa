@@ -23,6 +23,18 @@ export default function Admin() {
       .catch(() => { setUser(null); setChecking(false); });
   }, []);
 
+  const { data: products = [] } = useQuery({
+    queryKey: ['admin-products'],
+    queryFn: () => base44.entities.Product.list(),
+    enabled: !checking && !!user && user.role === 'admin',
+  });
+
+  const { data: messages = [] } = useQuery({
+    queryKey: ['admin-messages'],
+    queryFn: () => base44.entities.ContactMessage.list('-created_date'),
+    enabled: !checking && !!user && user.role === 'admin',
+  });
+
   if (checking) {
     return (
       <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: '#FBFAF5' }}>
@@ -48,16 +60,6 @@ export default function Admin() {
       </div>
     );
   }
-
-  const { data: products = [] } = useQuery({
-    queryKey: ['admin-products'],
-    queryFn: () => base44.entities.Product.list(),
-  });
-
-  const { data: messages = [] } = useQuery({
-    queryKey: ['admin-messages'],
-    queryFn: () => base44.entities.ContactMessage.list('-created_date'),
-  });
 
   const newMessages = messages.filter(m => m.status === 'novo').length;
 
