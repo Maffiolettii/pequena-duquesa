@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { base44 } from '@/api/base44Client';
+import { useQuery } from '@tanstack/react-query';
 import ProductCard from '../components/store/ProductCard';
 import ProductFilters from '../components/store/ProductFilters';
 import NewsletterFooter from '../components/store/NewsletterFooter';
-import { PRODUCTS } from '../components/store/productData';
 
 export default function Products() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -16,7 +17,12 @@ export default function Products() {
     if (collectionParam) setActiveCollection(collectionParam);
   }, [collectionParam]);
 
-  const filtered = PRODUCTS.filter(p => {
+  const { data: products = [], isLoading } = useQuery({
+    queryKey: ['products'],
+    queryFn: () => base44.entities.Product.list(),
+  });
+
+  const filtered = products.filter(p => {
     const catMatch = activeCategory === 'all' || p.category === activeCategory;
     const colMatch = activeCollection === 'all' || p.collection === activeCollection;
     return catMatch && colMatch;
@@ -57,7 +63,11 @@ export default function Products() {
       {/* Products Grid */}
       <div className="py-12 sm:py-16 px-6" style={{ backgroundColor: '#FBFAF5' }}>
         <div className="max-w-7xl mx-auto">
-          {filtered.length > 0 ? (
+          {isLoading ? (
+            <div className="text-center py-20" style={{ fontFamily: 'Cormorant Garamond, serif', fontStyle: 'italic', color: '#A17C7C', fontSize: '1.25rem' }}>
+              Carregando coleção...
+            </div>
+          ) : filtered.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
               {filtered.map((product, index) => (
                 <ProductCard key={product.id} product={product} index={index} />
