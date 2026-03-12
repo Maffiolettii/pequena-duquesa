@@ -26,7 +26,7 @@ export default function NewsletterFooter() {
           >
             <p className="text-xs tracking-[0.3em] uppercase mb-4"
               style={{ fontFamily: 'Montserrat, sans-serif', color: '#F4E2E2', fontWeight: 300 }}>
-              Carta à Deusa
+              Carta à Duquesa
             </p>
             <h3 className="text-2xl sm:text-4xl"
               style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontStyle: 'italic', color: '#FBFAF5' }}>
