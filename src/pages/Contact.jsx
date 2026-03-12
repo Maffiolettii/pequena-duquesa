@@ -114,7 +114,7 @@ export default function Contact() {
                 <img
                   src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68bc37bca4385f82fa4d811b/595be2187_photo_18_2026-03-10_14-31-56.jpg"
                   alt="Vestido artesanal Pequena Duquesa"
-                  className="w-full aspect-[4/3] object-cover"
+                  className="w-full aspect-[4/3] object-cover object-top"
                 />
               </div>
             </motion.div>
