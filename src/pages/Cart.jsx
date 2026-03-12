@@ -152,13 +152,15 @@ export default function Cart() {
                 >
                   Continuar Comprando
                 </Link>
-                <Link
-                  to={createPageUrl("Contact")}
+                <a
+                  href={buildWhatsAppMessage(cart, cartTotal)}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex-1 px-6 py-4 text-center text-xs tracking-[0.2em] uppercase velvet-transition min-h-[44px] flex items-center justify-center"
                   style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 400, color: '#FBFAF5', background: '#A17C7C' }}
                 >
                   Finalizar Pedido
-                </Link>
+                </a>
               </div>
             </div>
           </>
