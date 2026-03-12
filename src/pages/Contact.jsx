@@ -82,7 +82,7 @@ export default function Contact() {
                       WhatsApp
                     </p>
                     <p className="text-sm" style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C', fontWeight: 300 }}>
-                      (11) 99999-9999
+                      (81) 99265-6652
                     </p>
                   </div>
                 </div>
@@ -97,7 +97,7 @@ export default function Contact() {
                       Atelier
                     </p>
                     <p className="text-sm" style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C', fontWeight: 300 }}>
-                      São Paulo, Brasil<br />
+                      Recife, Brasil<br />
                       Atendimento por agendamento
                     </p>
                   </div>
