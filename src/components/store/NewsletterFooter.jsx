@@ -77,7 +77,7 @@ export default function NewsletterFooter() {
             © 2026 Pequena Duquesa — Todos os direitos reservados
           </p>
           <div className="flex gap-8">
-            <a href="https://www.instagram.com/pequenaduquesa_?igsh=MWRoNTZ2MXNoeDUxNg==" target="_blank" rel="noopener noreferrer" className="text-xs tracking-[0.1em] velvet-transition hover:opacity-70 min-w-[44px] min-h-[44px] flex items-center"
+            <a href="#" className="text-xs tracking-[0.1em] velvet-transition hover:opacity-70 min-w-[44px] min-h-[44px] flex items-center"
               style={{ fontFamily: 'Montserrat, sans-serif', color: '#F4E2E2', fontWeight: 300 }}>
               Instagram
             </a>
