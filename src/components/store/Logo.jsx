@@ -17,7 +17,13 @@ export default function Logo({ size = 'md', linkTo = true }) {
       <img
         src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b06ea4922854e28166d780/60920f0e2_photo_2026-03-10_16-45-11.jpg"
         alt="Pequena Duquesa"
-        style={{ height: s.img, width: 'auto', objectFit: 'contain' }}
+        style={{
+          height: s.img,
+          width: 'auto',
+          objectFit: 'contain',
+          borderRadius: '1rem',
+          mixBlendMode: 'multiply',
+        }}
       />
     </div>
   );
