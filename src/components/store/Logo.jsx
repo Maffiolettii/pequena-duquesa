@@ -19,9 +19,9 @@ export default function Logo({ size = 'md', linkTo = true }) {
         alt="Pequena Duquesa"
         style={{
           height: s.img,
-          width: 'auto',
-          objectFit: 'contain',
-          borderRadius: '1rem',
+          width: s.img,
+          objectFit: 'cover',
+          borderRadius: '50%',
           mixBlendMode: 'multiply',
         }}
       />
