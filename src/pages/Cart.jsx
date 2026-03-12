@@ -5,6 +5,16 @@ import { createPageUrl } from '@/utils';
 import { Minus, Plus, Trash2, ArrowLeft, ShoppingBag } from 'lucide-react';
 import { useCart } from '../components/store/useCart';
 
+const WHATSAPP_NUMBER = '5581992656652';
+
+function buildWhatsAppMessage(cart, cartTotal) {
+  const lines = cart.map(item =>
+    `• ${item.name} (Tam: ${item.size}) x${item.quantity} — R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}`
+  );
+  const msg = `Olá! Gostaria de finalizar meu pedido na Pequena Duquesa:\n\n${lines.join('\n')}\n\n*Total: R$ ${cartTotal.toFixed(2).replace('.', ',')}*\n\nAguardo instruções de pagamento e entrega. 💕`;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+}
+
 export default function Cart() {
   const { cart, removeFromCart, updateQuantity, cartTotal, cartCount } = useCart();
 
