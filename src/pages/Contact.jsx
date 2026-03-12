@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, MapPin, Phone, Mail } from 'lucide-react';
+import { Send, MapPin, Phone, Instagram } from 'lucide-react';
 import NewsletterFooter from '../components/store/NewsletterFooter';
 
 export default function Contact() {
@@ -15,7 +15,6 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSending(true);
-    // Simulate submission
     await new Promise(r => setTimeout(r, 1000));
     setSubmitted(true);
     setSending(false);
@@ -59,16 +58,22 @@ export default function Contact() {
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="min-w-[44px] min-h-[44px] flex items-center justify-center">
-                    <Mail size={16} color="#A17C7C" strokeWidth={1.5} />
+                    <Instagram size={16} color="#A17C7C" strokeWidth={1.5} />
                   </div>
                   <div>
                     <p className="text-xs tracking-[0.15em] uppercase mb-1"
                       style={{ fontFamily: 'Montserrat, sans-serif', color: '#7A5A5A', fontWeight: 400 }}>
-                      E-mail
+                      Instagram
                     </p>
-                    <p className="text-sm" style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C', fontWeight: 300 }}>
-                      contato@pequenaduquesa.com.br
-                    </p>
+                    <a
+                      href="https://www.instagram.com/pequenaduquesa_"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm velvet-transition hover:opacity-70"
+                      style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C', fontWeight: 300 }}
+                    >
+                      @pequenaduquesa_
+                    </a>
                   </div>
                 </div>
 
