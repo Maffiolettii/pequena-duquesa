@@ -1,0 +1,185 @@
+import React, { useState } from 'react';
+import { base44 } from '@/api/base44Client';
+import { X, Upload, Loader2 } from 'lucide-react';
+
+const EMPTY_FORM = {
+  name: '',
+  description: '',
+  price: '',
+  category: 'vestidos',
+  collection: 'classica',
+  sizes: [],
+  image_url: '',
+  image_url_2: '',
+  featured: false,
+  in_stock: true,
+};
+
+const ALL_SIZES = ['RN', 'P', 'M', 'G', '1', '2', '3', '4', '5', '6'];
+
+export default function ProductFormModal({ product, onClose, onSuccess }) {
+  const [form, setForm] = useState(product ? { ...product } : EMPTY_FORM);
+  const [saving, setSaving] = useState(false);
+  const [uploading, setUploading] = useState(false);
+
+  const set = (field, value) => setForm(f => ({ ...f, [field]: value }));
+
+  const toggleSize = (size) => {
+    set('sizes', form.sizes.includes(size)
+      ? form.sizes.filter(s => s !== size)
+      : [...form.sizes, size]
+    );
+  };
+
+  const handleImageUpload = async (e, field) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    setUploading(true);
+    const { file_url } = await base44.integrations.Core.UploadFile({ file });
+    set(field, file_url);
+    setUploading(false);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSaving(true);
+    const data = { ...form, price: parseFloat(form.price) };
+    if (product) {
+      await base44.entities.Product.update(product.id, data);
+    } else {
+      await base44.entities.Product.create(data);
+    }
+    setSaving(false);
+    onSuccess();
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ backgroundColor: 'rgba(0,0,0,0.4)' }}>
+      <div className="w-full max-w-2xl max-h-[90vh] overflow-y-auto" style={{ backgroundColor: '#FBFAF5' }}>
+        {/* Header */}
+        <div className="flex items-center justify-between p-6 border-b" style={{ borderColor: 'rgba(161,124,124,0.2)' }}>
+          <h2 className="text-2xl" style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontStyle: 'italic', color: '#7A5A5A' }}>
+            {product ? 'Editar Produto' : 'Novo Produto'}
+          </h2>
+          <button onClick={onClose} className="p-1 velvet-transition hover:opacity-60">
+            <X size={18} color="#A17C7C" />
+          </button>
+        </div>
+
+        <form onSubmit={handleSubmit} className="p-6 space-y-5">
+          {/* Name */}
+          <div>
+            <label className="label-style">Nome do Produto *</label>
+            <input required value={form.name} onChange={e => set('name', e.target.value)}
+              className="input-style w-full" placeholder="Ex: Vestido Floral com Gola Bordada" />
+          </div>
+
+          {/* Description */}
+          <div>
+            <label className="label-style">Descrição</label>
+            <textarea value={form.description} onChange={e => set('description', e.target.value)}
+              rows={3} className="input-style w-full resize-none" placeholder="Descrição detalhada do produto..." />
+          </div>
+
+          {/* Price / Category / Collection */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label className="label-style">Preço (R$) *</label>
+              <input required type="number" step="0.01" min="0" value={form.price} onChange={e => set('price', e.target.value)}
+                className="input-style w-full" placeholder="299.90" />
+            </div>
+            <div>
+              <label className="label-style">Categoria *</label>
+              <select value={form.category} onChange={e => set('category', e.target.value)} className="input-style w-full">
+                <option value="vestidos">Vestidos</option>
+                <option value="conjuntos">Conjuntos</option>
+                <option value="acessorios">Acessórios</option>
+                <option value="calcados">Calçados</option>
+              </select>
+            </div>
+            <div>
+              <label className="label-style">Coleção</label>
+              <select value={form.collection} onChange={e => set('collection', e.target.value)} className="input-style w-full">
+                <option value="classica">Clássica</option>
+                <option value="festiva">Festiva</option>
+                <option value="jardim">Jardim Encantado</option>
+                <option value="batizado">Batizado</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Sizes */}
+          <div>
+            <label className="label-style">Tamanhos Disponíveis</label>
+            <div className="flex flex-wrap gap-2 mt-2">
+              {ALL_SIZES.map(s => (
+                <button key={s} type="button" onClick={() => toggleSize(s)}
+                  className="w-10 h-10 text-xs velvet-transition border"
+                  style={{
+                    fontFamily: 'Montserrat, sans-serif',
+                    backgroundColor: form.sizes.includes(s) ? '#7A5A5A' : 'transparent',
+                    color: form.sizes.includes(s) ? 'white' : '#A17C7C',
+                    borderColor: form.sizes.includes(s) ? '#7A5A5A' : 'rgba(161,124,124,0.3)',
+                  }}>
+                  {s}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Images */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[{ label: 'Imagem Principal', field: 'image_url' }, { label: 'Imagem Secundária', field: 'image_url_2' }].map(img => (
+              <div key={img.field}>
+                <label className="label-style">{img.label}</label>
+                {form[img.field] && (
+                  <img src={form[img.field]} alt="" className="w-full h-32 object-cover mb-2" style={{ border: '0.5px solid rgba(161,124,124,0.2)' }} />
+                )}
+                <input value={form[img.field]} onChange={e => set(img.field, e.target.value)}
+                  className="input-style w-full mb-2" placeholder="URL da imagem" />
+                <label className="flex items-center gap-2 text-xs cursor-pointer velvet-transition hover:opacity-70 px-3 py-2 border"
+                  style={{ borderColor: 'rgba(161,124,124,0.3)', color: '#A17C7C', fontFamily: 'Montserrat, sans-serif' }}>
+                  {uploading ? <Loader2 size={12} className="animate-spin" /> : <Upload size={12} />}
+                  Fazer Upload
+                  <input type="file" accept="image/*" className="hidden" onChange={e => handleImageUpload(e, img.field)} />
+                </label>
+              </div>
+            ))}
+          </div>
+
+          {/* Flags */}
+          <div className="flex gap-6">
+            <label className="flex items-center gap-2 cursor-pointer text-xs" style={{ fontFamily: 'Montserrat, sans-serif', color: '#7A5A5A' }}>
+              <input type="checkbox" checked={form.in_stock} onChange={e => set('in_stock', e.target.checked)} />
+              Em estoque
+            </label>
+            <label className="flex items-center gap-2 cursor-pointer text-xs" style={{ fontFamily: 'Montserrat, sans-serif', color: '#7A5A5A' }}>
+              <input type="checkbox" checked={form.featured} onChange={e => set('featured', e.target.checked)} />
+              Produto em destaque
+            </label>
+          </div>
+
+          {/* Actions */}
+          <div className="flex justify-end gap-3 pt-2">
+            <button type="button" onClick={onClose} className="px-6 py-2 text-xs tracking-[0.15em] uppercase border velvet-transition hover:opacity-70"
+              style={{ borderColor: 'rgba(161,124,124,0.3)', color: '#A17C7C', fontFamily: 'Montserrat, sans-serif' }}>
+              Cancelar
+            </button>
+            <button type="submit" disabled={saving}
+              className="px-6 py-2 text-xs tracking-[0.15em] uppercase velvet-transition hover:opacity-80 flex items-center gap-2"
+              style={{ backgroundColor: '#A17C7C', color: 'white', fontFamily: 'Montserrat, sans-serif' }}>
+              {saving && <Loader2 size={12} className="animate-spin" />}
+              {product ? 'Salvar Alterações' : 'Cadastrar Produto'}
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <style>{`
+        .label-style { display: block; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: #A17C7C; font-family: Montserrat, sans-serif; margin-bottom: 0.4rem; }
+        .input-style { background: white; border: 1px solid rgba(161,124,124,0.25); padding: 0.5rem 0.75rem; font-size: 0.875rem; color: #7A5A5A; font-family: Montserrat, sans-serif; outline: none; transition: border-color 0.3s; }
+        .input-style:focus { border-color: #A17C7C; }
+      `}</style>
+    </div>
+  );
+}
