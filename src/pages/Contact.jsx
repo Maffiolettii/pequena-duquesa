@@ -51,7 +51,7 @@ export default function Contact() {
             >
               <p className="text-sm leading-relaxed mb-10"
                 style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C', fontWeight: 300, letterSpacing: '0.05em' }}>
-                Cada peça Pequena Deusa é criada com dedicação artesanal. 
+                Cada peça Pequena Duquesa é criada com dedicação artesanal. 
                 Se você deseja encomendar um vestido especial, tirar dúvidas sobre tamanhos 
                 ou conhecer mais sobre nosso trabalho, entre em contato.
               </p>
@@ -67,7 +67,7 @@ export default function Contact() {
                       E-mail
                     </p>
                     <p className="text-sm" style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C', fontWeight: 300 }}>
-                      contato@pequenadeusa.com.br
+                      contato@pequenaduquesa.com.br
                     </p>
                   </div>
                 </div>
@@ -108,7 +108,7 @@ export default function Contact() {
               <div className="mt-10 gilded-frame p-3 bg-white/40 hidden lg:block">
                 <img
                   src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68bc37bca4385f82fa4d811b/595be2187_photo_18_2026-03-10_14-31-56.jpg"
-                  alt="Vestido artesanal Pequena Deusa"
+                  alt="Vestido artesanal Pequena Duquesa"
                   className="w-full aspect-[4/3] object-cover"
                 />
               </div>
