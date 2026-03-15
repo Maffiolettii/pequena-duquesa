@@ -141,10 +141,29 @@ export default function Cart() {
                 </span>
               </div>
 
-              <p className="text-xs mt-4 text-center"
-                style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C', fontWeight: 300 }}>
-                Frete e condições de pagamento serão calculados ao finalizar.
-              </p>
+              {/* CEP Field */}
+              <div className="mt-6">
+                <label className="block text-xs tracking-[0.15em] uppercase mb-2"
+                  style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C' }}>
+                  CEP para entrega
+                </label>
+                <div className="flex items-center gap-3">
+                  <MapPin size={14} color="#A17C7C" strokeWidth={1.5} className="shrink-0" />
+                  <input
+                    type="text"
+                    value={cep}
+                    onChange={e => setCep(e.target.value.replace(/\D/g, '').slice(0, 8).replace(/(\d{5})(\d)/, '$1-$2'))}
+                    placeholder="00000-000"
+                    maxLength={9}
+                    className="flex-1 bg-transparent border-b pb-2 text-sm outline-none velvet-transition focus:border-[#7A5A5A] min-h-[44px]"
+                    style={{ borderColor: 'rgba(161,124,124,0.3)', fontFamily: 'Montserrat, sans-serif', color: '#7A5A5A', fontWeight: 300 }}
+                  />
+                </div>
+                <p className="text-xs mt-2"
+                  style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C', fontWeight: 300 }}>
+                  O frete será calculado ao finalizar o pedido via WhatsApp.
+                </p>
+              </div>
 
               <div className="mt-8 flex flex-col sm:flex-row gap-4">
                 <Link
