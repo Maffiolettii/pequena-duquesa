@@ -1,22 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
-import { Minus, Plus, Trash2, ArrowLeft, ShoppingBag } from 'lucide-react';
+import { Minus, Plus, Trash2, ArrowLeft, ShoppingBag, MapPin } from 'lucide-react';
 import { useCart } from '../components/store/useCart';
 
 const WHATSAPP_NUMBER = '5581992656652';
 
-function buildWhatsAppMessage(cart, cartTotal) {
+function buildWhatsAppMessage(cart, cartTotal, cep) {
   const lines = cart.map(item =>
     `• *${item.name}*\n  Tamanho: ${item.size} | Qtd: ${item.quantity} | R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}\n  🖼 ${item.image_url}`
   );
-  const msg = `Olá! Gostaria de finalizar meu pedido na Pequena Duquesa:\n\n${lines.join('\n\n')}\n\n*Total: R$ ${cartTotal.toFixed(2).replace('.', ',')}*\n\nAguardo instruções de pagamento e entrega. 💕`;
+  const cepLine = cep ? `\n📦 *CEP para entrega: ${cep}*` : '';
+  const msg = `Olá! Gostaria de finalizar meu pedido na Pequena Duquesa:\n\n${lines.join('\n\n')}\n\n*Total: R$ ${cartTotal.toFixed(2).replace('.', ',')}*${cepLine}\n\nAguardo instruções de pagamento e entrega. 💕`;
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 }
 
 export default function Cart() {
   const { cart, removeFromCart, updateQuantity, cartTotal, cartCount } = useCart();
+  const [cep, setCep] = useState('');
 
   return (
     <div className="pt-24 sm:pt-32 pb-20 px-6 min-h-screen">
