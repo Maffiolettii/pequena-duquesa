@@ -174,7 +174,7 @@ export default function Cart() {
                   Continuar Comprando
                 </Link>
                 <a
-                  href={buildWhatsAppMessage(cart, cartTotal)}
+                  href={buildWhatsAppMessage(cart, cartTotal, cep)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 px-6 py-4 text-center text-xs tracking-[0.2em] uppercase velvet-transition min-h-[44px] flex items-center justify-center"
