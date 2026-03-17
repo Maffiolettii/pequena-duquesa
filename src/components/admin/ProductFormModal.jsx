@@ -133,7 +133,7 @@ export default function ProductFormModal({ product, onClose, onSuccess }) {
               <div key={img.field}>
                 <label className="label-style">{img.label}</label>
                 {form[img.field] && (
-                  <img src={form[img.field]} alt="" className="w-full h-32 object-cover mb-2" style={{ border: '0.5px solid rgba(161,124,124,0.2)' }} />
+                  <img src={form[img.field]} alt="" className="w-full object-contain mb-2" style={{ border: '0.5px solid rgba(161,124,124,0.2)', maxHeight: '280px', backgroundColor: '#faf9f5' }} />
                 )}
                 <input value={form[img.field]} onChange={e => set(img.field, e.target.value)}
                   className="input-style w-full mb-2" placeholder="URL da imagem" />
