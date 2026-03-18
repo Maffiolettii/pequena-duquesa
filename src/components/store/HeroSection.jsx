@@ -5,9 +5,9 @@ import { createPageUrl } from '@/utils';
 
 const WORD_1 = 'Pequena';
 const WORD_2 = 'Duquesa';
-const CHAR_DELAY = 120; // ms por caractere
-const START_DELAY_1 = 900; // quando começa "Pequena"
-const START_DELAY_2 = START_DELAY_1 + WORD_1.length * CHAR_DELAY + 200; // começa "Duquesa" após "Pequena"
+const CHAR_DELAY = 180; // ms por caractere
+const START_DELAY_1 = 1200; // quando começa "Pequena"
+const START_DELAY_2 = START_DELAY_1 + WORD_1.length * CHAR_DELAY + 500; // começa "Duquesa" após "Pequena"
 
 function useTypewriter(text, startDelay) {
   const [displayed, setDisplayed] = useState('');
