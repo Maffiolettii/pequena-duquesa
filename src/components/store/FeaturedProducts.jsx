@@ -18,10 +18,10 @@ export default function FeaturedProducts() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-16 sm:mb-20"
         >
           <p className="text-xs tracking-[0.3em] uppercase mb-4"

@@ -10,10 +10,10 @@ export default function CollectionBanner() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left - Image */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.23, 1, 0.32, 1] }}
+            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
             <div className="gilded-frame p-4 bg-white/50">
@@ -29,10 +29,10 @@ export default function CollectionBanner() {
 
           {/* Right - Content */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
+            transition={{ duration: 1.1, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
             className="text-center md:text-left"
           >
             <p className="text-xs tracking-[0.3em] uppercase mb-4"
