@@ -5,256 +5,330 @@ import { createPageUrl } from '@/utils';
 
 const WORD_1 = 'Pequena';
 const WORD_2 = 'Duquesa';
-const CHAR_DELAY = 180;
-const START_DELAY_1 = 600;
-const START_DELAY_2 = START_DELAY_1 + WORD_1.length * CHAR_DELAY + 400;
+const CHAR_DELAY = 160;
+const START_DELAY_1 = 800;
+const START_DELAY_2 = START_DELAY_1 + WORD_1.length * CHAR_DELAY + 380;
 
 function useTypewriter(text, startDelay) {
   const [displayed, setDisplayed] = useState('');
   const [done, setDone] = useState(false);
-
   useEffect(() => {
     let i = 0;
-    const timeout = setTimeout(() => {
-      const interval = setInterval(() => {
+    const t = setTimeout(() => {
+      const iv = setInterval(() => {
         i++;
         setDisplayed(text.slice(0, i));
-        if (i >= text.length) {
-          clearInterval(interval);
-          setDone(true);
-        }
+        if (i >= text.length) { clearInterval(iv); setDone(true); }
       }, CHAR_DELAY);
-      return () => clearInterval(interval);
+      return () => clearInterval(iv);
     }, startDelay);
-    return () => clearTimeout(timeout);
+    return () => clearTimeout(t);
   }, [text, startDelay]);
-
   return { displayed, done };
 }
 
-function CrownIcon() {
+function CrownSvg() {
   return (
-    <svg width="48" height="38" viewBox="0 0 48 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M3 33 L8 13 L17 23 L24 4 L31 23 L40 13 L45 33 Z"
-        stroke="#8B6358" strokeWidth="1.6" fill="none" strokeLinejoin="round" strokeLinecap="round"/>
-      <circle cx="24" cy="3.5" r="2" fill="#8B6358"/>
-      <circle cx="7.5" cy="12.5" r="2" fill="#8B6358"/>
-      <circle cx="40.5" cy="12.5" r="2" fill="#8B6358"/>
-      <rect x="3" y="33" width="42" height="3.5" rx="1.75" fill="#8B6358" opacity="0.5"/>
+    <svg width="36" height="28" viewBox="0 0 36 28" fill="none">
+      <path d="M2 25 L6 9 L13 17 L18 3 L23 17 L30 9 L34 25Z"
+        stroke="#A17C7C" strokeWidth="1.4" fill="none" strokeLinejoin="round" strokeLinecap="round"/>
+      <circle cx="18" cy="2.5" r="1.8" fill="#A17C7C"/>
+      <circle cx="5.5" cy="8.5" r="1.8" fill="#A17C7C"/>
+      <circle cx="30.5" cy="8.5" r="1.8" fill="#A17C7C"/>
+      <rect x="2" y="25" width="32" height="2.5" rx="1.25" fill="#A17C7C" opacity="0.45"/>
     </svg>
   );
 }
 
-function GirlIcon() {
-  return (
-    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="32" cy="36" r="16" stroke="#8B6358" strokeWidth="1.8" fill="none"/>
-      <path d="M16 32 Q16 18 32 18 Q48 18 48 32" stroke="#8B6358" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
-      <path d="M24 18 Q28 14 32 18 Q36 14 40 18" stroke="#8B6358" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
-      <circle cx="32" cy="18" r="1.8" fill="#8B6358"/>
-      <circle cx="26" cy="35" r="2" fill="#8B6358"/>
-      <circle cx="38" cy="35" r="2" fill="#8B6358"/>
-      <path d="M25 43 Q32 49 39 43" stroke="#8B6358" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
-      <circle cx="21" cy="39" r="3" fill="#E8A0A0" opacity="0.35"/>
-      <circle cx="43" cy="39" r="3" fill="#E8A0A0" opacity="0.35"/>
-    </svg>
-  );
-}
-
-const DRESS_IMAGE = 'https://media.base44.com/images/public/69b06ea4922854e28166d780/c062c9013_01.jpg';
+const IMAGES = {
+  main: 'https://media.base44.com/images/public/69b06ea4922854e28166d780/c062c9013_01.jpg',
+  secondary1: 'https://media.base44.com/images/public/69b06ea4922854e28166d780/50bf54e2b_02.jpg',
+  secondary2: 'https://media.base44.com/images/public/69b06ea4922854e28166d780/7ff190d3b_03.jpg',
+};
 
 export default function HeroSection() {
   const { displayed: text1, done: done1 } = useTypewriter(WORD_1, START_DELAY_1);
   const { displayed: text2, done: done2 } = useTypewriter(WORD_2, START_DELAY_2);
 
   return (
-    <section className="relative min-h-screen flex items-stretch overflow-hidden">
+    <section style={{ position: 'relative', height: '100vh', minHeight: 600, overflow: 'hidden', display: 'flex' }}>
 
-      {/* Background rosado */}
-      <div className="absolute inset-0" style={{
-        background: 'radial-gradient(ellipse at 65% 50%, #f9e4e4 0%, #f3d5d5 45%, #eedada 100%)',
-      }} />
-
-      {/* Bokeh decorativo */}
-      {[
-        { top: '12%', left: '58%', size: 100, op: 0.2 },
-        { top: '55%', left: '72%', size: 140, op: 0.13 },
-        { top: '25%', left: '82%', size: 70, op: 0.16 },
-        { top: '75%', left: '45%', size: 100, op: 0.1 },
-        { top: '8%', left: '35%', size: 60, op: 0.13 },
-        { top: '85%', left: '20%', size: 80, op: 0.09 },
-        { top: '40%', left: '10%', size: 55, op: 0.1 },
-      ].map((b, i) => (
-        <div key={i} className="absolute rounded-full pointer-events-none" style={{
-          top: b.top, left: b.left,
-          width: b.size, height: b.size,
-          backgroundColor: `rgba(255,255,255,${b.op})`,
-          filter: 'blur(22px)',
+      {/* ── LADO ESQUERDO: imagem principal full height ── */}
+      <motion.div
+        initial={{ opacity: 0, scale: 1.04 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+        style={{
+          position: 'relative',
+          width: '52%',
+          height: '100%',
+          flexShrink: 0,
+        }}
+        className="hidden lg:block"
+      >
+        <img
+          src={IMAGES.main}
+          alt="Vestido artesanal bordado Pequena Duquesa"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center top',
+            display: 'block',
+          }}
+        />
+        {/* overlay suave para blend com o fundo */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(to right, transparent 60%, #F9F0F0 100%)',
         }} />
-      ))}
+        {/* overlay escuro leve no topo para nav */}
+        <div style={{
+          position: 'absolute', top: 0, left: 0, right: 0, height: 120,
+          background: 'linear-gradient(to bottom, rgba(249,240,240,0.3) 0%, transparent 100%)',
+        }} />
+      </motion.div>
 
-      {/* Layout split */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center min-h-screen px-6 pt-20">
+      {/* ── LADO DIREITO: conteúdo ── */}
+      <div style={{
+        flex: 1,
+        background: 'linear-gradient(135deg, #F9F0F0 0%, #F5E6E6 40%, #EDD8D8 100%)',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        padding: '0 6vw',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
 
-        {/* Coluna esquerda — vestido */}
+        {/* Círculos decorativos de fundo */}
+        <div style={{
+          position: 'absolute', top: '-10%', right: '-8%',
+          width: 320, height: 320, borderRadius: '50%',
+          background: 'rgba(255,255,255,0.25)',
+          filter: 'blur(40px)',
+          pointerEvents: 'none',
+        }} />
+        <div style={{
+          position: 'absolute', bottom: '5%', left: '-5%',
+          width: 200, height: 200, borderRadius: '50%',
+          background: 'rgba(255,255,255,0.18)',
+          filter: 'blur(30px)',
+          pointerEvents: 'none',
+        }} />
+
+        {/* Imagem mobile */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1] }}
-          className="w-full lg:w-[48%] flex items-end justify-center lg:justify-start self-end"
-          style={{ paddingTop: '6rem' }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2 }}
+          className="lg:hidden"
+          style={{ marginBottom: 32, marginTop: 80 }}
         >
           <img
-            src={DRESS_IMAGE}
-            alt="Vestido artesanal Pequena Duquesa"
-            className="object-contain object-bottom w-full"
-            style={{
-              maxHeight: '82vh',
-              maxWidth: 420,
-              filter: 'drop-shadow(0 24px 48px rgba(120,70,70,0.15))',
-            }}
+            src={IMAGES.main}
+            alt="Vestido artesanal"
+            style={{ width: '100%', maxHeight: 280, objectFit: 'cover', objectPosition: 'top' }}
           />
         </motion.div>
 
-        {/* Coluna direita — conteúdo */}
-        <div className="w-full lg:w-[52%] flex flex-col items-center lg:items-start text-center lg:text-left py-16 lg:py-0 lg:pl-14">
+        {/* Eyebrow */}
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          style={{
+            fontFamily: 'Montserrat, sans-serif',
+            fontWeight: 300,
+            fontSize: '0.6rem',
+            letterSpacing: '0.36em',
+            color: '#A17C7C',
+            textTransform: 'uppercase',
+            marginBottom: 24,
+          }}
+        >
+          Ateliê Artesanal · Recife
+        </motion.p>
 
-          {/* Eyebrow */}
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+        {/* Coroa */}
+        <motion.div
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          style={{ marginBottom: 12 }}
+        >
+          <CrownSvg />
+        </motion.div>
+
+        {/* Título */}
+        <div style={{ marginBottom: 20 }}>
+          <motion.h1
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4, delay: 0.7 }}
+            style={{
+              fontFamily: 'Cormorant Garamond, serif',
+              fontStyle: 'italic',
+              fontWeight: 400,
+              fontSize: 'clamp(2.8rem, 5.5vw, 4.8rem)',
+              color: '#7A4F46',
+              lineHeight: 1.08,
+              letterSpacing: '-0.01em',
+              margin: 0,
+              minHeight: '1.1em',
+            }}
+          >
+            {text1}
+            {!done1 && (
+              <motion.span animate={{ opacity: [1, 0] }} transition={{ duration: 0.5, repeat: Infinity }}
+                style={{ color: '#C49090' }}>|</motion.span>
+            )}
+          </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4, delay: 0.9 }}
+            style={{
+              fontFamily: 'Cormorant Garamond, serif',
+              fontStyle: 'italic',
+              fontWeight: 400,
+              fontSize: 'clamp(2.8rem, 5.5vw, 4.8rem)',
+              color: '#7A4F46',
+              lineHeight: 1.08,
+              letterSpacing: '-0.01em',
+              margin: 0,
+              minHeight: '1.1em',
+            }}
+          >
+            {text2}
+            {done1 && !done2 && (
+              <motion.span animate={{ opacity: [1, 0] }} transition={{ duration: 0.5, repeat: Infinity }}
+                style={{ fontStyle: 'normal' }}>|</motion.span>
+            )}
+          </motion.h1>
+        </div>
+
+        {/* Linha decorativa */}
+        <motion.div
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={{ scaleX: 1, opacity: 1 }}
+          transition={{ duration: 1, delay: 1.6, ease: [0.22, 1, 0.36, 1] }}
+          style={{
+            width: 48, height: 1,
+            backgroundColor: '#C4A0A0',
+            marginBottom: 20,
+            transformOrigin: 'left',
+          }}
+        />
+
+        {/* Subtítulo */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1.8 }}
+          style={{
+            fontFamily: 'Cormorant Garamond, serif',
+            fontStyle: 'italic',
+            fontWeight: 400,
+            fontSize: 'clamp(0.95rem, 1.4vw, 1.1rem)',
+            color: '#8B6666',
+            lineHeight: 1.85,
+            marginBottom: 40,
+            maxWidth: 300,
+          }}
+        >
+          Vestidos artesanais bordados à mão, criados com amor para transformar cada momento em uma memória eterna.
+        </motion.p>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 2.1 }}
+          style={{ display: 'flex', alignItems: 'center', gap: 20 }}
+        >
+          <Link
+            to={createPageUrl("Products")}
+            style={{
+              fontFamily: 'Montserrat, sans-serif',
+              fontWeight: 400,
+              fontSize: '0.6rem',
+              letterSpacing: '0.28em',
+              textTransform: 'uppercase',
+              color: '#FBFAF5',
+              background: '#8B6358',
+              padding: '14px 36px',
+              display: 'inline-block',
+              transition: 'opacity 0.4s',
+            }}
+            onMouseEnter={e => e.currentTarget.style.opacity = '0.82'}
+            onMouseLeave={e => e.currentTarget.style.opacity = '1'}
+          >
+            Descobrir Coleção
+          </Link>
+          <Link
+            to={createPageUrl("Contact")}
             style={{
               fontFamily: 'Montserrat, sans-serif',
               fontWeight: 300,
-              fontSize: '0.58rem',
-              letterSpacing: '0.38em',
-              color: '#8B6358',
+              fontSize: '0.6rem',
+              letterSpacing: '0.22em',
               textTransform: 'uppercase',
-              marginBottom: 28,
+              color: '#8B6358',
+              borderBottom: '0.5px solid rgba(139,99,88,0.5)',
+              paddingBottom: 2,
+              transition: 'opacity 0.4s',
             }}
+            onMouseEnter={e => e.currentTarget.style.opacity = '0.6'}
+            onMouseLeave={e => e.currentTarget.style.opacity = '1'}
           >
-            Ateliê artesanal · Recife
-          </motion.p>
+            Fale Conosco
+          </Link>
+        </motion.div>
 
-          {/* Coroa */}
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.35 }}
-            style={{ marginBottom: 14 }}
-          >
-            <CrownIcon />
-          </motion.div>
-
-          {/* Título animado */}
-          <div style={{ marginBottom: 10 }}>
-            <h1 style={{
-              fontFamily: 'Cormorant Garamond, serif',
-              fontWeight: 400,
-              fontStyle: 'italic',
-              fontSize: 'clamp(3.2rem, 7.5vw, 5.2rem)',
-              color: '#7A4F46',
-              lineHeight: 1.1,
-              letterSpacing: '0.01em',
-              minHeight: '1.15em',
+        {/* Miniaturas de produto */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 2.4 }}
+          style={{
+            position: 'absolute',
+            bottom: 32,
+            right: 0,
+            display: 'flex',
+            gap: 10,
+            paddingRight: '6vw',
+          }}
+          className="hidden lg:flex"
+        >
+          {[IMAGES.secondary1, IMAGES.secondary2].map((src, i) => (
+            <div key={i} style={{
+              width: 64, height: 80,
+              overflow: 'hidden',
+              border: '0.5px solid rgba(161,124,124,0.25)',
+              background: 'rgba(255,255,255,0.3)',
             }}>
-              {text1}
-              {!done1 && (
-                <motion.span
-                  animate={{ opacity: [1, 0, 1] }}
-                  transition={{ duration: 0.7, repeat: Infinity }}
-                  style={{ color: '#A17C7C', fontStyle: 'normal' }}
-                >|</motion.span>
-              )}
-            </h1>
-            <h1 style={{
-              fontFamily: 'Cormorant Garamond, serif',
-              fontWeight: 400,
-              fontStyle: 'italic',
-              fontSize: 'clamp(3.2rem, 7.5vw, 5.2rem)',
-              color: '#7A4F46',
-              lineHeight: 1.1,
-              letterSpacing: '0.01em',
-              minHeight: '1.15em',
-            }}>
-              {text2}
-              {done1 && !done2 && (
-                <motion.span
-                  animate={{ opacity: [1, 0, 1] }}
-                  transition={{ duration: 0.7, repeat: Infinity }}
-                  style={{ fontStyle: 'normal' }}
-                >|</motion.span>
-              )}
-            </h1>
-          </div>
+              <img src={src} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+            </div>
+          ))}
+        </motion.div>
 
-          {/* Ícone menina */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.9, delay: 1.6 }}
-            style={{ marginBottom: 18 }}
-          >
-            <GirlIcon />
-          </motion.div>
-
-          {/* Subtítulo */}
-          <motion.p
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, delay: 1.85, ease: [0.22, 1, 0.36, 1] }}
-            style={{
-              fontFamily: 'Cormorant Garamond, serif',
-              fontStyle: 'italic',
-              fontWeight: 400,
-              fontSize: '1.05rem',
-              color: '#7A5A5A',
-              lineHeight: 1.9,
-              marginBottom: 38,
-              maxWidth: 330,
-            }}
-          >
-            Vestidos artesanais bordados à mão. Criados com amor para transformar cada momento em uma memória eterna para a sua pequena duquesa.
-          </motion.p>
-
-          {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, delay: 2.1, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <Link
-              to={createPageUrl("Products")}
-              className="inline-block velvet-transition hover:opacity-85"
-              style={{
-                fontFamily: 'Montserrat, sans-serif',
-                fontWeight: 400,
-                fontSize: '0.6rem',
-                letterSpacing: '0.3em',
-                textTransform: 'uppercase',
-                color: '#FBFAF5',
-                background: '#7A4F46',
-                padding: '15px 40px',
-                borderRadius: 50,
-              }}
-              aria-label="Ver coleção completa de vestidos"
-            >
-              Descobrir Coleção
-            </Link>
-          </motion.div>
-        </div>
       </div>
 
-      {/* Divisor base */}
-      <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center pointer-events-none">
-        <div style={{ width: '60%', height: '0.5px', backgroundColor: 'rgba(161,100,100,0.2)' }} />
-        <div className="flex items-center gap-4 py-3">
-          <div style={{ width: 36, height: '0.5px', backgroundColor: 'rgba(161,100,100,0.3)' }} />
-          <div style={{ width: 4, height: 4, borderRadius: '50%', backgroundColor: 'rgba(161,100,100,0.35)' }} />
-          <div style={{ width: 36, height: '0.5px', backgroundColor: 'rgba(161,100,100,0.3)' }} />
-        </div>
-      </div>
+      {/* Linha vertical decorativa entre as colunas */}
+      <div
+        className="hidden lg:block"
+        style={{
+          position: 'absolute',
+          left: '52%',
+          top: '15%',
+          bottom: '15%',
+          width: '0.5px',
+          background: 'linear-gradient(to bottom, transparent, rgba(161,124,124,0.3) 30%, rgba(161,124,124,0.3) 70%, transparent)',
+          pointerEvents: 'none',
+          zIndex: 20,
+        }}
+      />
     </section>
   );
 }
