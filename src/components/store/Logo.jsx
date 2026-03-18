@@ -15,15 +15,18 @@ export default function Logo({ size = 'md', linkTo = true }) {
 
   const content = (
     <div className={`flex items-center justify-center ${s.container}`} aria-label="Pequena Duquesa - Ir para página inicial">
-      <img
+      <motion.img
         src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b06ea4922854e28166d780/60920f0e2_photo_2026-03-10_16-45-11.jpg"
         alt="Pequena Duquesa"
+        animate={{ rotate: [-1, 1, -1] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         style={{
           height: s.img,
           width: s.img,
           objectFit: 'cover',
           borderRadius: '50%',
           mixBlendMode: 'multiply',
+          transformOrigin: 'top center',
         }}
       />
     </div>
