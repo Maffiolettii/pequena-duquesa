@@ -168,6 +168,16 @@ export default function HeroSection() {
       >
         <div className="w-px h-10 bg-gradient-to-b from-transparent to-[#A17C7C] opacity-30" />
       </motion.div>
+
+      {/* Divisor decorativo */}
+      <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center gap-0">
+        <div style={{ width: '60%', height: '0.5px', backgroundColor: 'rgba(161,124,124,0.25)' }} />
+        <div className="flex items-center gap-4 py-3">
+          <div style={{ width: 40, height: '0.5px', backgroundColor: 'rgba(161,124,124,0.3)' }} />
+          <div style={{ width: 4, height: 4, borderRadius: '50%', backgroundColor: 'rgba(161,124,124,0.4)' }} />
+          <div style={{ width: 40, height: '0.5px', backgroundColor: 'rgba(161,124,124,0.3)' }} />
+        </div>
+      </div>
     </section>
   );
 }
