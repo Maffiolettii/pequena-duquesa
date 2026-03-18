@@ -104,40 +104,46 @@ export default function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Title */}
-        <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          style={{
-            fontFamily: 'Cormorant Garamond, serif',
-            fontWeight: 300,
-            fontSize: 'clamp(2.6rem, 8vw, 4rem)',
-            color: '#7A5A5A',
-            lineHeight: 1.1,
-            letterSpacing: '0.02em',
-            marginBottom: 6,
-          }}
-        >
-          Pequena
-        </motion.h1>
-        <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          style={{
-            fontFamily: 'Cormorant Garamond, serif',
-            fontWeight: 300,
-            fontStyle: 'italic',
-            fontSize: 'clamp(2.6rem, 8vw, 4rem)',
-            color: '#A17C7C',
-            lineHeight: 1.1,
-            letterSpacing: '0.02em',
-            marginBottom: 24,
-          }}
-        >
-          Duquesa
-        </motion.h1>
+        {/* Title — animação de escrita */}
+        <h1 style={{
+          fontFamily: 'Cormorant Garamond, serif',
+          fontWeight: 300,
+          fontSize: 'clamp(2.6rem, 8vw, 4rem)',
+          color: '#7A5A5A',
+          lineHeight: 1.1,
+          letterSpacing: '0.02em',
+          marginBottom: 6,
+          minHeight: '1.1em',
+        }}>
+          {text1}
+          {!done1 && (
+            <motion.span
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 0.8, repeat: Infinity }}
+              style={{ color: '#A17C7C', fontWeight: 300 }}
+            >|</motion.span>
+          )}
+        </h1>
+        <h1 style={{
+          fontFamily: 'Cormorant Garamond, serif',
+          fontWeight: 300,
+          fontStyle: 'italic',
+          fontSize: 'clamp(2.6rem, 8vw, 4rem)',
+          color: '#A17C7C',
+          lineHeight: 1.1,
+          letterSpacing: '0.02em',
+          marginBottom: 24,
+          minHeight: '1.1em',
+        }}>
+          {text2}
+          {done1 && !done2 && (
+            <motion.span
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 0.8, repeat: Infinity }}
+              style={{ fontStyle: 'normal', fontWeight: 300 }}
+            >|</motion.span>
+          )}
+        </h1>
 
         {/* Linha decorativa */}
         <motion.div
