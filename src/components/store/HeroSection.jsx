@@ -7,17 +7,8 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
 
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <img
-          src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68bc37bca4385f82fa4d811b/cdf6b7ae3_photo_1_2026-03-10_14-31-56.jpg"
-          alt="Vestido infantil clássico"
-          className="w-full h-full object-cover"
-          style={{ objectPosition: '50% 30%' }}
-        />
-        {/* Véu creme suave — preserva as cores da foto */}
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(251,250,245,0.82) 0%, rgba(251,250,245,0.65) 50%, rgba(251,250,245,0.88) 100%)' }} />
-      </div>
+      {/* Background sólido */}
+      <div className="absolute inset-0" style={{ backgroundColor: '#FBFAF5' }} />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 max-w-sm w-full">
