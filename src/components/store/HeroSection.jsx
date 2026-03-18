@@ -150,16 +150,17 @@ export default function HeroSection() {
         >
           <Link
             to={createPageUrl("Products")}
-            className="inline-block velvet-transition hover:opacity-75"
+            className="inline-block velvet-transition hover:opacity-80"
             style={{
               fontFamily: 'Montserrat, sans-serif',
-              fontWeight: 300,
+              fontWeight: 400,
               fontSize: '0.65rem',
               letterSpacing: '0.28em',
               textTransform: 'uppercase',
-              color: '#7A5A5A',
-              borderBottom: '0.5px solid rgba(122,90,90,0.5)',
-              paddingBottom: 4,
+              color: '#FBFAF5',
+              background: '#A17C7C',
+              padding: '14px 32px',
+              borderRadius: 50,
             }}
             aria-label="Ver coleção completa de vestidos"
           >
