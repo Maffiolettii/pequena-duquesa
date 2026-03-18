@@ -22,9 +22,9 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl">
         <motion.div
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5, ease: [0.23, 1, 0.32, 1] }}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className="text-xs sm:text-sm tracking-[0.3em] uppercase mb-6 sm:mb-8"
             style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C', fontWeight: 300 }}>
@@ -33,9 +33,9 @@ export default function HeroSection() {
         </motion.div>
         
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.3, ease: [0.23, 1, 0.32, 1] }}
+          transition={{ duration: 1.2, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
           className="flex justify-center"
         >
           <img
@@ -49,7 +49,7 @@ export default function HeroSection() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.7, ease: [0.23, 1, 0.32, 1] }}
+          transition={{ duration: 1.1, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
           className="mt-6 sm:mt-8 text-sm sm:text-base max-w-lg mx-auto leading-relaxed"
           style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C', fontWeight: 300, letterSpacing: '0.08em' }}
         >
@@ -59,7 +59,7 @@ export default function HeroSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1, ease: [0.23, 1, 0.32, 1] }}
+          transition={{ duration: 1.1, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="mt-8 sm:mt-12"
         >
           <Link
