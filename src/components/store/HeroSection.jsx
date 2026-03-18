@@ -139,7 +139,7 @@ export default function HeroSection() {
             maxWidth: 280,
           }}
         >
-          Vestidos bordados à mão, criados com amor para guardar cada memória preciosa.
+          Vestidos artesanais bordados à mão. Criados com amor para transformar cada momento em uma memória eterna para a sua pequena duquesa.
         </motion.p>
 
         {/* CTA */}
