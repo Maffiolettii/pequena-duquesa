@@ -1,9 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 
+const WORD_1 = 'Pequena';
+const WORD_2 = 'Duquesa';
+const CHAR_DELAY = 120; // ms por caractere
+const START_DELAY_1 = 900; // quando começa "Pequena"
+const START_DELAY_2 = START_DELAY_1 + WORD_1.length * CHAR_DELAY + 200; // começa "Duquesa" após "Pequena"
+
+function useTypewriter(text, startDelay) {
+  const [displayed, setDisplayed] = useState('');
+  const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    let timeout;
+    let i = 0;
+    timeout = setTimeout(() => {
+      const interval = setInterval(() => {
+        i++;
+        setDisplayed(text.slice(0, i));
+        if (i >= text.length) {
+          clearInterval(interval);
+          setDone(true);
+        }
+      }, CHAR_DELAY);
+      return () => clearInterval(interval);
+    }, startDelay);
+    return () => clearTimeout(timeout);
+  }, [text, startDelay]);
+
+  return { displayed, done };
+}
+
 export default function HeroSection() {
+  const { displayed: text1, done: done1 } = useTypewriter(WORD_1, START_DELAY_1);
+  const { displayed: text2, done: done2 } = useTypewriter(WORD_2, START_DELAY_2);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
 
