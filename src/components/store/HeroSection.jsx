@@ -16,7 +16,7 @@ export default function HeroSection() {
           style={{ objectPosition: '50% 30%' }}
         />
         {/* Véu creme suave — preserva as cores da foto */}
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(251,250,245,0.55) 0%, rgba(251,250,245,0.3) 50%, rgba(251,250,245,0.65) 100%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(251,250,245,0.82) 0%, rgba(251,250,245,0.65) 50%, rgba(251,250,245,0.88) 100%)' }} />
       </div>
 
       {/* Content */}
