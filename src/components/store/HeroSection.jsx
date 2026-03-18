@@ -15,7 +15,7 @@ export default function HeroSection() {
           style={{ objectPosition: '50% 30%' }}
         />
         <div className="absolute inset-0" style={{ 
-          background: 'linear-gradient(135deg, rgba(251,250,245,0.85) 0%, rgba(244,226,226,0.6) 40%, rgba(251,250,245,0.3) 100%)' 
+          background: 'rgba(253,245,230,0.28)'
         }} />
       </div>
 
