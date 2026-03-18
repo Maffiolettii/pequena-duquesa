@@ -163,7 +163,7 @@ export default function HeroSection() {
             }}
             aria-label="Ver coleção completa de vestidos"
           >
-            Descobrir a Coleção
+            Descobrir Coleção
           </Link>
         </motion.div>
       </div>
