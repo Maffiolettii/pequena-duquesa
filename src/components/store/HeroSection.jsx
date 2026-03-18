@@ -108,6 +108,7 @@ export default function HeroSection() {
         <h1 style={{
           fontFamily: 'Cormorant Garamond, serif',
           fontWeight: 300,
+          fontStyle: 'italic',
           fontSize: 'clamp(2.6rem, 8vw, 4rem)',
           color: '#7A5A5A',
           lineHeight: 1.1,
