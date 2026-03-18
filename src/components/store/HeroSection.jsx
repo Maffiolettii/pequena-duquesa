@@ -59,36 +59,16 @@ export default function HeroSection() {
                 }}
               />
 
-              {/* Coroa */}
-              <svg width="28" height="20" viewBox="0 0 28 20" fill="none" className="mb-2">
-                <path d="M2 16L5 6L10 11L14 2L18 11L23 6L26 16H2Z" stroke="#A17C7C" strokeWidth="1.2" fill="rgba(161,124,124,0.12)" strokeLinejoin="round"/>
-              </svg>
-
-              {/* Logo image */}
+              {/* Logo PNG da marca */}
               <img
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b06ea4922854e28166d780/60920f0e2_photo_2026-03-10_16-45-11.jpg"
+                src="https://media.base44.com/images/public/69b06ea4922854e28166d780/aa9303470_IMG_7034.png"
                 alt="Pequena Duquesa"
                 style={{
-                  width: 72,
-                  height: 72,
-                  objectFit: 'cover',
-                  borderRadius: '50%',
+                  width: 160,
+                  objectFit: 'contain',
                   mixBlendMode: 'multiply',
-                  marginBottom: 10,
                 }}
               />
-
-              <p style={{
-                fontFamily: 'Cormorant Garamond, serif',
-                fontWeight: 600,
-                fontSize: '1.1rem',
-                letterSpacing: '0.12em',
-                color: '#7A5A5A',
-                lineHeight: 1.2,
-                textAlign: 'center',
-              }}>
-                PEQUENA<br />DUQUESA
-              </p>
             </div>
           </motion.div>
         </motion.div>
