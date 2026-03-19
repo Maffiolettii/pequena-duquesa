@@ -7,6 +7,7 @@ import { base44 } from '@/api/base44Client';
 import { useQuery } from '@tanstack/react-query';
 import { useCart } from '../components/store/useCart';
 import NewsletterFooter from '../components/store/NewsletterFooter';
+import ProductCard from '../components/store/ProductCard';
 
 const COLLECTION_LABELS = {
   classica: 'Coleção Clássica',
