@@ -62,11 +62,15 @@ export default function ProductFilters({ activeCategory, setActiveCategory, acti
           <button
             key={col.id}
             onClick={() => setActiveCollection(col.id)}
-            className="text-xs tracking-[0.15em] uppercase velvet-transition min-h-[44px] px-1 relative"
+            className="velvet-transition min-h-[44px] px-1 relative"
             style={{
-              fontFamily: 'Montserrat, sans-serif',
-              fontWeight: activeCollection === col.id ? 400 : 300,
-              color: activeCollection === col.id ? '#7A5A5A' : '#A17C7C',
+              fontFamily: "'Cormorant Garamond', serif",
+              fontStyle: activeCollection === col.id ? 'italic' : 'normal',
+              fontWeight: 400,
+              fontSize: '0.95rem',
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              color: activeCollection === col.id ? '#7A5C58' : '#B8957A',
             }}
           >
             {col.name}
