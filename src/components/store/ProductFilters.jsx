@@ -16,11 +16,15 @@ export default function ProductFilters({ activeCategory, setActiveCategory, acti
           <button
             key={cat.id}
             onClick={() => setActiveCategory(cat.id)}
-            className="text-xs tracking-[0.15em] uppercase velvet-transition min-h-[44px] px-1 relative"
+            className="velvet-transition min-h-[44px] px-1 relative"
             style={{
-              fontFamily: 'Montserrat, sans-serif',
-              fontWeight: activeCategory === cat.id ? 400 : 300,
-              color: activeCategory === cat.id ? '#7A5A5A' : '#A17C7C',
+            fontFamily: "'Cormorant Garamond', serif",
+            fontStyle: activeCategory === cat.id ? 'italic' : 'normal',
+            fontWeight: 400,
+            fontSize: '0.95rem',
+            letterSpacing: '0.12em',
+            textTransform: 'uppercase',
+            color: activeCategory === cat.id ? '#7A5C58' : '#B8957A',
             }}
           >
             {cat.name}
