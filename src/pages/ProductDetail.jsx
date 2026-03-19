@@ -181,17 +181,7 @@ export default function ProductDetail() {
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
                 {related.map((p, i) => (
-                  <motion.div key={p.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }}>
-                    <Link to={createPageUrl("ProductDetail") + `?id=${p.id}`} className="group block">
-                      <div className="gilded-frame p-3 bg-white/40 velvet-transition group-hover:shadow-lg group-hover:shadow-rose-100/50">
-                        <img src={p.image_url} alt={p.name} className="w-full aspect-[3/4] object-cover velvet-transition group-hover:scale-105" loading="lazy" />
-                        <p className="mt-3 text-center text-sm" style={{ fontFamily: 'Cormorant Garamond, serif', color: '#7A5A5A' }}>
-                          {p.name}
-                        </p>
-                      </div>
-                    </Link>
-                  </motion.div>
+                  <ProductCard key={p.id} product={p} index={i} />
                 ))}
               </div>
             </div>
