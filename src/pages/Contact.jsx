@@ -86,9 +86,15 @@ export default function Contact() {
                       style={{ fontFamily: 'Montserrat, sans-serif', color: '#7A5A5A', fontWeight: 400 }}>
                       WhatsApp
                     </p>
-                    <p className="text-sm" style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C', fontWeight: 300 }}>
+                    <a
+                      href="https://wa.me/5581992656652"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm velvet-transition hover:opacity-70"
+                      style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C', fontWeight: 300 }}
+                    >
                       (81) 99265-6652
-                    </p>
+                    </a>
                   </div>
                 </div>
 
