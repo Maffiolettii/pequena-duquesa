@@ -3,251 +3,240 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 
-const CHAR_DELAY = 120;
-const FULL_TITLE = 'Pequena Duquesa';
+const FULL_TITLE_PART1 = 'Pequena ';
+const FULL_TITLE_PART2 = 'Duquesa';
+const FULL_TITLE = FULL_TITLE_PART1 + FULL_TITLE_PART2;
+const CHAR_DELAY = 100;
 
-function useTypewriter(text, delay = 600) {
-  const [displayed, setDisplayed] = useState('');
+function useTypewriter(text, startDelay = 600) {
+  const [count, setCount] = useState(0);
   const [done, setDone] = useState(false);
+
   useEffect(() => {
     let i = 0;
     const t = setTimeout(() => {
       const iv = setInterval(() => {
         i++;
-        setDisplayed(text.slice(0, i));
+        setCount(i);
         if (i >= text.length) { clearInterval(iv); setDone(true); }
       }, CHAR_DELAY);
       return () => clearInterval(iv);
-    }, delay);
+    }, startDelay);
     return () => clearTimeout(t);
-  }, [text, delay]);
-  return { displayed, done };
+  }, [text, startDelay]);
+
+  return { count, done };
+}
+
+// Golden crown SVG
+function CrownIcon() {
+  return (
+    <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M1 14h20M1 14L4 5l5.5 5L11 2l1.5 8L18 5l3 9"
+        stroke="#C9A96E"
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="1" cy="14" r="1" fill="#C9A96E" />
+      <circle cx="11" cy="2" r="1" fill="#C9A96E" />
+      <circle cx="21" cy="14" r="1" fill="#C9A96E" />
+    </svg>
+  );
 }
 
 export default function HeroSection() {
-  const { displayed, done } = useTypewriter(FULL_TITLE, 700);
+  const { count, done } = useTypewriter(FULL_TITLE, 800);
+
+  const part1Displayed = FULL_TITLE.slice(0, Math.min(count, FULL_TITLE_PART1.length));
+  const part2Displayed = count > FULL_TITLE_PART1.length
+    ? FULL_TITLE_PART2.slice(0, count - FULL_TITLE_PART1.length)
+    : '';
 
   return (
     <section style={{
       position: 'relative',
       width: '100%',
-      height: '100vh',
-      minHeight: 560,
+      minHeight: '100vh',
       overflow: 'hidden',
       display: 'flex',
-      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: '#FAF7F2',
     }}>
 
-      {/* IMAGEM DE FUNDO FULL BLEED */}
+      {/* Background image with dreamy white overlay */}
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
         <img
-          src="https://media.base44.com/images/public/69b06ea4922854e28166d780/c062c9013_01.jpg"
+          src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=1600&q=80"
           alt=""
-          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 15%' }}
+          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
         />
-        {/* gradiente escurecendo de baixo + leve véu por cima */}
+        {/* 80% white overlay for dreamy misty effect */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(to bottom, rgba(20,8,8,0.18) 0%, rgba(20,8,8,0.08) 40%, rgba(20,8,8,0.55) 100%)',
-        }} />
-        {/* véu rosado sutil */}
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: 'rgba(180, 110, 110, 0.08)',
+          backgroundColor: 'rgba(250, 246, 240, 0.82)',
         }} />
       </div>
 
-      {/* CONTEÚDO PRINCIPAL — centralizado na tela */}
+      {/* Main content */}
       <div style={{
         position: 'relative', zIndex: 10,
-        flex: 1,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'center',
-        padding: '0 24px',
+        padding: '120px 32px 80px',
+        width: '100%',
+        maxWidth: 720,
+        margin: '0 auto',
       }}>
 
-        {/* Tag superior */}
-        <motion.span
-          initial={{ opacity: 0, letterSpacing: '0.5em' }}
-          animate={{ opacity: 1, letterSpacing: '0.32em' }}
-          transition={{ duration: 1.4, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          style={{
-            fontFamily: 'Montserrat, sans-serif',
-            fontWeight: 300,
-            fontSize: '0.55rem',
-            letterSpacing: '0.32em',
-            color: 'rgba(255,235,230,0.75)',
-            textTransform: 'uppercase',
-            display: 'block',
-            marginBottom: 28,
-          }}
+        {/* Crown icon */}
+        <motion.div
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          style={{ marginBottom: 20 }}
         >
-          Ateliê Artesanal · Recife · Brasil
-        </motion.span>
+          <CrownIcon />
+        </motion.div>
 
-        {/* Linha decorativa topo */}
+        {/* Thin decorative line above title */}
         <motion.div
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
-          transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.9, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            width: 40, height: '0.5px',
-            background: 'rgba(255,220,210,0.5)',
-            marginBottom: 24,
+            width: 48,
+            height: '0.5px',
+            background: 'linear-gradient(to right, transparent, #C9A96E, transparent)',
+            marginBottom: 28,
             transformOrigin: 'center',
           }}
         />
 
-        {/* TÍTULO principal */}
+        {/* Title with typewriter — "Pequena" normal, "Duquesa" italic */}
         <h1 style={{
-          fontFamily: 'Cormorant Garamond, serif',
-          fontStyle: 'italic',
-          fontWeight: 300,
-          fontSize: 'clamp(3rem, 9vw, 6.5rem)',
-          color: '#FFF5F0',
-          lineHeight: 1,
-          letterSpacing: '0.04em',
-          margin: 0,
-          marginBottom: 24,
-          minHeight: '1em',
-          textShadow: '0 2px 32px rgba(0,0,0,0.18)',
+          fontFamily: "'Playfair Display', serif",
+          fontWeight: 400,
+          fontSize: 'clamp(2.8rem, 7vw, 5rem)',
+          color: '#4A3728',
+          lineHeight: 1.1,
+          letterSpacing: '0.02em',
+          margin: '0 0 8px 0',
+          minHeight: '1.1em',
         }}>
-          {displayed}
+          <span style={{ fontStyle: 'normal' }}>{part1Displayed}</span>
+          <span style={{ fontStyle: 'italic' }}>{part2Displayed}</span>
           {!done && (
             <motion.span
-              animate={{ opacity: [1, 0] }}
-              transition={{ duration: 0.55, repeat: Infinity }}
-              style={{ fontStyle: 'normal', color: 'rgba(255,200,190,0.7)' }}
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 0.7, repeat: Infinity }}
+              style={{
+                fontStyle: 'normal',
+                fontWeight: 300,
+                color: '#C9A96E',
+                marginLeft: 2,
+              }}
             >|</motion.span>
           )}
         </h1>
 
-        {/* Subtítulo */}
+        {/* Thin decorative line below title */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.9, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          style={{
+            width: 48,
+            height: '0.5px',
+            background: 'linear-gradient(to right, transparent, #C9A96E, transparent)',
+            margin: '24px 0 28px',
+            transformOrigin: 'center',
+          }}
+        />
+
+        {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 2.2, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 1.2, delay: 2.4, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            fontFamily: 'Cormorant Garamond, serif',
+            fontFamily: "'Playfair Display', serif",
             fontStyle: 'italic',
-            fontWeight: 300,
-            fontSize: 'clamp(0.95rem, 2vw, 1.2rem)',
-            color: 'rgba(255,235,228,0.82)',
-            lineHeight: 1.8,
-            marginBottom: 44,
-            maxWidth: 380,
-            letterSpacing: '0.04em',
+            fontWeight: 400,
+            fontSize: 'clamp(0.95rem, 2vw, 1.15rem)',
+            color: '#9B7D6A',
+            lineHeight: 1.9,
+            marginBottom: 52,
+            maxWidth: 420,
+            letterSpacing: '0.01em',
           }}
         >
-          Vestidos artesanais bordados à mão, criados com amor para a sua pequena.
+          Peças artesanais bordadas à mão, criadas com amor e delicadeza para a sua pequena princesa.
         </motion.p>
 
-        {/* CTAs */}
+        {/* CTA Button — pill shape, dusty rose */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, delay: 2.6, ease: [0.22, 1, 0.36, 1] }}
-          style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center' }}
+          transition={{ duration: 1, delay: 2.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <Link
             to={createPageUrl("Products")}
             style={{
               fontFamily: 'Montserrat, sans-serif',
-              fontWeight: 400,
+              fontWeight: 500,
               fontSize: '0.6rem',
-              letterSpacing: '0.28em',
+              letterSpacing: '0.3em',
               textTransform: 'uppercase',
-              color: '#FFF5F0',
-              background: 'rgba(139,90,80,0.85)',
-              padding: '15px 40px',
+              color: '#FFFAF7',
+              background: '#C4927A',
+              padding: '16px 48px',
+              borderRadius: 999,
               display: 'inline-block',
-              backdropFilter: 'blur(6px)',
-              WebkitBackdropFilter: 'blur(6px)',
-              border: '0.5px solid rgba(255,200,190,0.25)',
-              transition: 'background 0.4s',
+              border: 'none',
+              boxShadow: '0 4px 24px rgba(180, 120, 100, 0.22)',
+              transition: 'background 0.4s, box-shadow 0.4s, transform 0.3s',
+              cursor: 'pointer',
             }}
-            onMouseEnter={e => e.currentTarget.style.background = 'rgba(110,65,55,0.9)'}
-            onMouseLeave={e => e.currentTarget.style.background = 'rgba(139,90,80,0.85)'}
-          >
-            Ver Coleção
-          </Link>
-
-          <Link
-            to={createPageUrl("Contact")}
-            style={{
-              fontFamily: 'Montserrat, sans-serif',
-              fontWeight: 300,
-              fontSize: '0.6rem',
-              letterSpacing: '0.28em',
-              textTransform: 'uppercase',
-              color: 'rgba(255,235,228,0.88)',
-              background: 'transparent',
-              padding: '15px 40px',
-              display: 'inline-block',
-              border: '0.5px solid rgba(255,210,200,0.35)',
-              transition: 'border-color 0.4s, color 0.4s',
-              backdropFilter: 'blur(4px)',
-              WebkitBackdropFilter: 'blur(4px)',
+            onMouseEnter={e => {
+              e.currentTarget.style.background = '#B07860';
+              e.currentTarget.style.boxShadow = '0 6px 32px rgba(160, 100, 80, 0.32)';
+              e.currentTarget.style.transform = 'translateY(-1px)';
             }}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(255,210,200,0.7)'; e.currentTarget.style.color = '#FFF5F0'; }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,210,200,0.35)'; e.currentTarget.style.color = 'rgba(255,235,228,0.88)'; }}
+            onMouseLeave={e => {
+              e.currentTarget.style.background = '#C4927A';
+              e.currentTarget.style.boxShadow = '0 4px 24px rgba(180, 120, 100, 0.22)';
+              e.currentTarget.style.transform = 'translateY(0)';
+            }}
           >
-            Fale Conosco
+            Descobrir Coleção
           </Link>
         </motion.div>
+
+        {/* Bottom eyebrow label */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, delay: 3.2 }}
+          style={{
+            marginTop: 48,
+            fontFamily: 'Montserrat, sans-serif',
+            fontWeight: 300,
+            fontSize: '0.5rem',
+            letterSpacing: '0.3em',
+            textTransform: 'uppercase',
+            color: '#C4A882',
+          }}
+        >
+          Ateliê Artesanal · Recife · Brasil
+        </motion.p>
+
       </div>
-
-      {/* RODAPÉ DO HERO — scroll hint + tagline */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, delay: 3 }}
-        style={{
-          position: 'relative', zIndex: 10,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: '0 48px 28px',
-        }}
-      >
-        <span style={{
-          fontFamily: 'Montserrat, sans-serif',
-          fontWeight: 300,
-          fontSize: '0.5rem',
-          letterSpacing: '0.2em',
-          textTransform: 'uppercase',
-          color: 'rgba(255,220,210,0.5)',
-        }}>
-          Bordado Artesanal
-        </span>
-
-        {/* Scroll indicator */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
-          <motion.div
-            animate={{ y: [0, 6, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-            style={{
-              width: 1,
-              height: 28,
-              background: 'linear-gradient(to bottom, rgba(255,210,200,0.6), transparent)',
-            }}
-          />
-        </div>
-
-        <span style={{
-          fontFamily: 'Montserrat, sans-serif',
-          fontWeight: 300,
-          fontSize: '0.5rem',
-          letterSpacing: '0.2em',
-          textTransform: 'uppercase',
-          color: 'rgba(255,220,210,0.5)',
-        }}>
-          Recife · PE
-        </span>
-      </motion.div>
     </section>
   );
 }
