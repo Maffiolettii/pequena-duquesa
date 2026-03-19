@@ -9,35 +9,82 @@ export default function ProductCard({ product, index = 0 }) {
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 1.1, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 1.1, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
     >
       <Link
         to={createPageUrl("ProductDetail") + `?id=${product.id}`}
         className="group block"
         aria-label={`Ver detalhes de ${product.name}`}
       >
-        <div className="gilded-frame p-3 sm:p-5 bg-white/40 velvet-transition group-hover:shadow-lg group-hover:shadow-rose-100/50">
-          <div className="relative overflow-hidden aspect-[3/4]">
+        {/* Card container */}
+        <div style={{
+          backgroundColor: '#FAF9F6',
+          border: '0.5px solid rgba(180, 150, 130, 0.15)',
+          overflow: 'hidden',
+          transition: 'box-shadow 0.5s ease',
+        }}
+          className="velvet-transition group-hover:shadow-md group-hover:shadow-rose-100/60"
+        >
+          {/* Image — 4:5 aspect ratio */}
+          <div style={{ position: 'relative', aspectRatio: '4/5', overflow: 'hidden', padding: '12px 12px 0' }}>
             <img
               src={product.image_url}
               alt={product.name}
-              className="w-full h-full object-cover velvet-transition group-hover:scale-105"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                objectPosition: 'center top',
+                display: 'block',
+                transition: 'transform 0.7s cubic-bezier(0.22,1,0.36,1)',
+              }}
+              className="group-hover:scale-[1.03]"
               loading="lazy"
             />
+            {/* Featured badge */}
             {product.featured && (
-              <div className="absolute top-3 left-3 px-3 py-1 text-xs tracking-widest uppercase"
-                style={{ background: 'rgba(244, 226, 226, 0.9)', color: '#7A5A5A', fontFamily: 'Montserrat, sans-serif' }}>
+              <div style={{
+                position: 'absolute',
+                top: 20,
+                left: 20,
+                padding: '4px 12px',
+                backgroundColor: '#C4937C',
+                color: '#FAF9F6',
+                fontFamily: 'Montserrat, sans-serif',
+                fontWeight: 400,
+                fontSize: '0.45rem',
+                letterSpacing: '0.22em',
+                textTransform: 'uppercase',
+                borderRadius: 999,
+              }}>
                 Destaque
               </div>
             )}
           </div>
-          <div className="mt-4 sm:mt-5 text-center">
-            <h3 className="font-serif text-base sm:text-lg leading-tight" style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 400 }}>
+
+          {/* Text info */}
+          <div style={{ padding: '16px 16px 20px', textAlign: 'center' }}>
+            <h3 style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontStyle: 'italic',
+              fontWeight: 400,
+              fontSize: '1.05rem',
+              color: '#7A5C58',
+              lineHeight: 1.3,
+              margin: '0 0 8px',
+              letterSpacing: '0.01em',
+            }}>
               {product.name}
             </h3>
-            <p className="mt-2 text-sm tracking-wider opacity-0 group-hover:opacity-100 velvet-transition"
-              style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C' }}>
-              R$ {product.price.toFixed(2).replace('.', ',')}
+            <p style={{
+              fontFamily: 'Montserrat, sans-serif',
+              fontWeight: 300,
+              fontSize: '0.75rem',
+              color: '#A08070',
+              letterSpacing: '0.08em',
+              margin: 0,
+            }}>
+              R$ {Number(product.price).toFixed(2).replace('.', ',')}
             </p>
           </div>
         </div>
