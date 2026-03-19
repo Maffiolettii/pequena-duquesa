@@ -42,11 +42,15 @@ export default function ProductFilters({ activeCategory, setActiveCategory, acti
       <div className="flex items-center gap-6 flex-wrap justify-center">
         <button
           onClick={() => setActiveCollection('all')}
-          className="text-xs tracking-[0.15em] uppercase velvet-transition min-h-[44px] px-1 relative"
+          className="velvet-transition min-h-[44px] px-1 relative"
           style={{
-            fontFamily: 'Montserrat, sans-serif',
-            fontWeight: activeCollection === 'all' ? 400 : 300,
-            color: activeCollection === 'all' ? '#7A5A5A' : '#A17C7C',
+            fontFamily: "'Cormorant Garamond', serif",
+            fontStyle: activeCollection === 'all' ? 'italic' : 'normal',
+            fontWeight: 400,
+            fontSize: '0.95rem',
+            letterSpacing: '0.12em',
+            textTransform: 'uppercase',
+            color: activeCollection === 'all' ? '#7A5C58' : '#B8957A',
           }}
         >
           Todas
