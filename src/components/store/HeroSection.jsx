@@ -28,7 +28,7 @@ function useTypewriter(text, startDelay = 700) {
 
 function CrownIcon() {
   return (
-    <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <svg width="36" height="26" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path d="M1 13h18M1 13L3.5 5l5 4.5L10 2l1.5 7.5L16 5l2.5 8" stroke="#B8956A" strokeWidth="0.9" strokeLinecap="round" strokeLinejoin="round"/>
       <circle cx="1" cy="13" r="0.8" fill="#B8956A"/>
       <circle cx="10" cy="2" r="0.8" fill="#B8956A"/>
