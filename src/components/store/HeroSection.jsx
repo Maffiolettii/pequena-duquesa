@@ -174,7 +174,7 @@ export default function HeroSection() {
             letterSpacing: '0.01em',
           }}
         >
-          Peças bordadas à mão com amor e delicadeza, para a sua pequena princesa.
+          Peças bordadas à mão com amor e delicadeza, para a sua pequena duquesa.
         </motion.p>
 
         {/* CTA Button — pill, rosa antigo suave */}
