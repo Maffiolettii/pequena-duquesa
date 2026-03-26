@@ -132,11 +132,11 @@ export default function ProductDetail() {
                   <div className="flex gap-3 flex-wrap">
                     {product.sizes.map(size => (
                       <button key={size} onClick={() => setSelectedSize(size)}
-                        className="min-w-[44px] min-h-[44px] px-4 py-2 text-xs tracking-wider velvet-transition gilded-frame"
+                        className="min-w-[44px] min-h-[44px] px-5 py-2 text-[10px] tracking-[0.2em] uppercase rounded-full transition-all duration-300 font-sans border"
                         style={{
-                          fontFamily: 'Montserrat, sans-serif',
-                          backgroundColor: selectedSize === size ? '#A17C7C' : 'transparent',
-                          color: selectedSize === size ? '#FBFAF5' : '#A17C7C',
+                          backgroundColor: selectedSize === size ? '#D4A5A5' : 'transparent',
+                          color: selectedSize === size ? '#FFFFFF' : '#A17C7C',
+                          borderColor: '#D4A5A5',
                         }}>
                         {size}
                       </button>
@@ -146,8 +146,8 @@ export default function ProductDetail() {
               )}
 
               <button onClick={handleAddToCart} disabled={!selectedSize && product.sizes && product.sizes.length > 0}
-                className="mt-8 px-8 py-4 text-xs tracking-[0.2em] uppercase velvet-transition min-h-[44px] flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
-                style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 400, color: '#FBFAF5', background: addedToCart ? '#7A5A5A' : '#A17C7C' }}>
+                className="mt-8 px-10 py-4 text-[10px] tracking-[0.25em] uppercase rounded-full font-sans font-semibold min-h-[44px] flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed shadow-sm"
+                style={{ color: '#FFFFFF', background: addedToCart ? '#4A3A3A' : '#D4A5A5' }}>
                 {addedToCart ? (
                   <><Check size={14} /> Adicionado</>
                 ) : (
