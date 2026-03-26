@@ -59,6 +59,7 @@ header {
 
 .hero-section {
   position: relative;
+  padding-top: 120px !important;
   margin-top: 0 !important;
   clear: both;
 }
