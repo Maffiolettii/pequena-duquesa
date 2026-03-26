@@ -5,56 +5,64 @@ import { createPageUrl } from '@/utils';
 
 export default function CollectionBanner() {
   return (
-    <section className="py-20 sm:py-28 px-6" style={{ backgroundColor: '#F4E2E2' }}>
+    /* Ajustamos o fundo para o Rosa Pastel da marca (#F8E8EE) para suavizar a transição */
+    <section className="py-24 sm:py-32 px-6" style={{ backgroundColor: '#F8E8EE' }}>
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Left - Image */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          
+          {/* Esquerda - Imagem com Moldura Arredondada */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
-            <div className="gilded-frame p-4 bg-white/50">
+            {/* Padronizamos as bordas arredondadas (20px) e o respiro interno */}
+            <div className="p-3 bg-white/40 rounded-[25px] shadow-sm backdrop-blur-sm">
               <img
                 src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68bc37bca4385f82fa4d811b/e067683c2_photo_4_2026-03-10_14-31-56.jpg"
                 alt="Coleção Clássica Pequena Duquesa"
-                className="w-full aspect-[3/4] object-cover"
+                className="w-full aspect-[3/4] object-cover rounded-[20px]"
               />
             </div>
-            {/* Floating decorative element */}
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 border border-[#A17C7C]/20 hidden md:block" />
+            {/* Detalhe Decorativo sutil */}
+            <div className="absolute -bottom-6 -left-6 w-32 h-32 border-l border-b border-[#D4A5A5]/30 rounded-bl-[40px] hidden md:block" />
           </motion.div>
 
-          {/* Right - Content */}
+          {/* Direita - Conteúdo com Tipografia Alinhada */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1.1, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1.1, delay: 0.2 }}
             className="text-center md:text-left"
           >
-            <p className="text-xs tracking-[0.3em] uppercase mb-4"
-              style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C' }}>
-              Nova Coleção
+            <p className="text-[10px] tracking-[0.4em] uppercase mb-6"
+              style={{ fontFamily: 'Montserrat, sans-serif', color: '#6B5252' }}>
+              Tradição e Delicadeza
             </p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl leading-tight"
-              style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontStyle: 'italic', color: '#7A5A5A' }}>
-              Cada peça conta<br />uma história de amor
+            
+            <h2 className="text-4xl md:text-5xl lg:text-6xl leading-[1.1]"
+              style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, color: '#4A3A3A' }}>
+              Cada peça conta uma <br className="hidden lg:block" /> 
+              <span className="italic">história de amor</span>
             </h2>
-            <p className="mt-6 text-sm leading-relaxed max-w-md"
-              style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C', fontWeight: 300, letterSpacing: '0.05em' }}>
-              Nossas peças são cuidadosamente bordadas à mão por artesãs brasileiras, 
-              usando tecidos naturais que respeitam a delicadeza da pele infantil. 
-              Cada vestido é uma obra de arte única, feita para ser guardada como herança.
+            
+            <p className="mt-8 text-sm md:text-base leading-relaxed max-w-md text-[#6B5252]"
+              style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300, letterSpacing: '0.03em' }}>
+              Nossas peças são cuidadosamente bordadas à mão, usando tecidos naturais 
+              que respeitam a delicadeza da pele infantil. Cada vestido é uma obra 
+              única para ser guardada como herança.
             </p>
+
             <Link
               to={createPageUrl("Products") + "?collection=classica"}
-              className="inline-block mt-8 px-8 py-3 text-xs tracking-[0.2em] uppercase velvet-transition"
+              className="inline-block mt-10 px-12 py-4 text-[10px] tracking-[0.25em] uppercase rounded-full transition-all duration-500 hover:shadow-lg hover:-translate-y-1"
               style={{ 
-                fontFamily: 'Montserrat, sans-serif', fontWeight: 400,
-                color: '#FBFAF5', background: '#A17C7C' 
+                fontFamily: 'Montserrat, sans-serif', 
+                color: '#FFFFFF', 
+                background: '#D4A5A5' 
               }}
             >
               Conhecer a Coleção
