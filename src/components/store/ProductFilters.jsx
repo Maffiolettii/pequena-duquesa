@@ -50,17 +50,21 @@ function FilterGroup({ items, active, onChange }) {
   );
 }
 
-export default function ProductFilters({
-  activeCategory,
-  setActiveCategory,
-  activeCollection,
-  setActiveCollection,
-}) {
+export default function ProductFilters({ categories, activeCategory, onCategoryChange }) {
   return (
-    <div className="w-full flex flex-col gap-6">
-      <FilterGroup items={CATEGORIES} active={activeCategory} onChange={setActiveCategory} />
-      <div className="w-8 h-[0.5px] bg-[#E2C792] mx-auto opacity-40" />
-      <FilterGroup items={COLLECTIONS} active={activeCollection} onChange={setActiveCollection} />
+    <div className="w-full py-2 bg-[#FFFAF0]"> {/* py-2 em vez de py-8 */}
+      <div className="container mx-auto px-4">
+        <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-1">
+          {categories.map((cat) => (
+            <button key={cat.id} onClick={() => onCategoryChange(cat.id)} className="relative py-2 outline-none">
+              <span className={`font-sans text-[10px] tracking-[0.2em] uppercase transition-all ${activeCategory === cat.id ? 'text-[#D4A5A5] font-bold' : 'text-[#6B5252] opacity-60'}`}>
+                {cat.name}
+              </span>
+              {activeCategory === cat.id && <div className="absolute bottom-1 left-0 w-full h-[1px] bg-[#D4A5A5]" />}
+            </button>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
