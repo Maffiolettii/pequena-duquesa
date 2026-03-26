@@ -12,13 +12,14 @@ export default function ProductCard({ product, index = 0 }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: index * 0.08 }}
-      className="group flex flex-col items-center w-full"
+      /* Adicionamos mb-12 para garantir que uma linha de produtos não cole na outra */
+      className="group flex flex-col items-center w-full mb-12"
     >
       <Link
         to={createPageUrl("ProductDetail") + `?id=${product.id}`}
         className="w-full flex flex-col items-center"
       >
-        {/* CONTAINER DA IMAGEM */}
+        {/* CONTAINER DA IMAGEM - Bordas arredondadas de 20px conforme o padrão */}
         <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[20px] bg-[#FDFDF2] shadow-sm transition-all duration-500 group-hover:shadow-lg">
           <img
             src={product.image_url}
@@ -33,21 +34,21 @@ export default function ProductCard({ product, index = 0 }) {
           )}
         </div>
 
-        {/* INFO DO PRODUTO */}
-        <div className="mt-3 text-center px-2">
-          <h3 className="font-sans text-[11px] tracking-[0.2em] uppercase text-[#4A3A3A] font-semibold mb-1 opacity-90">
+        {/* INFO DO PRODUTO - Aumentamos o mt (margin-top) para respirar */}
+        <div className="mt-6 text-center px-2">
+          <h3 className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#4A3A3A] font-semibold mb-2 opacity-90">
             {product.name}
           </h3>
 
-          <p className="font-serif italic text-lg text-[#6B5252] mb-4">
+          <p className="font-serif italic text-base md:text-lg text-[#6B5252] mb-5">
             {new Intl.NumberFormat('pt-BR', {
               style: 'currency',
               currency: 'BRL'
             }).format(product.price)}
           </p>
 
-          {/* BOTÃO PADRONIZADO */}
-          <div className="inline-block bg-[#D4A5A5] group-hover:bg-[#4A3A3A] text-white font-sans text-[9px] uppercase tracking-[0.25em] px-8 py-3 rounded-full transition-all duration-300 shadow-sm">
+          {/* BOTÃO PADRONIZADO - Rosa Duquesa com hover Marrom */}
+          <div className="inline-block bg-[#D4A5A5] group-hover:bg-[#4A3A3A] text-white font-sans text-[8px] md:text-[9px] uppercase tracking-[0.25em] px-10 py-3 rounded-full transition-all duration-300 shadow-sm transform group-hover:-translate-y-1">
             Ver Detalhes
           </div>
         </div>
