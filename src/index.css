@@ -6,44 +6,21 @@
 
 @layer base {
   :root {
-    /* Paleta Pequena Duquesa - Convertida para HSL para compatibilidade Tailwind */
-    --background: 40 100% 97%; /* #FFFAF0 - Branco Creme */
-    --foreground: 0 12% 26%;  /* #4A3A3A - Marrom Newsletter */
-    
-    --card: 40 100% 97%;
-    --card-foreground: 0 12% 26%;
-    
-    --primary: 0 35% 74%;     /* #D4A5A5 - Rosa Principal */
-    --primary-foreground: 0 0% 100%;
-    
-    --secondary: 39 52% 73%;  /* #E2C792 - Dourado Antigo */
-    --secondary-foreground: 0 12% 26%;
-    
-    --muted: 0 13% 37%;       /* #6B5252 - Texto Suave */
-    --muted-foreground: 0 10% 50%;
-    
-    --accent: 10 32% 92%;     /* #F8E8EE - Rosa Pastel */
-    --accent-foreground: 0 12% 26%;
-    
-    --border: 39 52% 73% / 0.2;
-    --radius: 2rem;
-
-    /* Variáveis de Suporte (Hex para uso direto se necessário) */
+    --background: 40 100% 97%; /* #FFFAF0 */
+    --foreground: 0 12% 26%;  /* #4A3A3A */
+    --primary: 0 35% 74%;     /* #D4A5A5 */
+    --secondary: 39 52% 73%;  /* #E2C792 */
+    --muted: 0 13% 37%;       /* #6B5252 */
     --branco-creme: #FFFAF0;
     --rosa-principal: #D4A5A5;
     --marrom-newsletter: #4A3A3A;
-    --texto-suave: #6B5252;
-  }
-
-  * {
-    @apply border-border outline-ring/50;
   }
 
   body {
     @apply bg-background text-foreground;
     font-family: 'Montserrat', sans-serif;
-    -webkit-font-smoothing: antialiased;
     background-color: var(--branco-creme) !important;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, .font-serif {
@@ -51,132 +28,92 @@
   }
 }
 
-/* --- REGRAS DE ESTILO CUSTOMIZADAS (Aprimoração de Layout) --- */
-
-/* 1. Header Unificado (Remove a divisão mobile) */
+/* --- 1. HEADER & LOGO --- */
 header {
   background-color: var(--branco-creme) !important;
-  border-bottom: 1px solid rgba(226, 199, 146, 0.15) !important;
-  box-shadow: none !important;
+  z-index: 100 !important;
   position: relative !important;
-  z-index: 50;
+  padding-bottom: 1rem !important;
 }
 
-@media (max-width: 768px) {
-  header {
-    border-bottom: none !important; /* Remove linha no mobile para colar no Hero */
-  }
-  
-  /* Garante que o menu hambúrguer e ícones não tenham fundo branco puro */
-  header div, header nav {
-    background-color: transparent !important;
-  }
-}
-
-/* 2. Ajuste de Espaçamento Hero (Evita vãos) */
-.hero-section, section:first-of-type {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-
-/* 3. Tipografia Premium para Menu */
-nav a, .menu-item {
-  @apply font-sans uppercase;
-  font-size: 0.7rem;
-  letter-spacing: 0.25em;
-  font-weight: 500;
-  color: var(--texto-suave);
-  transition: all 0.3s ease;
-}
-
-nav a:hover {
-  color: var(--rosa-principal);
-}
-
-/* 4. Botão Duquesa (Primor) */
-.btn-duquesa {
-  @apply bg-[#D4A5A5] text-white uppercase tracking-[0.2em] font-sans font-semibold;
-  padding: 1rem 2.5rem;
-  border-radius: 9999px;
-  border: 1px solid #E2C792;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.btn-duquesa:hover {
-  @apply bg-[#4A3A3A];
-  box-shadow: 0 10px 20px rgba(212, 165, 165, 0.3);
-  transform: translateY(-2px);
-}
-
-/* 5. Scrollbar Delicada */
-::-webkit-scrollbar {
-  width: 5px;
-}
-::-webkit-scrollbar-track {
-  background: var(--branco-creme);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--rosa-principal);
-  border-radius: 10px;
-}
-
-/* Centralização do Cabeçalho em Telas Maiores */
+/* Centralização da Logo e Menu no Desktop */
 @media (min-width: 1024px) {
   header .container {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    padding-top: 1.5rem !important;
-    padding-bottom: 0.5rem !important;
     max-width: 100% !important;
-  }
-
-  header nav {
-    margin-top: 1rem !important;
-    margin-bottom: 0.5rem !important;
+    padding-top: 2rem !important;
   }
 }
 
-/* Compactação do Hero */
-.hero-section {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
+/* Menu de Navegação */
+nav a, .menu-item {
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 0.65rem !important;
+  letter-spacing: 0.3em !important;
+  text-transform: uppercase !important;
+  color: var(--foreground) !important;
+  opacity: 0.8;
+  transition: opacity 0.3s;
 }
 
-/* Imagem do Hero no Desktop */
-@media (min-width: 1280px) {
-  .hero-image-container {
-    max-height: 550px !important;
-    width: 90% !important;
-    margin: 0 auto !important;
-    border-radius: 30px !important;
-  }
+nav a:hover {
+  opacity: 1;
+  color: var(--primary) !important;
 }
 
-/* Remove paddings fantasmas de todas as seções */
-section, main > div {
-  padding-top: 0.5rem !important;
-  padding-bottom: 0.5rem !important;
+/* --- 2. GESTÃO DE ESPAÇOS (EQUILÍBRIO) --- */
+
+/* Removemos o 'margin-top: -10px' que causava sobreposição */
+.hero-text-area, h1 {
   margin-top: 0 !important;
-  margin-bottom: 0 !important;
 }
 
-/* Garante que o Header não tenha espaço embaixo */
-header {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-  border-bottom: none !important;
+/* Espaçamento entre Seções (Respiro de Luxo) */
+section, .section-container {
+  padding-top: 5rem !important;    /* Espaço generoso no topo */
+  padding-bottom: 5rem !important; /* Espaço generoso embaixo */
+  margin: 0 !important;
 }
 
-/* Ajuste específico para aproximar o Hero da Logo no Mobile */
+/* Exceção: O Hero precisa estar mais próximo da logo */
+section:first-of-type, .hero-section {
+  padding-top: 2rem !important;
+}
+
+/* --- 3. CARDS E PRODUTOS --- */
+.product-card-container {
+  margin-bottom: 3rem !important;
+}
+
+/* --- 4. NEWSLETTER (CARTA À DUQUESA) --- */
+footer {
+  background-color: var(--marrom-newsletter) !important;
+  padding-top: 6rem !important;
+  padding-bottom: 4rem !important;
+  margin-top: 4rem !important; /* Separa dos cards acima */
+}
+
+/* --- 5. BOTÕES PADRONIZADOS --- */
+.btn-duquesa, button[type="submit"] {
+  background-color: var(--rosa-principal) !important;
+  font-family: 'Montserrat', sans-serif !important;
+  letter-spacing: 0.2em !important;
+  border-radius: 50px !important;
+  padding: 14px 40px !important;
+  transition: all 0.4s ease !important;
+}
+
+.btn-duquesa:hover {
+  filter: brightness(0.9);
+  transform: translateY(-2px);
+}
+
+/* --- 6. CORREÇÃO DE ÍCONES SOBREPOSTOS (MOBILE) --- */
 @media (max-width: 768px) {
-  .hero-text-area, h1 {
-    margin-top: -10px !important;
+  .header-actions-mobile {
+    margin-top: 10px !important;
+    gap: 15px !important;
   }
-}
-
-/* Força o fundo creme em toda a página para não ver vãos brancos */
-body, #root, main {
-  background-color: #FFFAF0 !important;
 }
