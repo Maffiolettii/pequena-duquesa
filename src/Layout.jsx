@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
-import { ShoppingBag, Menu, X, Search } from 'lucide-react';
+import { ShoppingBag, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from './components/store/useCart';
 import Logo from './components/store/Logo';
@@ -62,7 +62,7 @@ export default function Layout({ children, currentPageName }) {
           </div>
 
           {/* Nav + ícones */}
-          <nav className="relative flex items-center justify-center border-t border-duquesa-sepia/10 py-2">
+          <nav className="flex items-center justify-center border-t border-duquesa-sepia/10 py-2 gap-8">
 
             {/* Desktop Nav */}
             <ul className="hidden md:flex items-center gap-8">
@@ -78,15 +78,25 @@ export default function Layout({ children, currentPageName }) {
               ))}
             </ul>
 
-            {/* Ícones direita */}
-            <div className="absolute right-0 flex items-center gap-2 text-duquesa-sepia">
-              <button className="hidden md:flex hover:text-duquesa-rosa transition-colors min-w-[44px] min-h-[44px] items-center justify-center" aria-label="Buscar">
-                <Search size={17} strokeWidth={1.5} />
-              </button>
+            {/* Sacola — ao lado do nav, sem absolute */}
+            <Link
+              to={createPageUrl("Cart")}
+              className="relative hidden md:flex hover:text-duquesa-rosa transition-colors min-w-[44px] min-h-[44px] items-center justify-center text-duquesa-sepia"
+              aria-label={`Carrinho com ${cartCount} itens`}
+            >
+              <ShoppingBag size={17} strokeWidth={1.5} />
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-duquesa-rosa text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
+            </Link>
+
+            {/* Mobile: sacola + hambúrguer */}
+            <div className="md:hidden flex items-center gap-1 text-duquesa-sepia">
               <Link
                 to={createPageUrl("Cart")}
-                className="relative hover:text-duquesa-rosa transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
-                aria-label={`Carrinho com ${cartCount} itens`}
+                className="relative min-w-[44px] min-h-[44px] flex items-center justify-center hover:text-duquesa-rosa transition-colors"
               >
                 <ShoppingBag size={19} strokeWidth={1.5} />
                 {cartCount > 0 && (
@@ -97,7 +107,7 @@ export default function Layout({ children, currentPageName }) {
               </Link>
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center"
+                className="min-w-[44px] min-h-[44px] flex items-center justify-center"
                 aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
               >
                 {menuOpen ? <X size={21} strokeWidth={1.5} /> : <Menu size={21} strokeWidth={1.5} />}
