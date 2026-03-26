@@ -56,7 +56,7 @@ export default function FeaturedProducts() {
                   <p className="font-serif italic text-lg text-[#6B5252]">
                     {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(product.price)}
                   </p>
-                  <div className="mt-4 inline-block font-sans text-[9px] tracking-[0.2em] uppercase border-b border-[#E2C792] pb-1 text-[#A17C7C] group-hover:text-[#D4A5A5] transition-colors">
+                  <div className="mt-4 inline-block font-sans text-[9px] tracking-[0.2em] uppercase px-6 py-3 rounded-full border border-[#D4A5A5] text-[#A17C7C] group-hover:bg-[#D4A5A5] group-hover:text-white transition-all duration-300">
                     Ver Detalhes
                   </div>
                 </div>
