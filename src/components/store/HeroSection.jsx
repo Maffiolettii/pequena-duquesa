@@ -52,7 +52,7 @@ export default function HeroSection() {
             className="w-full h-full bg-cover bg-center" 
             style={{ 
               backgroundImage: "url('https://media.base44.com/images/public/69b06ea4922854e28166d780/c4dad9bb6_IMG_7444.png')",
-              backgroundPosition: 'center 20%' 
+              backgroundPosition: 'center 40%' 
             }} 
           />
           {/* Degradê sutil para fusão suave com o fundo creme */}
