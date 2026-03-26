@@ -5,84 +5,54 @@ import { createPageUrl } from '@/utils';
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full overflow-hidden" style={{ height: '70vh', minHeight: 480 }}>
-      {/* Imagem de Fundo */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('https://media.base44.com/images/public/69b06ea4922854e28166d780/c4dad9bb6_IMG_7444.png')",
-        }}
-        aria-hidden="true"
-      />
-      {/* Overlay rosa pastel suave */}
-      <div className="absolute inset-0" style={{ backgroundColor: 'rgba(248, 232, 238, 0.35)' }} />
-
-      {/* Conteúdo — centralizado com card */}
-      <div className="relative z-10 h-full flex items-center justify-center px-6">
+    <section className="flex flex-col w-full bg-[#FFFAF0]">
+      {/* 1. ÁREA DE TEXTO (Topo com fundo sólido Branco Creme) */}
+      <div className="w-full text-center px-6 py-16 md:py-24">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center max-w-2xl w-full"
-          style={{
-            backgroundColor: 'rgba(255, 250, 240, 0.82)',
-            borderRadius: '20px',
-            padding: 'clamp(1.5rem, 5vw, 3rem)',
-            backdropFilter: 'blur(6px)',
-            border: '1px solid rgba(226, 199, 146, 0.3)',
-          }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="max-w-4xl mx-auto"
         >
-          <p className="font-sans mb-3" style={{ fontSize: '0.55rem', letterSpacing: '0.32em', textTransform: 'uppercase', color: '#A17C7C' }}>
-            Ateliê Online · Recife
-          </p>
-
+          {/* Título Principal Conforme sua solicitação */}
           <h1
-            className="font-serif italic leading-tight mb-4"
+            className="font-serif leading-tight mb-6"
             style={{
-              fontSize: 'clamp(2rem, 5vw, 3.5rem)',
-              fontWeight: 300,
-              color: '#4A3A3A',
+              fontSize: 'clamp(2.2rem, 6vw, 4rem)',
+              fontWeight: 400,
+              color: '#4A3A3A', // marrom-newsletter
             }}
           >
-            Pequena Duquesa
+            Vestidos artesanais bordados a mão
           </h1>
 
+          {/* Subtítulo com o texto exato fornecido */}
           <p
-            className="font-serif italic mb-3"
+            className="font-serif italic mb-10"
             style={{
-              fontSize: 'clamp(1rem, 2vw, 1.2rem)',
-              fontWeight: 300,
-              color: '#6B5252',
+              fontSize: 'clamp(1.1rem, 2.5vw, 1.6rem)',
+              color: '#6B5252', // texto-suave
+              lineHeight: '1.4'
             }}
           >
-            Onde Sonhos se Tornam Vestidos.
+            criados com amor para transformar cada momento em memoria eterna <br className="hidden md:block"/>
+            – para a sua pequena duquesa
           </p>
 
-          <p
-            className="font-sans mb-8"
-            style={{
-              fontSize: '0.75rem',
-              fontWeight: 300,
-              letterSpacing: '0.08em',
-              color: '#4A4A4A',
-            }}
-          >
-            Moda atemporal e sofisticada para princesas de 1 a 6 anos.
-          </p>
-
-          <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+          {/* Botão Ver Coleção - Estilo Aprimorado */}
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
             <Link
               to={createPageUrl("Products")}
-              className="inline-block font-sans uppercase tracking-widest velvet-transition"
+              className="inline-block font-sans uppercase tracking-[0.2em] transition-all"
               style={{
-                backgroundColor: 'var(--rosa-principal)',
-                border: '1px solid var(--dourado-antigo)',
+                backgroundColor: '#D4A5A5', // rosa-principal
+                border: '1px solid #E2C792', // dourado-antigo
                 color: '#FFFFFF',
-                padding: '14px 40px',
-                fontSize: '0.7rem',
-                letterSpacing: '0.18em',
-                borderRadius: '30px',
-                boxShadow: 'var(--sombra-soft)',
+                padding: '16px 45px',
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                borderRadius: '50px',
+                boxShadow: '0 10px 20px rgba(212, 165, 165, 0.3)',
               }}
             >
               Ver Coleção
@@ -90,6 +60,31 @@ export default function HeroSection() {
           </motion.div>
         </motion.div>
       </div>
+
+      {/* 2. ÁREA DA IMAGEM (Abaixo do texto, ocupando largura total) */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.3 }}
+        className="relative w-full overflow-hidden" 
+        style={{ height: '65vh', minHeight: 400 }}
+      >
+        <div
+          className="w-full h-full bg-cover bg-top"
+          style={{
+            backgroundImage: "url('https://media.base44.com/images/public/69b06ea4922854e28166d780/c4dad9bb6_IMG_7444.png')",
+          }}
+          aria-hidden="true"
+        />
+        
+        {/* Overlay sutil para suavizar a transição com o topo creme */}
+        <div 
+          className="absolute inset-0" 
+          style={{ 
+            background: 'linear-gradient(to bottom, #FFFAF0 0%, transparent 15%)' 
+          }} 
+        />
+      </motion.div>
     </section>
   );
 }
