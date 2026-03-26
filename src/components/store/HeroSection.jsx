@@ -21,11 +21,16 @@ export default function HeroSection() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="relative z-10 text-center px-6"
       >
-        <h2 className="font-serif text-4xl md:text-6xl text-duquesa-sepia mb-4 drop-shadow-sm">
-          Onde sonhos se tornam vestidos.
+        <p className="font-sans text-[0.55rem] tracking-[0.32em] uppercase text-duquesa-dourado mb-5">
+          Ateliê Artesanal · Recife
+        </p>
+
+        <h2 className="font-serif text-4xl md:text-6xl text-duquesa-sepia mb-4 drop-shadow-sm italic">
+          Pequena Duquesa
         </h2>
-        <p className="font-sans text-duquesa-sepia/80 text-lg md:text-xl mb-8 max-w-2xl mx-auto italic">
-          Moda atemporal e sofisticada para pequenas princesas de 1 a 6 anos.
+
+        <p className="font-serif text-duquesa-sepia/80 text-lg md:text-xl mb-8 max-w-2xl mx-auto italic">
+          Peças bordadas à mão com amor e delicadeza, para a sua pequena duquesa.
         </p>
 
         <motion.div
@@ -36,7 +41,7 @@ export default function HeroSection() {
             to={createPageUrl("Products")}
             className="bg-duquesa-rosa hover:bg-duquesa-sepia text-white font-sans px-10 py-4 rounded-full tracking-widest transition-colors duration-300 shadow-lg inline-block"
           >
-            VER COLEÇÃO
+            Descobrir Coleção
           </Link>
         </motion.div>
       </motion.div>
