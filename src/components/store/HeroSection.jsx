@@ -8,7 +8,7 @@ export default function HeroSection() {
     <section className="flex flex-col w-full bg-[#FFFAF0] -mt-1 relative z-0">
       
       {/* 1. ÁREA DE TEXTO (Ajustada para Mobile) */}
-      <div className="w-full text-center px-6 pt-10 pb-12 md:pt-24 md:pb-24 bg-[#FFFAF0]">
+      <div className="w-full text-center px-6 pt-4 pb-12 md:pt-20 md:pb-24 bg-[#FFFAF0]">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

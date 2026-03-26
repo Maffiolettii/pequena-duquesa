@@ -134,7 +134,7 @@ export default function Layout({ children, currentPageName }) {
       </motion.header>
 
       {/* Page Content — offset para o header fixo */}
-      <main className="pt-[148px]">
+      <main className="pt-[110px]">
         {children}
       </main>
     </div>
