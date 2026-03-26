@@ -47,13 +47,14 @@ body {
 }
 
 header {
-  background-color: #FFFAF0 !important;
+  background-color: var(--branco-creme) !important;
   position: fixed !important;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 9999 !important;
-  border-bottom: 1px solid rgba(164, 116, 116, 0.1);
+  border-bottom: 1px solid var(--dourado-antigo);
+  margin-bottom: 0 !important;
   transition: transform 0.4s ease-in-out;
 }
 
@@ -62,6 +63,69 @@ header {
   padding-top: 120px !important;
   margin-top: 0 !important;
   clear: both;
+}
+
+/* Hero Section Overlay */
+.hero-section {
+  position: relative;
+  margin-top: 0 !important;
+  height: 90vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  clear: both;
+  padding-top: 120px !important;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(248, 232, 238, 0.4);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--texto-suave);
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content h1 {
+  color: var(--marrom-newsletter);
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  color: var(--texto-suave);
+  font-size: 1.2rem;
+  max-width: 600px;
+}
+
+.btn-duquesa {
+  background-color: var(--rosa-principal);
+  color: white;
+  border: 1px solid var(--dourado-antigo);
+  border-radius: 30px;
+  padding: 15px 40px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-duquesa:hover {
+  background-color: var(--marrom-newsletter);
+  box-shadow: var(--sombra-glow);
 }
 
 /* Base Typography */
