@@ -40,6 +40,23 @@
   border-radius: 10px;
 }
 
+/* Layout Structure */
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  width: 100%;
+  min-height: 100px;
+}
+
+.hero-section {
+  position: relative;
+  margin-top: 0 !important;
+  clear: both;
+}
+
 /* Base Typography */
 body {
   font-family: 'Montserrat', sans-serif;
