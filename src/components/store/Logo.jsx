@@ -4,34 +4,31 @@ import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 
 export default function Logo({ size = 'md', linkTo = true }) {
-  // Aumentamos os valores para a logo não ficar "sumida"
-  const sizes = {
-    sm: { img: 50 },
-    md: { img: 75 },
-    lg: { img: 110 },
-    xl: { img: 150 },
+  const widths = {
+    sm: 120,
+    md: 180,
+    lg: 240,
+    xl: 320,
   };
 
-  const s = sizes[size] || sizes.md;
+  const currentWidth = widths[size] || widths.md;
 
   const content = (
     <div 
-      className="flex items-center justify-center bg-transparent w-full" 
-      aria-label="Pequena Duquesa - Ir para página inicial"
+      className="flex flex-col items-center justify-center bg-transparent py-2" 
+      aria-label="Pequena Duquesa - Home"
     >
       <motion.img
         src="https://media.base44.com/images/public/69b06ea4922854e28166d780/4000db67a_logonew.png"
         alt="Pequena Duquesa"
-        animate={{ opacity: [0.9, 1, 0.9] }} // Pulsação sutil em vez de rotação para mobile
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
         style={{
+          width: currentWidth,
           height: 'auto',
-          width: s.img, // Define a largura para ser proporcional
-          maxWidth: '100%',
           objectFit: 'contain',
-          // Aumenta o contraste e nitidez da logo que estava apagada
-          filter: 'contrast(1.1) saturate(1.1) drop-shadow(0px 2px 8px rgba(0,0,0,0.05))',
-          mixBlendMode: 'normal', // Removemos o multiply que "apagava" a logo no fundo creme
+          filter: 'contrast(1.05) saturate(1.1)',
         }}
       />
     </div>
@@ -40,7 +37,7 @@ export default function Logo({ size = 'md', linkTo = true }) {
   if (!linkTo) return content;
 
   return (
-    <Link to={createPageUrl("Home")} className="block py-2 transition-transform hover:scale-105">
+    <Link to={createPageUrl("Home")} className="block transition-transform hover:scale-[1.02]">
       {content}
     </Link>
   );

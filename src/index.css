@@ -120,7 +120,39 @@ nav a:hover {
   border-radius: 10px;
 }
 
-/* No final do seu index.css */
+/* Centralização do Cabeçalho em Telas Maiores */
+@media (min-width: 1024px) {
+  header .container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding-top: 1.5rem !important;
+    padding-bottom: 0.5rem !important;
+    max-width: 100% !important;
+  }
+
+  header nav {
+    margin-top: 1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+}
+
+/* Compactação do Hero */
+.hero-section {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+/* Imagem do Hero no Desktop */
+@media (min-width: 1280px) {
+  .hero-image-container {
+    max-height: 550px !important;
+    width: 90% !important;
+    margin: 0 auto !important;
+    border-radius: 30px !important;
+  }
+}
 
 /* Remove paddings fantasmas de todas as seções */
 section, main > div {
@@ -148,12 +180,3 @@ header {
 body, #root, main {
   background-color: #FFFAF0 !important;
 }
-
-
-
-
-
-
-
-
-
