@@ -34,7 +34,7 @@ export default function ProductCard({ product, index = 0 }) {
         </div>
 
         {/* INFO DO PRODUTO */}
-        <div className="mt-5 text-center px-2">
+        <div className="mt-3 text-center px-2">
           <h3 className="font-sans text-[11px] tracking-[0.2em] uppercase text-[#4A3A3A] font-semibold mb-1 opacity-90">
             {product.name}
           </h3>
