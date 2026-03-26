@@ -38,54 +38,62 @@ export default function Layout({ children, currentPageName }) {
   return (
     <div className="min-h-screen bg-duquesa-creme">
       {/* Navigation */}
-      <header className="w-full bg-duquesa-creme/90 backdrop-blur-md sticky top-0 z-50 border-b border-duquesa-dourado/20">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+      <header className="w-full bg-duquesa-creme sticky top-0 z-50 border-b border-duquesa-sepia/10">
+        <div className="container mx-auto px-4 pt-5 pb-0">
 
-          {/* Busca (desktop) */}
-          <button className="hidden md:flex text-duquesa-sepia hover:text-duquesa-rosa transition-colors min-w-[44px] min-h-[44px] items-center justify-center">
-            <Search size={20} />
-          </button>
-
-          {/* Logo Centralizada */}
-          <div className="flex flex-col items-center mx-auto md:mx-0">
-            <Logo size="sm" />
-          </div>
-
-          {/* Direita: carrinho + menu mobile */}
-          <div className="flex items-center gap-4 text-duquesa-sepia">
-            <Link
-              to={createPageUrl("Cart")}
-              className="relative hover:text-duquesa-rosa transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
-              aria-label={`Carrinho com ${cartCount} itens`}
-            >
-              <ShoppingBag size={22} />
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-duquesa-rosa text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
-                  {cartCount}
-                </span>
-              )}
+          {/* Logo + Nome centralizados */}
+          <div className="flex flex-col items-center justify-center mb-4">
+            <Logo size="sm" linkTo={true} />
+            <Link to={createPageUrl("Home")}>
+              <h1 className="font-serif text-2xl md:text-3xl tracking-[0.2em] text-duquesa-sepia uppercase text-center mt-1 hover:text-duquesa-rosa velvet-transition">
+                Pequena Duquesa
+              </h1>
             </Link>
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center"
-              aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
-            >
-              {menuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
           </div>
 
-          {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
-            {NAV_ITEMS.map(item => (
+          {/* Nav + ícones */}
+          <nav className="relative flex items-center justify-center border-t border-duquesa-sepia/10 py-3">
+
+            {/* Desktop Nav */}
+            <ul className="hidden md:flex items-center gap-8">
+              {NAV_ITEMS.map(item => (
+                <li key={item.page}>
+                  <Link
+                    to={createPageUrl(item.page)}
+                    className="font-sans text-[11px] tracking-[0.15em] uppercase text-duquesa-sepia hover:text-duquesa-rosa velvet-transition min-h-[44px] flex items-center font-medium"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            {/* Ícones direita */}
+            <div className="absolute right-0 flex items-center gap-3 text-duquesa-sepia">
+              <button className="hidden md:flex hover:text-duquesa-rosa transition-colors min-w-[44px] min-h-[44px] items-center justify-center" aria-label="Buscar">
+                <Search size={18} strokeWidth={1.5} />
+              </button>
               <Link
-                key={item.page}
-                to={createPageUrl(item.page)}
-                className="text-xs tracking-[0.15em] uppercase velvet-transition hover:text-duquesa-rosa min-h-[44px] flex items-center font-sans text-duquesa-sepia"
+                to={createPageUrl("Cart")}
+                className="relative hover:text-duquesa-rosa transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
+                aria-label={`Carrinho com ${cartCount} itens`}
               >
-                {item.label}
+                <ShoppingBag size={20} strokeWidth={1.5} />
+                {cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-duquesa-rosa text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
+                    {cartCount}
+                  </span>
+                )}
               </Link>
-            ))}
-          </div>
+              <button
+                onClick={() => setMenuOpen(!menuOpen)}
+                className="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center"
+                aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+              >
+                {menuOpen ? <X size={22} strokeWidth={1.5} /> : <Menu size={22} strokeWidth={1.5} />}
+              </button>
+            </div>
+          </nav>
         </div>
 
         {/* Mobile Menu */}
@@ -96,7 +104,7 @@ export default function Layout({ children, currentPageName }) {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-              className="md:hidden overflow-hidden bg-duquesa-creme/95 backdrop-blur-md"
+              className="md:hidden overflow-hidden bg-duquesa-creme/95 backdrop-blur-md border-t border-duquesa-sepia/10"
             >
               <div className="px-6 py-6 flex flex-col gap-4">
                 {NAV_ITEMS.map(item => (
