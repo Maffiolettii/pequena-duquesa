@@ -31,7 +31,7 @@ export default function Products() {
   return (
     <div>
       {/* Page Header */}
-      <div className="pt-28 sm:pt-36 pb-12 px-6 text-center" style={{ backgroundColor: '#F4E2E2' }}>
+      <div className="pt-10 sm:pt-14 pb-10 px-6 text-center" style={{ backgroundColor: '#F4E2E2' }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
