@@ -25,28 +25,31 @@ export default function HeroSection() {
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-lg"
         >
+          <p className="font-sans mb-4" style={{ fontSize: '0.55rem', letterSpacing: '0.32em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.75)' }}>
+            Ateliê Artesanal · Recife
+          </p>
+
           <h1
-            className="font-sans font-bold uppercase leading-tight mb-3"
+            className="font-serif italic leading-tight mb-4"
             style={{
-              fontSize: 'clamp(1.6rem, 4vw, 2.8rem)',
-              letterSpacing: '0.04em',
+              fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+              fontWeight: 300,
               color: '#FFFFFF',
               textShadow: '0 2px 12px rgba(0,0,0,0.25)',
             }}
           >
-            Pequena Duquesa: Onde Sonhos se Tornam Vestidos.
+            Pequena Duquesa
           </h1>
 
           <p
-            className="font-sans mb-8"
+            className="font-serif italic mb-8"
             style={{
-              fontSize: '0.9rem',
+              fontSize: 'clamp(1rem, 2vw, 1.25rem)',
               fontWeight: 300,
-              letterSpacing: '0.06em',
               color: 'rgba(255,255,255,0.88)',
             }}
           >
-            Ateliê Online. Moda Atemporal e Sofisticada para Princesas de 1 a 6 Anos.
+            Peças bordadas à mão com amor e delicadeza, para a sua pequena duquesa.
           </p>
 
           <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
