@@ -57,7 +57,7 @@ export default function CollectionBanner() {
                 color: '#FBFAF5', background: '#A17C7C' 
               }}
             >
-              Conhecer a História
+              Conhecer a Coleção
             </Link>
           </motion.div>
         </div>
