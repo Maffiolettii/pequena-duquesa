@@ -70,17 +70,21 @@ export default function HeroSection() {
       }} />
 
       {/* Content */}
-      <div style={{
-        position: 'relative', zIndex: 2,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        textAlign: 'center',
-        padding: '120px 32px 80px',
-        width: '100%',
-        maxWidth: 680,
-        margin: '0 auto',
-      }}>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        style={{
+          position: 'relative', zIndex: 2,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          textAlign: 'center',
+          padding: '120px 32px 80px',
+          width: '100%',
+          maxWidth: 680,
+          margin: '0 auto',
+        }}>
 
         {/* Eyebrow */}
         <motion.p
@@ -232,7 +236,7 @@ export default function HeroSection() {
           />
         </motion.div>
 
-      </div>
+      </motion.div>
     </section>
   );
 }

@@ -17,13 +17,16 @@ export default function ProductCard({ product, index = 0 }) {
         aria-label={`Ver detalhes de ${product.name}`}
       >
         {/* Card container */}
-        <div style={{
-          backgroundColor: '#FAF9F6',
-          border: '0.5px solid rgba(180, 150, 130, 0.15)',
-          overflow: 'hidden',
-          transition: 'box-shadow 0.5s ease',
-        }}
-          className="velvet-transition group-hover:shadow-md group-hover:shadow-rose-100/60"
+        <div
+          className="velvet-transition group-hover:shadow-lg"
+          style={{
+            backgroundColor: '#FAF9F6',
+            border: '0.5px solid rgba(201,167,124,0.15)',
+            overflow: 'hidden',
+            transition: 'box-shadow 0.5s ease, border-color 0.5s ease',
+          }}
+          onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(201,167,124,0.5)'}
+          onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(201,167,124,0.15)'}
         >
           {/* Image — 4:5 aspect ratio */}
           <div style={{ position: 'relative', aspectRatio: '4/5', overflow: 'hidden', padding: '12px 12px 0' }}>

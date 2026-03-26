@@ -4,6 +4,19 @@ module.exports = {
     content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
   theme: {
   	extend: {
+  		colors: {
+  			duquesa: {
+  				rosa: '#D4A5A5',
+  				creme: '#FFFAF0',
+  				sepia: '#6B5252',
+  				dourado: '#C9A77C',
+  				cedro: '#4A3A3A',
+  			}
+  		},
+  		fontFamily: {
+  			serif: ['Cormorant Garamond', 'serif'],
+  			sans: ['Montserrat', 'sans-serif'],
+  		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
