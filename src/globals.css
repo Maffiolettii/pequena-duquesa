@@ -185,3 +185,17 @@ h1, h2, h3 {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 500;
 }
+
+/* Remove a divisão visual entre Header e Hero no Mobile */
+@media (max-width: 768px) {
+  header {
+    background-color: #FFFAF0 !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    padding-bottom: 0 !important;
+  }
+  
+  body {
+    background-color: #FFFAF0 !important;
+  }
+}
