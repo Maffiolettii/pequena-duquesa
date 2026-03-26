@@ -6,92 +6,66 @@ import { createPageUrl } from '@/utils';
 export default function ProductCard({ product, index = 0 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 1.1, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+      viewport={{ once: true, margin: '-30px' }}
+      transition={{ duration: 0.8, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
     >
-      <Link
-        to={createPageUrl("ProductDetail") + `?id=${product.id}`}
-        className="group block"
-        aria-label={`Ver detalhes de ${product.name}`}
+      <div
+        className="group flex flex-col"
+        style={{
+          backgroundColor: '#FFFFFF',
+          border: '1px solid #EDE3D8',
+          overflow: 'hidden',
+        }}
       >
-        {/* Card container */}
-        <div
-          className="velvet-transition group-hover:shadow-lg"
-          style={{
-            backgroundColor: '#FAF9F6',
-            border: '0.5px solid rgba(201,167,124,0.15)',
-            overflow: 'hidden',
-            transition: 'box-shadow 0.5s ease, border-color 0.5s ease',
-          }}
-          onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(201,167,124,0.5)'}
-          onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(201,167,124,0.15)'}
+        {/* Image */}
+        <Link
+          to={createPageUrl("ProductDetail") + `?id=${product.id}`}
+          aria-label={`Ver detalhes de ${product.name}`}
+          className="block overflow-hidden"
+          style={{ aspectRatio: '3/4' }}
         >
-          {/* Image — 4:5 aspect ratio */}
-          <div style={{ position: 'relative', aspectRatio: '4/5', overflow: 'hidden', padding: '12px 12px 0' }}>
-            <img
-              src={product.image_url}
-              alt={product.name}
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                objectPosition: 'center top',
-                display: 'block',
-                transition: 'transform 0.7s cubic-bezier(0.22,1,0.36,1)',
-              }}
-              className="group-hover:scale-[1.03]"
-              loading="lazy"
-            />
-            {/* Featured badge */}
-            {product.featured && (
-              <div style={{
-                position: 'absolute',
-                top: 20,
-                left: 20,
-                padding: '4px 12px',
-                backgroundColor: '#C4937C',
-                color: '#FAF9F6',
-                fontFamily: 'Montserrat, sans-serif',
-                fontWeight: 400,
-                fontSize: '0.45rem',
-                letterSpacing: '0.22em',
-                textTransform: 'uppercase',
-                borderRadius: 999,
-              }}>
-                Destaque
-              </div>
-            )}
-          </div>
+          <img
+            src={product.image_url}
+            alt={product.name}
+            className="w-full h-full object-cover object-top group-hover:scale-[1.04] transition-transform duration-700"
+            loading="lazy"
+          />
+        </Link>
 
-          {/* Text info */}
-          <div style={{ padding: '16px 16px 20px', textAlign: 'center' }}>
-            <h3 style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontStyle: 'italic',
+        {/* Info */}
+        <div className="flex flex-col items-center gap-3 py-5 px-4 text-center">
+          <p
+            className="font-sans uppercase tracking-widest"
+            style={{ fontSize: '0.62rem', color: '#A17C7C', letterSpacing: '0.2em', fontWeight: 400 }}
+          >
+            {product.name}
+          </p>
+
+          <p
+            className="font-serif"
+            style={{ fontSize: '1.05rem', color: '#5A3E3E', fontWeight: 400 }}
+          >
+            R$ {Number(product.price).toFixed(2).replace('.', ',')}
+          </p>
+
+          <Link
+            to={createPageUrl("ProductDetail") + `?id=${product.id}`}
+            className="font-sans uppercase tracking-widest velvet-transition"
+            style={{
+              fontSize: '0.6rem',
+              letterSpacing: '0.18em',
+              color: '#A17C7C',
+              border: '1px solid #A17C7C',
+              padding: '7px 22px',
               fontWeight: 400,
-              fontSize: '1.05rem',
-              color: '#7A5C58',
-              lineHeight: 1.3,
-              margin: '0 0 8px',
-              letterSpacing: '0.01em',
-            }}>
-              {product.name}
-            </h3>
-            <p style={{
-              fontFamily: 'Montserrat, sans-serif',
-              fontWeight: 300,
-              fontSize: '0.75rem',
-              color: '#A08070',
-              letterSpacing: '0.08em',
-              margin: 0,
-            }}>
-              R$ {Number(product.price).toFixed(2).replace('.', ',')}
-            </p>
-          </div>
+            }}
+          >
+            Ver Mais
+          </Link>
         </div>
-      </Link>
+      </div>
     </motion.div>
   );
 }
