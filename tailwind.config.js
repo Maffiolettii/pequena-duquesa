@@ -17,6 +17,9 @@ module.exports = {
   			serif: ['Cormorant Garamond', 'serif'],
   			sans: ['Montserrat', 'sans-serif'],
   		},
+  		backgroundImage: {
+  			'hero-pattern': "url('https://media.base44.com/images/public/69b06ea4922854e28166d780/c4dad9bb6_IMG_7444.png')",
+  		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
