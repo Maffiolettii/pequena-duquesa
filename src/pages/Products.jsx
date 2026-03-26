@@ -52,10 +52,15 @@ export default function Products() {
       <div className="py-8 px-6 border-b" style={{ borderColor: 'rgba(161,124,124,0.15)' }}>
         <div className="max-w-7xl mx-auto flex justify-center">
           <ProductFilters
+            categories={[
+              { id: 'all', name: 'Todos' },
+              { id: 'vestidos', name: 'Vestidos' },
+              { id: 'conjuntos', name: 'Conjuntos' },
+              { id: 'acessorios', name: 'Acessórios' },
+              { id: 'calcados', name: 'Calçados' },
+            ]}
             activeCategory={activeCategory}
-            setActiveCategory={setActiveCategory}
-            activeCollection={activeCollection}
-            setActiveCollection={setActiveCollection}
+            onCategoryChange={setActiveCategory}
           />
         </div>
       </div>
