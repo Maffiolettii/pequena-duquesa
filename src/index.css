@@ -119,3 +119,41 @@ nav a:hover {
   background: var(--rosa-principal);
   border-radius: 10px;
 }
+
+/* No final do seu index.css */
+
+/* Remove paddings fantasmas de todas as seções */
+section, main > div {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Garante que o Header não tenha espaço embaixo */
+header {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  border-bottom: none !important;
+}
+
+/* Ajuste específico para aproximar o Hero da Logo no Mobile */
+@media (max-width: 768px) {
+  .hero-text-area, h1 {
+    margin-top: -10px !important;
+  }
+}
+
+/* Força o fundo creme em toda a página para não ver vãos brancos */
+body, #root, main {
+  background-color: #FFFAF0 !important;
+}
+
+
+
+
+
+
+
+
+
