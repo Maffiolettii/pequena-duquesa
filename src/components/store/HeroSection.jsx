@@ -54,23 +54,24 @@ export default function HeroSection() {
       overflow: 'hidden',
     }}>
 
-      {/* Subtle linen texture overlay */}
+      {/* Hero background image */}
       <div style={{
         position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none',
-        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E")`,
-        backgroundRepeat: 'repeat',
-        opacity: 0.6,
+        backgroundImage: `url("https://media.base44.com/images/public/69b06ea4922854e28166d780/c4dad9bb6_IMG_7444.png")`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center top',
+        backgroundRepeat: 'no-repeat',
       }} />
 
-      {/* Very soft radial blush glow */}
+      {/* Soft overlay for readability */}
       <div style={{
-        position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none',
-        background: 'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(234, 200, 190, 0.18) 0%, transparent 75%)',
+        position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none',
+        background: 'linear-gradient(to bottom, rgba(250,249,246,0.72) 0%, rgba(250,249,246,0.55) 50%, rgba(250,249,246,0.80) 100%)',
       }} />
 
       {/* Content */}
       <div style={{
-        position: 'relative', zIndex: 10,
+        position: 'relative', zIndex: 2,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
