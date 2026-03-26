@@ -80,7 +80,7 @@ export default function ProductDetail() {
 
   return (
     <div>
-      <div className="pt-24 sm:pt-32 pb-16 sm:pb-24 px-6">
+      <div className="pt-10 sm:pt-14 pb-16 sm:pb-24 px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
             <Link to={createPageUrl("Products")}

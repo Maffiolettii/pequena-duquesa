@@ -21,7 +21,7 @@ export default function Cart() {
   const [cep, setCep] = useState('');
 
   return (
-    <div className="pt-28 sm:pt-40 pb-24 px-6 min-h-screen bg-[#FFFAF0]">
+    <div className="pt-10 sm:pt-14 pb-24 px-6 min-h-screen bg-[#FFFAF0]">
       <div className="max-w-4xl mx-auto">
         {/* Header - Aumentamos o espaçamento para não colar no topo */}
         <motion.div
