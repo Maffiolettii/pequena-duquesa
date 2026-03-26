@@ -47,7 +47,7 @@ export default function Layout({ children, currentPageName }) {
         animate={isVisible ? { y: 0, opacity: 1 } : { y: "-100%", opacity: 0 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
         className="fixed top-0 left-0 w-full z-50 border-b border-duquesa-sepia/10"
-        style={{ backgroundColor: 'var(--rosa-pastel)', backdropFilter: 'blur(8px)', boxShadow: '0 4px 10px rgba(0,0,0,0.05)' }}
+        style={{ backgroundColor: '#FFFAF0', boxShadow: '0 4px 10px rgba(0,0,0,0.05)' }}
       >
         <div className="container mx-auto px-4 pt-4 pb-0">
 
