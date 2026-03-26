@@ -10,6 +10,22 @@
   --dusty-cedar: #A17C7C;
   --champagne-silk: #F1E4D1;
   --deep-cedar: #7A5A5A;
+
+  /* Nova paleta Primor */
+  --rosa-pastel: #F8E8EE;
+  --bege-claro: #FDFDF2;
+  --dourado-antigo: #E2C792;
+  --branco-creme: #FFFAF0;
+  --texto-suave: #4A4A4A;
+  --marrom-newsletter: #4A3A3A;
+  --rosa-principal: #D4A5A5;
+
+  /* Sombras */
+  --sombra-soft: 0 10px 30px rgba(212, 165, 165, 0.25);
+  --sombra-glow: 0 0 20px rgba(212, 165, 165, 0.4);
+
+  /* Transição padrão */
+  --transition-duquesa: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Custom Scrollbar */

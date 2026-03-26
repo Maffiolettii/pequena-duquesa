@@ -14,19 +14,26 @@ export default function HeroSection() {
         }}
         aria-hidden="true"
       />
-      {/* Overlay escuro suave à esquerda */}
-      <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.18) 60%, rgba(0,0,0,0.0) 100%)' }} />
+      {/* Overlay rosa pastel suave */}
+      <div className="absolute inset-0" style={{ backgroundColor: 'rgba(248, 232, 238, 0.35)' }} />
 
-      {/* Conteúdo — alinhado à esquerda como no design */}
-      <div className="relative z-10 h-full flex items-center px-8 sm:px-16 lg:px-24">
+      {/* Conteúdo — centralizado com card */}
+      <div className="relative z-10 h-full flex items-center justify-center px-6">
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-lg"
+          className="text-center max-w-2xl w-full"
+          style={{
+            backgroundColor: 'rgba(255, 250, 240, 0.82)',
+            borderRadius: '20px',
+            padding: 'clamp(1.5rem, 5vw, 3rem)',
+            backdropFilter: 'blur(6px)',
+            border: '1px solid rgba(226, 199, 146, 0.3)',
+          }}
         >
-          <p className="font-sans mb-4" style={{ fontSize: '0.55rem', letterSpacing: '0.32em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.75)' }}>
-            Ateliê Artesanal · Recife
+          <p className="font-sans mb-3" style={{ fontSize: '0.55rem', letterSpacing: '0.32em', textTransform: 'uppercase', color: '#A17C7C' }}>
+            Ateliê Online · Recife
           </p>
 
           <h1
@@ -34,36 +41,48 @@ export default function HeroSection() {
             style={{
               fontSize: 'clamp(2rem, 5vw, 3.5rem)',
               fontWeight: 300,
-              color: '#FFFFFF',
-              textShadow: '0 2px 12px rgba(0,0,0,0.25)',
+              color: '#4A3A3A',
             }}
           >
             Pequena Duquesa
           </h1>
 
           <p
-            className="font-serif italic mb-8"
+            className="font-serif italic mb-3"
             style={{
-              fontSize: 'clamp(1rem, 2vw, 1.25rem)',
+              fontSize: 'clamp(1rem, 2vw, 1.2rem)',
               fontWeight: 300,
-              color: 'rgba(255,255,255,0.88)',
+              color: '#6B5252',
             }}
           >
-            Peças bordadas à mão com amor e delicadeza, para a sua pequena duquesa.
+            Onde Sonhos se Tornam Vestidos.
+          </p>
+
+          <p
+            className="font-sans mb-8"
+            style={{
+              fontSize: '0.75rem',
+              fontWeight: 300,
+              letterSpacing: '0.08em',
+              color: '#4A4A4A',
+            }}
+          >
+            Moda atemporal e sofisticada para princesas de 1 a 6 anos.
           </p>
 
           <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
             <Link
               to={createPageUrl("Products")}
-              className="inline-block font-sans uppercase tracking-widest transition-colors duration-300"
+              className="inline-block font-sans uppercase tracking-widest velvet-transition"
               style={{
-                backgroundColor: 'rgba(255,255,255,0.18)',
-                border: '1.5px solid rgba(255,255,255,0.8)',
+                backgroundColor: 'var(--rosa-principal)',
+                border: '1px solid var(--dourado-antigo)',
                 color: '#FFFFFF',
-                padding: '12px 32px',
-                fontSize: '0.72rem',
+                padding: '14px 40px',
+                fontSize: '0.7rem',
                 letterSpacing: '0.18em',
-                backdropFilter: 'blur(4px)',
+                borderRadius: '30px',
+                boxShadow: 'var(--sombra-soft)',
               }}
             >
               Ver Coleção

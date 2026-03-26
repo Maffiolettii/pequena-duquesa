@@ -38,7 +38,7 @@ export default function Layout({ children, currentPageName }) {
   return (
     <div className="min-h-screen bg-duquesa-creme">
       {/* Navigation */}
-      <header className="w-full bg-duquesa-creme sticky top-0 z-50 border-b border-duquesa-sepia/10">
+      <header className="w-full sticky top-0 z-50 border-b border-duquesa-dourado/20" style={{ backgroundColor: 'var(--rosa-pastel)', boxShadow: '0 4px 10px rgba(0,0,0,0.05)' }}>
         <div className="container mx-auto px-4 pt-5 pb-0">
 
           {/* Logo + Nome centralizados */}
