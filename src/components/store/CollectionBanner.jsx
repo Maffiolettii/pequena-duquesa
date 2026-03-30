@@ -6,7 +6,7 @@ import { createPageUrl } from '@/utils';
 export default function CollectionBanner() {
   return (
     /* Ajustamos o fundo para o Rosa Pastel da marca (#F8E8EE) para suavizar a transição */
-    <section className="py-24 sm:py-32 px-6" style={{ backgroundColor: '#F8E8EE' }}>
+    <section className="pt-24 sm:pt-32 pb-24 sm:pb-32 px-6" style={{ backgroundColor: '#F8E8EE' }}>
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           

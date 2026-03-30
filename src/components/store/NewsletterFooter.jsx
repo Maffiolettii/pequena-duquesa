@@ -35,11 +35,11 @@ export default function NewsletterFooter() {
             placeholder="Seu melhor e-mail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="flex-1 bg-transparent border-b border-[#E2C792]/30 py-4 px-2 font-serif italic text-xl focus:outline-none focus:border-[#D4A5A5] transition-all placeholder:text-[#FFFAF0]/30"
+            className="flex-1 bg-transparent border-b-2 border-[#E2C792]/50 py-5 px-2 font-serif italic text-xl focus:outline-none focus:border-[#D4A5A5] transition-all placeholder:text-[#FFFAF0]/30 min-h-[56px]"
           />
           <button
             type="submit"
-            className="bg-[#D4A5A5] hover:bg-[#FFFAF0] hover:text-[#4A3A3A] text-white font-sans text-[10px] uppercase tracking-[0.25em] px-12 py-4 transition-all duration-500 rounded-full shadow-lg"
+            className="bg-[#D4A5A5] hover:bg-[#FFFAF0] hover:text-[#4A3A3A] text-white font-sans text-[10px] uppercase px-12 py-4 transition-all duration-500 rounded-full shadow-lg min-h-[56px]" style={{ letterSpacing: '0.1em' }}
           >
             Inscrever
           </button>

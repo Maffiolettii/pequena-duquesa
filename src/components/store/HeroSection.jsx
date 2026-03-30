@@ -10,7 +10,7 @@ export default function HeroSection() {
           pt-20 (mobile) e pt-28 (desktop) para garantir que o texto 
           não sobreponha a logo e o menu superior. 
       */}
-      <div className="w-full text-center px-6 pt-6 pb-10 md:pt-10 md:pb-16 bg-[#FFFAF0]">
+      <div className="w-full text-center px-6 pt-10 pb-10 md:pt-20 md:pb-16 bg-[#FFFAF0]">
         <motion.div 
           initial={{ opacity: 0, y: 10 }} 
           animate={{ opacity: 1, y: 0 }} 
@@ -32,7 +32,7 @@ export default function HeroSection() {
           
           <Link 
             to={createPageUrl("Products")} 
-            className="inline-block font-sans uppercase tracking-[0.2em] bg-[#D4A5A5] hover:bg-[#4A3A3A] text-white py-4 px-12 text-[0.7rem] rounded-full transition-all duration-300 shadow-sm"
+            className="inline-block font-sans uppercase bg-[#D4A5A5] hover:bg-[#4A3A3A] text-white py-4 px-12 text-[0.7rem] rounded-full transition-all duration-300 shadow-sm" style={{ letterSpacing: '0.1em' }}
           >
             Ver Coleção
           </Link>

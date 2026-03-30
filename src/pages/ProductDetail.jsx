@@ -127,11 +127,12 @@ export default function ProductDetail() {
                   <div className="flex gap-3 flex-wrap">
                     {product.sizes.map(size => (
                       <button key={size} onClick={() => setSelectedSize(size)}
-                        className="min-w-[44px] min-h-[44px] px-5 py-2 text-[10px] tracking-[0.2em] uppercase rounded-full transition-all duration-300 font-sans border"
+                        className="min-w-[44px] min-h-[44px] px-5 py-2 text-[10px] uppercase rounded-full transition-all duration-300 font-sans border"
                         style={{
-                          backgroundColor: selectedSize === size ? '#D4A5A5' : 'transparent',
-                          color: selectedSize === size ? '#FFFFFF' : '#A17C7C',
-                          borderColor: '#D4A5A5',
+                          letterSpacing: '0.1em',
+                          backgroundColor: selectedSize === size ? '#D4A5A5' : '#FFFAF0',
+                          color: selectedSize === size ? '#FFFFFF' : '#6B5252',
+                          borderColor: selectedSize === size ? '#D4A5A5' : '#C9A77C',
                         }}>
                         {size}
                       </button>
@@ -141,7 +142,7 @@ export default function ProductDetail() {
               )}
 
               <button onClick={handleAddToCart} disabled={!selectedSize && product.sizes && product.sizes.length > 0}
-                className="mt-8 px-10 py-4 text-[10px] tracking-[0.25em] uppercase rounded-full font-sans font-semibold min-h-[44px] flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed shadow-sm"
+                className="mt-8 px-10 py-4 text-[10px] uppercase rounded-full font-sans font-semibold min-h-[44px] flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed shadow-sm" style={{ letterSpacing: '0.1em' }}
                 style={{ color: '#FFFFFF', background: addedToCart ? '#4A3A3A' : '#D4A5A5' }}>
                 {addedToCart ? (
                   <><Check size={14} /> Adicionado</>

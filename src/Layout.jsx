@@ -49,7 +49,7 @@ export default function Layout({ children, currentPageName }) {
         className="fixed top-0 left-0 w-full z-50 border-b border-duquesa-sepia/10"
         style={{ backgroundColor: '#FFFAF0', boxShadow: '0 4px 10px rgba(0,0,0,0.05)' }}
       >
-        <div className="container mx-auto px-4 pt-4 pb-0">
+        <div className="container mx-auto px-4 pt-2 pb-0">
 
           {/* Logo + Nome centralizados */}
           <div className="flex flex-col items-center justify-center mb-3">
@@ -144,7 +144,7 @@ export default function Layout({ children, currentPageName }) {
       </motion.header>
 
       {/* Page Content — offset para o header fixo */}
-      <main className="pt-[60px]">
+      <main className="pt-[56px]">
         {children}
       </main>
     </div>
