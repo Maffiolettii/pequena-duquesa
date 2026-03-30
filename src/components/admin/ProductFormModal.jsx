@@ -11,6 +11,7 @@ const EMPTY_FORM = {
   sizes: [],
   image_url: '',
   image_url_2: '',
+  image_url_3: '',
   featured: false,
   in_stock: true,
 };
@@ -128,8 +129,8 @@ export default function ProductFormModal({ product, onClose, onSuccess }) {
           </div>
 
           {/* Images */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[{ label: 'Imagem Principal', field: 'image_url' }, { label: 'Imagem Secundária', field: 'image_url_2' }].map(img => (
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {[{ label: 'Imagem Principal', field: 'image_url' }, { label: 'Imagem 2', field: 'image_url_2' }, { label: 'Imagem 3', field: 'image_url_3' }].map(img => (
               <div key={img.field}>
                 <label className="label-style">{img.label}</label>
                 {form[img.field] && (

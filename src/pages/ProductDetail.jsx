@@ -8,6 +8,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useCart } from '../components/store/useCart';
 import NewsletterFooter from '../components/store/NewsletterFooter';
 import ProductCard from '../components/store/ProductCard';
+import ProductImageCarousel from '../components/store/ProductImageCarousel';
 
 const COLLECTION_LABELS = {
   classica: 'Coleção Clássica',
@@ -92,13 +93,7 @@ export default function ProductDetail() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
             <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}>
-              <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[20px] bg-[#FDFDF2] shadow-sm">
-                <img
-                  src={product.image_url}
-                  alt={product.name}
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
+              <ProductImageCarousel product={product} />
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}

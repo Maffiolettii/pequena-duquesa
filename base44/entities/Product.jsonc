@@ -1,0 +1,71 @@
+{
+  "name": "Product",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Nome do produto"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descri\u00e7\u00e3o detalhada do produto"
+    },
+    "price": {
+      "type": "number",
+      "description": "Pre\u00e7o do produto em reais"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "vestidos",
+        "conjuntos",
+        "acessorios",
+        "calcados"
+      ],
+      "description": "Categoria do produto"
+    },
+    "collection": {
+      "type": "string",
+      "enum": [
+        "classica",
+        "festiva",
+        "jardim",
+        "batizado"
+      ],
+      "description": "Cole\u00e7\u00e3o do produto"
+    },
+    "sizes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Tamanhos dispon\u00edveis"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "URL da imagem principal"
+    },
+    "image_url_2": {
+      "type": "string",
+      "description": "URL da segunda imagem"
+    },
+    "image_url_3": {
+      "type": "string",
+      "description": "URL da terceira imagem"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Produto em destaque"
+    },
+    "in_stock": {
+      "type": "boolean",
+      "default": true,
+      "description": "Dispon\u00edvel em estoque"
+    }
+  },
+  "required": [
+    "name",
+    "price"
+  ]
+}
