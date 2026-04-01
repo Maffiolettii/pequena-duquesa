@@ -8,7 +8,7 @@ export default function FeaturedProducts() {
     queryKey: ['products'],
     queryFn: () => base44.entities.Product.list(),
   });
-  const products = allProducts.filter(p => p.featured).slice(0, 3);
+  const products = allProducts.filter(p => p.featured && p.in_stock !== false).slice(0, 3);
 
   return (
     <section className="py-16 px-6 bg-[#FFFAF0]">

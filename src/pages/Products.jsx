@@ -23,6 +23,7 @@ export default function Products() {
   });
 
   const filtered = products.filter(p => {
+    if (p.in_stock === false) return false;
     const catMatch = activeCategory === 'all' || p.category === activeCategory;
     const colMatch = activeCollection === 'all' || p.collection === activeCollection;
     return catMatch && colMatch;
