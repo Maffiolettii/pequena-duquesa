@@ -26,7 +26,6 @@ export default function ProductCard({ product, index = 0 }) {
             alt={product.name}
             className="w-full h-full object-contain object-center transition-transform duration-700 group-hover:scale-[1.03]"
             loading="lazy"
-            style={{ padding: '12px' }}
           />
           {product.isNew && (
             <span className="absolute top-4 left-4 bg-[#FFFAF0]/90 backdrop-blur-sm text-[#A17C7C] text-[9px] tracking-[0.2em] uppercase px-3 py-1 rounded-full border border-[#E2C792]/20">
