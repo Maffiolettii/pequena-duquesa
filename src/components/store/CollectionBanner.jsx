@@ -23,7 +23,8 @@ export default function CollectionBanner() {
               <img
                 src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68bc37bca4385f82fa4d811b/e067683c2_photo_4_2026-03-10_14-31-56.jpg"
                 alt="Coleção Clássica Pequena Duquesa"
-                className="w-full aspect-[3/4] object-contain object-center rounded-[20px]"
+                className="w-full aspect-[3/4] object-cover rounded-[20px]"
+                style={{ objectPosition: 'center 10%' }}
               />
             </div>
             {/* Detalhe Decorativo sutil */}

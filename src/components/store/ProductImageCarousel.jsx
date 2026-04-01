@@ -17,7 +17,8 @@ export default function ProductImageCarousel({ product }) {
         <img
           src={images[current]}
           alt={`${product.name} - foto ${current + 1}`}
-          className="w-full h-full object-contain object-center transition-opacity duration-300"
+          className="w-full h-full object-cover transition-opacity duration-300"
+          style={{ objectPosition: 'center 15%' }}
         />
 
         {/* Nav arrows */}
@@ -72,7 +73,7 @@ export default function ProductImageCarousel({ product }) {
                 opacity: i === current ? 1 : 0.6,
               }}
             >
-              <img src={img} alt="" className="w-full h-full object-contain object-center" />
+              <img src={img} alt="" className="w-full h-full object-cover" style={{ objectPosition: 'center 15%' }} />
             </button>
           ))}
         </div>
