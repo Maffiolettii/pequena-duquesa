@@ -20,12 +20,13 @@ export default function ProductCard({ product, index = 0 }) {
         className="w-full flex flex-col items-center"
       >
         {/* CONTAINER DA IMAGEM - Bordas arredondadas de 20px conforme o padrão */}
-        <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[20px] bg-[#FDFDF2] shadow-sm transition-all duration-500 group-hover:shadow-lg">
+        <div className="relative w-full aspect-[3/4] overflow-hidden rounded-[20px] bg-[#FDFDF2] shadow-sm transition-all duration-500 group-hover:shadow-lg">
           <img
             src={product.image_url}
             alt={product.name}
-            className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            className="w-full h-full object-contain object-center transition-transform duration-700 group-hover:scale-[1.03]"
             loading="lazy"
+            style={{ padding: '12px' }}
           />
           {product.isNew && (
             <span className="absolute top-4 left-4 bg-[#FFFAF0]/90 backdrop-blur-sm text-[#A17C7C] text-[9px] tracking-[0.2em] uppercase px-3 py-1 rounded-full border border-[#E2C792]/20">

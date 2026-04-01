@@ -13,11 +13,12 @@ export default function ProductImageCarousel({ product }) {
   return (
     <div className="relative w-full">
       {/* Main image */}
-      <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[20px] bg-[#FDFDF2] shadow-sm">
+      <div className="relative w-full aspect-[3/4] overflow-hidden rounded-[20px] bg-[#FDFDF2] shadow-sm">
         <img
           src={images[current]}
           alt={`${product.name} - foto ${current + 1}`}
-          className="w-full h-full object-cover object-top transition-opacity duration-300"
+          className="w-full h-full object-contain object-center transition-opacity duration-300"
+          style={{ padding: '16px' }}
         />
 
         {/* Nav arrows */}
@@ -72,7 +73,7 @@ export default function ProductImageCarousel({ product }) {
                 opacity: i === current ? 1 : 0.6,
               }}
             >
-              <img src={img} alt="" className="w-full h-full object-cover object-top" />
+              <img src={img} alt="" className="w-full h-full object-contain object-center" style={{ padding: '4px' }} />
             </button>
           ))}
         </div>
