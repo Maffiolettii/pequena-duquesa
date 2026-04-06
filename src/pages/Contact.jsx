@@ -122,11 +122,11 @@ export default function Contact() {
               </div>
 
               {/* Decorative Image */}
-              <div className="mt-10 gilded-frame p-3 bg-white/40 hidden lg:block">
+              <div className="mt-10 hidden lg:block w-full aspect-[3/4] overflow-hidden rounded-[20px] shadow-sm">
                 <img
                   src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68bc37bca4385f82fa4d811b/595be2187_photo_18_2026-03-10_14-31-56.jpg"
                   alt="Vestido artesanal Pequena Duquesa"
-                  className="w-full aspect-[3/4] object-cover object-center"
+                  className="w-full h-full object-cover object-center"
                 />
               </div>
             </motion.div>
