@@ -14,6 +14,7 @@ const EMPTY_FORM = {
   image_url_3: '',
   featured: false,
   in_stock: true,
+  stock_quantity: 0,
 };
 
 const ALL_SIZES = ['RN', 'P', 'M', 'G', '1', '2', '3', '4', '5', '6'];
@@ -82,14 +83,19 @@ export default function ProductFormModal({ product, onClose, onSuccess }) {
               rows={3} className="input-style w-full resize-none" placeholder="Descrição detalhada do produto..." />
           </div>
 
-          {/* Price / Category / Collection */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {/* Price / Quantity / Category / Collection */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <div>
               <label className="label-style">Preço (R$) *</label>
               <input required type="number" step="0.01" min="0" value={form.price} onChange={e => set('price', e.target.value)}
                 className="input-style w-full" placeholder="299.90" />
             </div>
             <div>
+              <label className="label-style">Qtd. em Estoque</label>
+              <input type="number" min="0" value={form.stock_quantity ?? 0} onChange={e => set('stock_quantity', parseInt(e.target.value) || 0)}
+                className="input-style w-full" placeholder="0" />
+            </div>
+            <div className="col-span-2 sm:col-span-1">
               <label className="label-style">Categoria *</label>
               <select value={form.category} onChange={e => set('category', e.target.value)} className="input-style w-full">
                 <option value="vestidos">Vestidos</option>
@@ -98,7 +104,7 @@ export default function ProductFormModal({ product, onClose, onSuccess }) {
                 <option value="calcados">Calçados</option>
               </select>
             </div>
-            <div>
+            <div className="col-span-2 sm:col-span-1">
               <label className="label-style">Coleção</label>
               <select value={form.collection} onChange={e => set('collection', e.target.value)} className="input-style w-full">
                 <option value="classica">Clássica</option>

@@ -1,6 +1,14 @@
 import { useState, useEffect } from 'react';
+import { base44 } from '@/api/base44Client';
 
 const CART_KEY = 'pequena_duquesa_cart';
+
+// Global listeners for add-to-cart event
+const listeners = new Set();
+export function onAddToCart(fn) {
+  listeners.add(fn);
+  return () => listeners.delete(fn);
+}
 
 function getStoredCart() {
   const stored = localStorage.getItem(CART_KEY);
@@ -26,6 +34,18 @@ export function useCart() {
       }
       return [...prev, { ...product, size, quantity }];
     });
+    // Notify listeners (for toast notification)
+    listeners.forEach(fn => fn(product));
+
+    // Decrement stock in database
+    const currentQty = product.stock_quantity ?? 0;
+    if (currentQty > 0) {
+      const newQty = Math.max(0, currentQty - quantity);
+      base44.entities.Product.update(product.id, {
+        stock_quantity: newQty,
+        in_stock: newQty > 0,
+      }).catch(() => {});
+    }
   };
 
   const removeFromCart = (productId, size) => {

@@ -62,10 +62,33 @@
       "type": "boolean",
       "default": true,
       "description": "Dispon\u00edvel em estoque"
+    },
+    "stock_quantity": {
+      "type": "number",
+      "description": "Quantidade dispon\u00edvel em estoque",
+      "default": 0
     }
   },
   "required": [
     "name",
     "price"
-  ]
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
 }

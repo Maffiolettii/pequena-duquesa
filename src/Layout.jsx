@@ -3,8 +3,9 @@ import { Link, useLocation } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { ShoppingBag, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useCart } from './components/store/useCart';
+import { useCart, onAddToCart } from './components/store/useCart';
 import Logo from './components/store/Logo';
+import AddedToCartToast from './components/store/AddedToCartToast';
 
 const NAV_ITEMS = [
   { label: 'Início', page: 'Home' },
@@ -30,10 +31,18 @@ function useScrollDirection() {
 
 export default function Layout({ children, currentPageName }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [toastProduct, setToastProduct] = useState(null);
   const { cartCount } = useCart();
   const location = useLocation();
   const scrollDirection = useScrollDirection();
   const isVisible = scrollDirection === "up";
+
+  useEffect(() => {
+    const unsubscribe = onAddToCart((product) => {
+      setToastProduct(product);
+    });
+    return unsubscribe;
+  }, []);
 
   useEffect(() => {
     setMenuOpen(false);
@@ -147,6 +156,14 @@ export default function Layout({ children, currentPageName }) {
       <main className="pt-[56px]" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
         {children}
       </main>
+
+      {/* Toast de produto adicionado à sacola */}
+      {toastProduct && (
+        <AddedToCartToast
+          product={toastProduct}
+          onClose={() => setToastProduct(null)}
+        />
+      )}
     </div>
   );
 }

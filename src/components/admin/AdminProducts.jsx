@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { base44 } from '@/api/base44Client';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { Plus, Pencil, Trash2, Package, ToggleLeft, ToggleRight } from 'lucide-react';
+import { Plus, Pencil, Trash2, Package, ToggleLeft, ToggleRight, Minus } from 'lucide-react';
 import ProductFormModal from './ProductFormModal';
 
 export default function AdminProducts() {
@@ -17,6 +17,17 @@ export default function AdminProducts() {
 
   const toggleStock = useMutation({
     mutationFn: (product) => base44.entities.Product.update(product.id, { in_stock: !product.in_stock }),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['admin-products'] }),
+  });
+
+  const updateQuantity = useMutation({
+    mutationFn: ({ id, qty }) => {
+      const newQty = Math.max(0, qty);
+      return base44.entities.Product.update(id, {
+        stock_quantity: newQty,
+        in_stock: newQty > 0,
+      });
+    },
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ['admin-products'] }),
   });
 
@@ -116,12 +127,22 @@ export default function AdminProducts() {
                   </p>
                 </div>
                 <div className="flex flex-col items-center gap-2 shrink-0">
-                  <button onClick={() => toggleStock.mutate(product)} className="velvet-transition hover:opacity-70">
-                    {product.in_stock
-                      ? <ToggleRight size={24} color="#4A8A4A" />
-                      : <ToggleLeft size={24} color="#A17C7C" />
-                    }
-                  </button>
+                  {/* Estoque inline */}
+                  <div className="flex items-center gap-1">
+                    <button onClick={() => updateQuantity.mutate({ id: product.id, qty: (product.stock_quantity || 0) - 1 })}
+                      className="w-6 h-6 flex items-center justify-center border hover:opacity-70 transition-opacity"
+                      style={{ borderColor: 'rgba(161,124,124,0.3)' }}>
+                      <Minus size={10} color="#A17C7C" />
+                    </button>
+                    <span className="w-6 text-center text-xs" style={{ fontFamily: 'Montserrat, sans-serif', color: product.stock_quantity > 0 ? '#4A8A4A' : '#C06060' }}>
+                      {product.stock_quantity || 0}
+                    </span>
+                    <button onClick={() => updateQuantity.mutate({ id: product.id, qty: (product.stock_quantity || 0) + 1 })}
+                      className="w-6 h-6 flex items-center justify-center border hover:opacity-70 transition-opacity"
+                      style={{ borderColor: 'rgba(161,124,124,0.3)' }}>
+                      <Plus size={10} color="#A17C7C" />
+                    </button>
+                  </div>
                   <button onClick={() => handleEdit(product)} className="p-2 velvet-transition hover:opacity-70"
                     style={{ border: '1px solid rgba(161,124,124,0.3)' }}>
                     <Pencil size={14} color="#A17C7C" />
@@ -180,12 +201,22 @@ export default function AdminProducts() {
                       {(product.sizes || []).join(', ') || '—'}
                     </td>
                     <td className="py-3 pr-4">
-                      <button onClick={() => toggleStock.mutate(product)} className="velvet-transition hover:opacity-70">
-                        {product.in_stock
-                          ? <ToggleRight size={22} color="#4A8A4A" />
-                          : <ToggleLeft size={22} color="#A17C7C" />
-                        }
-                      </button>
+                      <div className="flex items-center gap-1.5">
+                        <button onClick={() => updateQuantity.mutate({ id: product.id, qty: (product.stock_quantity || 0) - 1 })}
+                          className="w-6 h-6 flex items-center justify-center border hover:opacity-70 transition-opacity"
+                          style={{ borderColor: 'rgba(161,124,124,0.3)' }}>
+                          <Minus size={10} color="#A17C7C" />
+                        </button>
+                        <span className="w-8 text-center text-sm font-medium"
+                          style={{ fontFamily: 'Cormorant Garamond, serif', color: (product.stock_quantity || 0) > 0 ? '#4A8A4A' : '#C06060' }}>
+                          {product.stock_quantity || 0}
+                        </span>
+                        <button onClick={() => updateQuantity.mutate({ id: product.id, qty: (product.stock_quantity || 0) + 1 })}
+                          className="w-6 h-6 flex items-center justify-center border hover:opacity-70 transition-opacity"
+                          style={{ borderColor: 'rgba(161,124,124,0.3)' }}>
+                          <Plus size={10} color="#A17C7C" />
+                        </button>
+                      </div>
                     </td>
                     <td className="py-3">
                       <div className="flex gap-2">
