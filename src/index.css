@@ -21,6 +21,14 @@
     font-family: 'Montserrat', sans-serif;
     background-color: var(--branco-creme) !important;
     overflow-x: hidden;
+    /* iOS Safari: evita scroll horizontal e bounce lateral */
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: none;
+  }
+
+  /* iOS: evita zoom automático ao focar inputs (font-size mínimo 16px) */
+  input, textarea, select {
+    font-size: 16px !important;
   }
 
   h1, h2, h3, h4, .font-serif {

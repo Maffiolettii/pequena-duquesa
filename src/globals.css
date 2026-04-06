@@ -28,7 +28,16 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  min-height: -webkit-fill-available; /* iOS Safari: altura real sem barra de endereços */
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: none;
+}
+
+/* iOS: evita zoom automático ao focar inputs */
+input, textarea, select {
+  font-size: 16px !important;
 }
 
 /* 2. HEADER SÓLIDO (Resolvendo a Transparência) */

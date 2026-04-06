@@ -143,8 +143,8 @@ export default function Layout({ children, currentPageName }) {
         </AnimatePresence>
       </motion.header>
 
-      {/* Page Content — offset para o header fixo */}
-      <main className="pt-[56px]">
+      {/* Page Content — offset para o header fixo + safe area iOS */}
+      <main className="pt-[56px]" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
         {children}
       </main>
     </div>
