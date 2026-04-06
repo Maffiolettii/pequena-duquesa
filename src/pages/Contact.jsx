@@ -50,9 +50,7 @@ export default function Contact() {
             >
               <p className="text-sm leading-relaxed mb-10"
                 style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C', fontWeight: 300, letterSpacing: '0.05em' }}>
-                Cada peça Pequena Duquesa é criada com dedicação artesanal. 
-                Se você deseja encomendar um vestido especial, tirar dúvidas sobre tamanhos 
-                ou conhecer mais sobre nosso trabalho, entre em contato.
+                Dúvidas sobre tamanhos, encomendas ou coleções? Fale com a gente.
               </p>
 
               <div className="space-y-6">
