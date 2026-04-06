@@ -23,6 +23,7 @@ export default function Contact() {
       message: form.message,
       status: 'novo',
     });
+    setForm({ name: '', email: '', phone: '', message: '' });
     setSubmitted(true);
     setSending(false);
   };
