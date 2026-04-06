@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, MapPin, Phone, Instagram } from 'lucide-react';
 import NewsletterFooter from '../components/store/NewsletterFooter';
+import { base44 } from '@/api/base44Client';
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
@@ -15,7 +16,13 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSending(true);
-    await new Promise(r => setTimeout(r, 1000));
+    await base44.entities.ContactMessage.create({
+      name: form.name,
+      email: form.email,
+      phone: form.phone,
+      message: form.message,
+      status: 'novo',
+    });
     setSubmitted(true);
     setSending(false);
   };
