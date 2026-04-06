@@ -1,0 +1,60 @@
+{
+  "name": "NewsletterCampaign",
+  "type": "object",
+  "properties": {
+    "subject": {
+      "type": "string",
+      "description": "Assunto do email"
+    },
+    "message": {
+      "type": "string",
+      "description": "Corpo da mensagem"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "URL da imagem principal"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "rascunho",
+        "enviado"
+      ],
+      "default": "rascunho"
+    },
+    "sent_at": {
+      "type": "string",
+      "description": "Data/hora do envio"
+    },
+    "recipients_count": {
+      "type": "number",
+      "description": "Quantidade de destinat\u00e1rios"
+    }
+  },
+  "required": [
+    "subject",
+    "message"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

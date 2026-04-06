@@ -5,11 +5,13 @@ import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import AdminProducts from '../components/admin/AdminProducts';
 import AdminMessages from '../components/admin/AdminMessages';
-import { Package, MessageSquare } from 'lucide-react';
+import AdminNewsletter from '../components/admin/AdminNewsletter';
+import { Package, MessageSquare, Mail } from 'lucide-react';
 
 const TABS = [
   { id: 'products', label: 'Produtos', icon: Package },
   { id: 'messages', label: 'Mensagens', icon: MessageSquare },
+  { id: 'newsletter', label: 'Newsletter', icon: Mail },
 ];
 
 export default function Admin() {
@@ -128,6 +130,7 @@ export default function Admin() {
       <div className="max-w-7xl mx-auto px-6 py-8">
         {activeTab === 'products' && <AdminProducts />}
         {activeTab === 'messages' && <AdminMessages />}
+        {activeTab === 'newsletter' && <AdminNewsletter />}
       </div>
     </div>
   );
