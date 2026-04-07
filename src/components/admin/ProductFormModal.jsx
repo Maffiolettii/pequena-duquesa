@@ -56,8 +56,8 @@ export default function ProductFormModal({ product, onClose, onSuccess }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ backgroundColor: 'rgba(0,0,0,0.4)' }}>
-      <div className="w-full max-w-2xl max-h-[90vh] overflow-y-auto" style={{ backgroundColor: '#FBFAF5' }}>
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:p-4" style={{ backgroundColor: 'rgba(0,0,0,0.4)' }}>
+      <div className="w-full sm:max-w-2xl max-h-[92vh] sm:max-h-[90vh] overflow-y-auto rounded-t-[20px] sm:rounded-none" style={{ backgroundColor: '#FBFAF5' }}>
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b" style={{ borderColor: 'rgba(161,124,124,0.2)' }}>
           <h2 className="text-2xl" style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontStyle: 'italic', color: '#7A5A5A' }}>
@@ -68,7 +68,7 @@ export default function ProductFormModal({ product, onClose, onSuccess }) {
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-6 space-y-5">
+        <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-5">
           {/* Name */}
           <div>
             <label className="label-style">Nome do Produto *</label>
@@ -83,8 +83,8 @@ export default function ProductFormModal({ product, onClose, onSuccess }) {
               rows={3} className="input-style w-full resize-none" placeholder="Descrição detalhada do produto..." />
           </div>
 
-          {/* Price / Quantity / Category / Collection */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          {/* Price / Quantity */}
+          <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="label-style">Preço (R$) *</label>
               <input required type="number" step="0.01" min="0" value={form.price} onChange={e => set('price', e.target.value)}
@@ -95,7 +95,11 @@ export default function ProductFormModal({ product, onClose, onSuccess }) {
               <input type="number" min="0" value={form.stock_quantity ?? 0} onChange={e => set('stock_quantity', parseInt(e.target.value) || 0)}
                 className="input-style w-full" placeholder="0" />
             </div>
-            <div className="col-span-2 sm:col-span-1">
+          </div>
+
+          {/* Category / Collection */}
+          <div className="grid grid-cols-2 gap-4">
+            <div>
               <label className="label-style">Categoria *</label>
               <select value={form.category} onChange={e => set('category', e.target.value)} className="input-style w-full">
                 <option value="vestidos">Vestidos</option>
@@ -104,7 +108,7 @@ export default function ProductFormModal({ product, onClose, onSuccess }) {
                 <option value="calcados">Calçados</option>
               </select>
             </div>
-            <div className="col-span-2 sm:col-span-1">
+            <div>
               <label className="label-style">Coleção</label>
               <select value={form.collection} onChange={e => set('collection', e.target.value)} className="input-style w-full">
                 <option value="classica">Clássica</option>
@@ -167,13 +171,13 @@ export default function ProductFormModal({ product, onClose, onSuccess }) {
           </div>
 
           {/* Actions */}
-          <div className="flex justify-end gap-3 pt-2">
-            <button type="button" onClick={onClose} className="px-6 py-2 text-xs tracking-[0.15em] uppercase border velvet-transition hover:opacity-70"
+          <div className="flex flex-col-reverse sm:flex-row sm:justify-end gap-3 pt-2 pb-2">
+            <button type="button" onClick={onClose} className="w-full sm:w-auto px-6 py-3 sm:py-2 text-xs tracking-[0.15em] uppercase border velvet-transition hover:opacity-70 min-h-[44px]"
               style={{ borderColor: 'rgba(161,124,124,0.3)', color: '#A17C7C', fontFamily: 'Montserrat, sans-serif' }}>
               Cancelar
             </button>
             <button type="submit" disabled={saving}
-              className="px-6 py-2 text-xs tracking-[0.15em] uppercase velvet-transition hover:opacity-80 flex items-center gap-2"
+              className="w-full sm:w-auto px-6 py-3 sm:py-2 text-xs tracking-[0.15em] uppercase velvet-transition hover:opacity-80 flex items-center justify-center gap-2 min-h-[44px]"
               style={{ backgroundColor: '#A17C7C', color: 'white', fontFamily: 'Montserrat, sans-serif' }}>
               {saving && <Loader2 size={12} className="animate-spin" />}
               {product ? 'Salvar Alterações' : 'Cadastrar Produto'}
