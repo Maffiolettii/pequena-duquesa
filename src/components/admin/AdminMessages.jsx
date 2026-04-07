@@ -1,7 +1,7 @@
 import React from 'react';
 import { base44 } from '@/api/base44Client';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { Mail, Phone, CheckCheck, Eye } from 'lucide-react';
+import { Mail, Phone, CheckCheck, Eye, Trash2 } from 'lucide-react';
 
 const STATUS_COLORS = {
   novo: { bg: '#F4E2E2', color: '#7A5A5A', label: 'Nova' },
@@ -19,6 +19,11 @@ export default function AdminMessages() {
 
   const updateStatus = useMutation({
     mutationFn: ({ id, status }) => base44.entities.ContactMessage.update(id, { status }),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['admin-messages'] }),
+  });
+
+  const deleteMessage = useMutation({
+    mutationFn: (id) => base44.entities.ContactMessage.delete(id),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ['admin-messages'] }),
   });
 
@@ -94,6 +99,15 @@ export default function AdminMessages() {
               >
                 <Mail size={12} /> Responder por E-mail
               </a>
+              {msg.status === 'respondido' && (
+                <button
+                  onClick={() => { if (confirm('Excluir esta mensagem?')) deleteMessage.mutate(msg.id); }}
+                  className="flex items-center gap-1 text-xs px-3 py-2 border velvet-transition hover:opacity-70"
+                  style={{ borderColor: 'rgba(200,100,100,0.3)', color: '#C06060', fontFamily: 'Montserrat, sans-serif' }}
+                >
+                  <Trash2 size={12} /> Excluir
+                </button>
+              )}
             </div>
           </div>
         );
