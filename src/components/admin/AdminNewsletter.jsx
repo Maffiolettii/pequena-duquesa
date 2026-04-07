@@ -59,18 +59,18 @@ export default function AdminNewsletter() {
   return (
     <div>
       {/* Stats */}
-      <div className="flex items-center gap-6 mb-8">
-        <div className="px-5 py-3 border" style={{ borderColor: 'rgba(161,124,124,0.2)', backgroundColor: 'white' }}>
+      <div className="flex flex-wrap items-center gap-3 sm:gap-6 mb-6 sm:mb-8">
+        <div className="px-4 py-3 border" style={{ borderColor: 'rgba(161,124,124,0.2)', backgroundColor: 'white' }}>
           <p style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '0.6rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#A17C7C' }}>Inscritos</p>
-          <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '2rem', color: '#7A5A5A' }}>{subscribers.length}</p>
+          <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.75rem', color: '#7A5A5A' }}>{subscribers.length}</p>
         </div>
-        <div className="px-5 py-3 border" style={{ borderColor: 'rgba(161,124,124,0.2)', backgroundColor: 'white' }}>
-          <p style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '0.6rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#A17C7C' }}>Campanhas enviadas</p>
-          <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '2rem', color: '#7A5A5A' }}>{campaigns.filter(c => c.status === 'enviado').length}</p>
+        <div className="px-4 py-3 border" style={{ borderColor: 'rgba(161,124,124,0.2)', backgroundColor: 'white' }}>
+          <p style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '0.6rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#A17C7C' }}>Enviadas</p>
+          <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.75rem', color: '#7A5A5A' }}>{campaigns.filter(c => c.status === 'enviado').length}</p>
         </div>
         <button
           onClick={() => setShowForm(!showForm)}
-          className="ml-auto flex items-center gap-2 px-5 py-2 text-xs tracking-[0.15em] uppercase hover:opacity-80 velvet-transition"
+          className="flex items-center gap-2 px-4 py-2 text-xs tracking-[0.15em] uppercase hover:opacity-80 velvet-transition ml-auto"
           style={{ backgroundColor: '#A17C7C', color: 'white', fontFamily: 'Montserrat, sans-serif' }}
         >
           <Plus size={14} /> Nova Campanha
@@ -128,34 +128,36 @@ export default function AdminNewsletter() {
       ) : (
         <div className="space-y-3">
           {campaigns.map(c => (
-            <div key={c.id} className="flex items-center gap-4 p-4 border" style={{ borderColor: 'rgba(161,124,124,0.15)', backgroundColor: 'white' }}>
-              {c.image_url && (
-                <img src={c.image_url} alt="" className="w-14 h-14 object-cover rounded-lg shrink-0" />
-              )}
-              <div className="flex-1 min-w-0">
-                <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.1rem', color: '#7A5A5A' }}>{c.subject}</p>
-                <p className="truncate text-xs mt-0.5" style={{ color: '#A17C7C', fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}>{c.message}</p>
-                {c.status === 'enviado' && (
-                  <p className="flex items-center gap-1 mt-1" style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '0.65rem', color: '#4A8A4A' }}>
-                    <CheckCircle2 size={11} /> Enviado para {c.recipients_count} inscritos · {new Date(c.sent_at).toLocaleDateString('pt-BR')}
-                  </p>
+            <div key={c.id} className="p-4 border" style={{ borderColor: 'rgba(161,124,124,0.15)', backgroundColor: 'white' }}>
+              <div className="flex items-start gap-3">
+                {c.image_url && (
+                  <img src={c.image_url} alt="" className="w-12 h-12 sm:w-14 sm:h-14 object-cover rounded-lg shrink-0" />
                 )}
+                <div className="flex-1 min-w-0">
+                  <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.05rem', color: '#7A5A5A' }}>{c.subject}</p>
+                  <p className="truncate text-xs mt-0.5" style={{ color: '#A17C7C', fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}>{c.message}</p>
+                  {c.status === 'enviado' && (
+                    <p className="flex items-center gap-1 mt-1" style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '0.65rem', color: '#4A8A4A' }}>
+                      <CheckCircle2 size={11} /> Enviado para {c.recipients_count} · {new Date(c.sent_at).toLocaleDateString('pt-BR')}
+                    </p>
+                  )}
+                </div>
+                <button onClick={() => { if (confirm('Excluir campanha?')) deleteCampaign.mutate(c.id); }}
+                  className="p-2 velvet-transition hover:opacity-70 border shrink-0"
+                  style={{ borderColor: 'rgba(200,100,100,0.3)' }}>
+                  <Trash2 size={13} color="#C06060" />
+                </button>
               </div>
-              <div className="flex items-center gap-2 shrink-0">
-                {c.status !== 'enviado' && (
+              {c.status !== 'enviado' && (
+                <div className="mt-3 flex justify-end">
                   <button onClick={() => handleSend(c)} disabled={sending === c.id}
                     className="flex items-center gap-1.5 px-4 py-2 text-xs tracking-[0.12em] uppercase velvet-transition hover:opacity-80 disabled:opacity-50"
                     style={{ backgroundColor: '#D4A5A5', color: 'white', fontFamily: 'Montserrat, sans-serif' }}>
                     {sending === c.id ? <Loader2 size={12} className="animate-spin" /> : <Send size={12} />}
                     Enviar
                   </button>
-                )}
-                <button onClick={() => { if (confirm('Excluir campanha?')) deleteCampaign.mutate(c.id); }}
-                  className="p-2 velvet-transition hover:opacity-70 border"
-                  style={{ borderColor: 'rgba(200,100,100,0.3)' }}>
-                  <Trash2 size={13} color="#C06060" />
-                </button>
-              </div>
+                </div>
+              )}
             </div>
           ))}
         </div>

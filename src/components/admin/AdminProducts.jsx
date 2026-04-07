@@ -68,13 +68,13 @@ export default function AdminProducts() {
   return (
     <div>
       {/* Toolbar */}
-      <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-        <div className="flex gap-2 flex-wrap">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-6">
+        <div className="flex gap-2 flex-wrap flex-1">
           {categories.map(cat => (
             <button
               key={cat.id}
               onClick={() => setFilterCategory(cat.id)}
-              className="text-xs px-4 py-2 tracking-widest uppercase velvet-transition"
+              className="text-[10px] sm:text-xs px-3 sm:px-4 py-2 tracking-widest uppercase velvet-transition min-h-[36px]"
               style={{
                 fontFamily: 'Montserrat, sans-serif',
                 backgroundColor: filterCategory === cat.id ? '#7A5A5A' : 'transparent',
@@ -88,7 +88,7 @@ export default function AdminProducts() {
         </div>
         <button
           onClick={handleNew}
-          className="flex items-center gap-2 px-5 py-2 text-xs tracking-[0.15em] uppercase velvet-transition hover:opacity-80"
+          className="flex items-center justify-center gap-2 px-5 py-2.5 text-xs tracking-[0.15em] uppercase velvet-transition hover:opacity-80 min-h-[44px] w-full sm:w-auto"
           style={{ backgroundColor: '#A17C7C', color: 'white', fontFamily: 'Montserrat, sans-serif' }}
         >
           <Plus size={14} /> Novo Produto

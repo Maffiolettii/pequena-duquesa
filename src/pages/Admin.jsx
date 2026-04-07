@@ -78,33 +78,33 @@ export default function Admin() {
           </h1>
 
           {/* Stats */}
-          <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-4">
-            <div className="p-4 border" style={{ borderColor: 'rgba(161,124,124,0.2)', backgroundColor: 'white' }}>
-              <p className="text-xs tracking-widest uppercase" style={{ color: '#A17C7C', fontFamily: 'Montserrat, sans-serif' }}>Total Produtos</p>
-              <p className="text-3xl mt-1" style={{ fontFamily: 'Cormorant Garamond, serif', color: '#7A5A5A' }}>{products.length}</p>
+          <div className="mt-4 sm:mt-6 grid grid-cols-3 gap-3 sm:gap-4">
+            <div className="p-3 sm:p-4 border" style={{ borderColor: 'rgba(161,124,124,0.2)', backgroundColor: 'white' }}>
+              <p className="text-[9px] sm:text-xs tracking-widest uppercase" style={{ color: '#A17C7C', fontFamily: 'Montserrat, sans-serif' }}>Produtos</p>
+              <p className="text-2xl sm:text-3xl mt-1" style={{ fontFamily: 'Cormorant Garamond, serif', color: '#7A5A5A' }}>{products.length}</p>
             </div>
-            <div className="p-4 border" style={{ borderColor: 'rgba(161,124,124,0.2)', backgroundColor: 'white' }}>
-              <p className="text-xs tracking-widest uppercase" style={{ color: '#A17C7C', fontFamily: 'Montserrat, sans-serif' }}>Em Estoque</p>
-              <p className="text-3xl mt-1" style={{ fontFamily: 'Cormorant Garamond, serif', color: '#7A5A5A' }}>{products.filter(p => p.in_stock).length}</p>
+            <div className="p-3 sm:p-4 border" style={{ borderColor: 'rgba(161,124,124,0.2)', backgroundColor: 'white' }}>
+              <p className="text-[9px] sm:text-xs tracking-widest uppercase" style={{ color: '#A17C7C', fontFamily: 'Montserrat, sans-serif' }}>Em Estoque</p>
+              <p className="text-2xl sm:text-3xl mt-1" style={{ fontFamily: 'Cormorant Garamond, serif', color: '#7A5A5A' }}>{products.filter(p => p.in_stock).length}</p>
             </div>
-            <div className="p-4 border col-span-2 sm:col-span-1" style={{ borderColor: 'rgba(161,124,124,0.2)', backgroundColor: 'white' }}>
-              <p className="text-xs tracking-widest uppercase" style={{ color: '#A17C7C', fontFamily: 'Montserrat, sans-serif' }}>Mensagens Novas</p>
-              <p className="text-3xl mt-1" style={{ fontFamily: 'Cormorant Garamond, serif', color: '#7A5A5A' }}>{newMessages}</p>
+            <div className="p-3 sm:p-4 border" style={{ borderColor: 'rgba(161,124,124,0.2)', backgroundColor: 'white' }}>
+              <p className="text-[9px] sm:text-xs tracking-widest uppercase" style={{ color: '#A17C7C', fontFamily: 'Montserrat, sans-serif' }}>Mensagens</p>
+              <p className="text-2xl sm:text-3xl mt-1" style={{ fontFamily: 'Cormorant Garamond, serif', color: '#7A5A5A' }}>{newMessages}</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Tabs */}
-      <div className="px-6 border-b" style={{ borderColor: 'rgba(161,124,124,0.15)' }}>
-        <div className="max-w-7xl mx-auto flex gap-0">
+      <div className="border-b overflow-x-auto" style={{ borderColor: 'rgba(161,124,124,0.15)' }}>
+        <div className="max-w-7xl mx-auto flex min-w-max px-4 sm:px-6">
           {TABS.map(tab => {
             const Icon = tab.icon;
             return (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className="flex items-center gap-2 px-6 py-4 text-xs tracking-[0.15em] uppercase velvet-transition border-b-2"
+                className="flex items-center gap-2 px-4 sm:px-6 py-4 text-[10px] sm:text-xs tracking-[0.15em] uppercase velvet-transition border-b-2 whitespace-nowrap min-h-[44px]"
                 style={{
                   fontFamily: 'Montserrat, sans-serif',
                   color: activeTab === tab.id ? '#7A5A5A' : '#A17C7C',
@@ -127,7 +127,7 @@ export default function Admin() {
       </div>
 
       {/* Content */}
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
         {activeTab === 'products' && <AdminProducts />}
         {activeTab === 'messages' && <AdminMessages />}
         {activeTab === 'newsletter' && <AdminNewsletter />}
