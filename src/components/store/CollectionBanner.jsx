@@ -40,18 +40,18 @@ export default function CollectionBanner() {
             className="text-center md:text-left"
           >
             <p className="text-[10px] tracking-[0.4em] uppercase mb-6"
-              style={{ fontFamily: 'Montserrat, sans-serif', color: '#6B5252' }}>
+              style={{ fontFamily: 'Montserrat, sans-serif', color: '#4A2A2A' }}>
               Tradição e Delicadeza
             </p>
             
             <h2 className="text-4xl md:text-5xl lg:text-6xl leading-[1.1]"
-              style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, color: '#4A3A3A' }}>
+              style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 400, color: '#2A1A1A' }}>
               Cada peça conta uma <br className="hidden lg:block" /> 
               <span className="italic">história de amor</span>
             </h2>
             
-            <p className="mt-8 text-sm md:text-base leading-relaxed max-w-md text-[#6B5252]"
-              style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300, letterSpacing: '0.03em' }}>
+            <p className="mt-8 text-sm md:text-base leading-relaxed max-w-md text-[#4A2A2A]"
+              style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 400, letterSpacing: '0.03em' }}>
               Nossas peças são cuidadosamente bordadas à mão, usando tecidos naturais 
               que respeitam a delicadeza da pele infantil. Cada vestido é uma obra 
               única para ser guardada como herança.

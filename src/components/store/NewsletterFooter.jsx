@@ -33,7 +33,7 @@ export default function NewsletterFooter() {
           <h2 className="font-serif italic text-4xl md:text-6xl mb-6 tracking-wide text-[#E2C792]">
             Carta à Duquesa
           </h2>
-          <p className="font-sans text-[10px] md:text-[12px] tracking-[0.3em] uppercase opacity-70 mb-12 max-w-md mx-auto leading-relaxed">
+          <p className="font-sans text-[10px] md:text-[12px] tracking-[0.3em] uppercase opacity-90 mb-12 max-w-md mx-auto leading-relaxed">
             Seja a primeira a descobrir nossas novas coleções e peças exclusivas.
           </p>
         </motion.div>
@@ -72,7 +72,7 @@ export default function NewsletterFooter() {
         )}
 
         {/* Rodapé de Créditos - Separado com elegância */}
-        <div className="mt-24 pt-10 border-t border-[#FFFAF0]/5 flex flex-col md:flex-row justify-between items-center gap-8 opacity-50">
+        <div className="mt-24 pt-10 border-t border-[#FFFAF0]/20 flex flex-col md:flex-row justify-between items-center gap-8 opacity-80">
           <p className="font-sans text-[9px] tracking-[0.2em] uppercase">
             © 2026 Pequena Duquesa · Todos os direitos reservados
           </p>

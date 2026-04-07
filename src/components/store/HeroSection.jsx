@@ -18,14 +18,14 @@ export default function HeroSection() {
         >
           <h1 
             className="font-serif leading-tight mb-5" 
-            style={{ fontSize: 'clamp(1.8rem, 7vw, 3.5rem)', color: '#4A3A3A' }}
+            style={{ fontSize: 'clamp(1.8rem, 7vw, 3.5rem)', color: '#2A1A1A' }}
           >
             Vestidos artesanais <br className="md:hidden"/> bordados a mão
           </h1>
           
           <p 
             className="font-serif italic mb-8 px-4 max-w-2xl mx-auto" 
-            style={{ fontSize: 'clamp(0.95rem, 3.5vw, 1.4rem)', color: '#6B5252', lineHeight: '1.4' }}
+            style={{ fontSize: 'clamp(0.95rem, 3.5vw, 1.4rem)', color: '#4A3030', lineHeight: '1.4' }}
           >
             criados com amor para transformar cada momento em memória eterna – para a sua pequena duquesa
           </p>

@@ -15,10 +15,10 @@ export default function FeaturedProducts() {
       <div className="max-w-7xl mx-auto">
         {/* Título da Seção */}
         <div className="text-center mb-12">
-          <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#A17C7C] mb-2">
+          <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#7A4A4A] mb-2">
             Seleção Especial
           </p>
-          <h2 className="font-serif italic text-3xl md:text-4xl text-[#4A3A3A]">
+          <h2 className="font-serif italic text-3xl md:text-4xl text-[#2A1A1A]">
             Destaques da Coleção
           </h2>
           <div className="w-12 h-[1px] bg-[#E2C792] mx-auto mt-4 opacity-50" />
