@@ -1,4 +1,6 @@
 import { Toaster } from "@/components/ui/toaster"
+import Admin from './pages/Admin';
+import AdminGuard from './components/AdminGuard';
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClientInstance } from '@/lib/query-client'
 import { pagesConfig } from './pages.config'
@@ -57,6 +59,13 @@ const AuthenticatedApp = () => {
           }
         />
       ))}
+      <Route path="/Admin" element={
+        <AdminGuard>
+          <LayoutWrapper currentPageName="Admin">
+            <Admin />
+          </LayoutWrapper>
+        </AdminGuard>
+      } />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

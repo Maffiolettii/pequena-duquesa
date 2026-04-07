@@ -62,7 +62,6 @@ export const PAGES = {
     "Home": Home,
     "ProductDetail": ProductDetail,
     "Products": Products,
-    "Admin": Admin,
 }
 
 export const pagesConfig = {
