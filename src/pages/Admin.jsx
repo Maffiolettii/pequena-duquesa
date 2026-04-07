@@ -68,7 +68,7 @@ export default function Admin() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#FBFAF5' }}>
       {/* Header */}
-      <div className="pt-24 pb-6 px-6 border-b" style={{ borderColor: 'rgba(161,124,124,0.15)' }}>
+      <div className="pt-16 sm:pt-24 pb-6 px-4 sm:px-6 border-b" style={{ borderColor: 'rgba(161,124,124,0.15)' }}>
         <div className="max-w-7xl mx-auto">
           <p className="text-xs tracking-[0.3em] uppercase mb-1" style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C' }}>
             Painel de Controle

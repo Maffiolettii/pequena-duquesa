@@ -12,8 +12,7 @@ export default function ProductCard({ product, index = 0, imgPosition = 'center 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: index * 0.08 }}
-      /* Adicionamos mb-12 para garantir que uma linha de produtos não cole na outra */
-      className="group flex flex-col items-center w-full mb-12"
+      className="group flex flex-col items-center w-full"
     >
       <Link
         to={createPageUrl("ProductDetail") + `?id=${product.id}`}
@@ -35,21 +34,21 @@ export default function ProductCard({ product, index = 0, imgPosition = 'center 
           )}
         </div>
 
-        {/* INFO DO PRODUTO - Aumentamos o mt (margin-top) para respirar */}
-        <div className="mt-6 text-center px-2">
-          <h3 className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#4A3A3A] font-semibold mb-2 opacity-90">
+        {/* INFO DO PRODUTO */}
+        <div className="mt-4 text-center px-1 w-full">
+          <h3 className="font-sans text-[9px] sm:text-[10px] tracking-[0.15em] sm:tracking-[0.25em] uppercase text-[#4A3A3A] font-semibold mb-1.5 opacity-90 leading-tight">
             {product.name}
           </h3>
 
-          <p className="font-serif italic text-base md:text-lg text-[#6B5252] mb-5">
+          <p className="font-serif italic text-sm sm:text-base md:text-lg text-[#6B5252] mb-3 sm:mb-5">
             {new Intl.NumberFormat('pt-BR', {
               style: 'currency',
               currency: 'BRL'
             }).format(product.price)}
           </p>
 
-          {/* BOTÃO PADRONIZADO - Rosa Duquesa com hover Marrom */}
-          <div className="inline-block bg-[#D4A5A5] group-hover:bg-[#4A3A3A] text-white font-sans text-[8px] md:text-[9px] uppercase tracking-[0.25em] px-10 py-3 rounded-full transition-all duration-300 shadow-sm transform group-hover:-translate-y-1">
+          {/* BOTÃO */}
+          <div className="inline-block bg-[#D4A5A5] group-hover:bg-[#4A3A3A] text-white font-sans text-[7px] sm:text-[9px] uppercase tracking-[0.15em] sm:tracking-[0.25em] px-6 sm:px-10 py-2.5 sm:py-3 rounded-full transition-all duration-300 shadow-sm transform group-hover:-translate-y-1">
             Ver Detalhes
           </div>
         </div>

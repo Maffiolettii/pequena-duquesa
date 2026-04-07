@@ -81,7 +81,7 @@ export default function ProductDetail() {
 
   return (
     <div>
-      <div className="pt-10 sm:pt-14 pb-16 sm:pb-24 px-6">
+      <div className="pt-14 sm:pt-16 pb-16 sm:pb-24 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
             <Link to={createPageUrl("Products")}
@@ -142,8 +142,8 @@ export default function ProductDetail() {
               )}
 
               <button onClick={handleAddToCart} disabled={!selectedSize && product.sizes && product.sizes.length > 0}
-                className="mt-8 px-10 py-4 text-[10px] uppercase rounded-full font-sans font-semibold min-h-[44px] flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed shadow-sm" style={{ letterSpacing: '0.1em' }}
-                style={{ color: '#FFFFFF', background: addedToCart ? '#4A3A3A' : '#D4A5A5' }}>
+                className="mt-8 px-10 py-4 text-[10px] uppercase rounded-full font-sans font-semibold min-h-[44px] flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed shadow-sm"
+                style={{ letterSpacing: '0.1em', color: '#FFFFFF', background: addedToCart ? '#4A3A3A' : '#D4A5A5' }}>
                 {addedToCart ? (
                   <><Check size={14} /> Adicionado</>
                 ) : (

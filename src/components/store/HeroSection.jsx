@@ -10,7 +10,7 @@ export default function HeroSection() {
           pt-20 (mobile) e pt-28 (desktop) para garantir que o texto 
           não sobreponha a logo e o menu superior. 
       */}
-      <div className="w-full text-center px-6 pt-10 pb-10 md:pt-20 md:pb-16 bg-[#FFFAF0]">
+      <div className="w-full text-center px-6 pt-14 pb-10 md:pt-20 md:pb-16 bg-[#FFFAF0]">
         <motion.div 
           initial={{ opacity: 0, y: 10 }} 
           animate={{ opacity: 1, y: 0 }} 

@@ -30,7 +30,7 @@ export default function Contact() {
 
   return (
     <div>
-      <div className="pt-10 sm:pt-14 pb-20 px-6">
+      <div className="pt-14 sm:pt-16 pb-20 px-6">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
           <motion.div
