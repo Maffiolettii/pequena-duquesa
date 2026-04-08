@@ -20,11 +20,13 @@ export default function AdminMessages() {
   const updateStatus = useMutation({
     mutationFn: ({ id, status }) => base44.entities.ContactMessage.update(id, { status }),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ['admin-messages'] }),
+    onError: (err) => { console.error('Erro ao atualizar mensagem:', err); alert('Erro ao atualizar. Tente novamente.'); },
   });
 
   const deleteMessage = useMutation({
     mutationFn: (id) => base44.entities.ContactMessage.delete(id),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ['admin-messages'] }),
+    onError: (err) => { console.error('Erro ao excluir mensagem:', err); alert('Erro ao excluir. Tente novamente.'); },
   });
 
   if (isLoading) {

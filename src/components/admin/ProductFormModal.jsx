@@ -37,22 +37,34 @@ export default function ProductFormModal({ product, onClose, onSuccess }) {
     const file = e.target.files[0];
     if (!file) return;
     setUploading(true);
-    const { file_url } = await base44.integrations.Core.UploadFile({ file });
-    set(field, file_url);
-    setUploading(false);
+    try {
+      const { file_url } = await base44.integrations.Core.UploadFile({ file });
+      set(field, file_url);
+    } catch (err) {
+      console.error('Erro ao fazer upload:', err);
+      alert('Erro ao enviar imagem. Tente novamente.');
+    } finally {
+      setUploading(false);
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSaving(true);
-    const data = { ...form, price: parseFloat(form.price) };
-    if (product) {
-      await base44.entities.Product.update(product.id, data);
-    } else {
-      await base44.entities.Product.create(data);
+    try {
+      const data = { ...form, price: parseFloat(form.price) };
+      if (product) {
+        await base44.entities.Product.update(product.id, data);
+      } else {
+        await base44.entities.Product.create(data);
+      }
+      onSuccess();
+    } catch (err) {
+      console.error('Erro ao salvar produto:', err);
+      alert('Erro ao salvar produto. Tente novamente.');
+    } finally {
+      setSaving(false);
     }
-    setSaving(false);
-    onSuccess();
   };
 
   return (

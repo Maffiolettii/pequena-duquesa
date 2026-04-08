@@ -40,17 +40,29 @@ export default function AdminNewsletter() {
     const file = e.target.files[0];
     if (!file) return;
     setUploading(true);
-    const { file_url } = await base44.integrations.Core.UploadFile({ file });
-    setForm(f => ({ ...f, image_url: file_url }));
-    setUploading(false);
+    try {
+      const { file_url } = await base44.integrations.Core.UploadFile({ file });
+      setForm(f => ({ ...f, image_url: file_url }));
+    } catch (err) {
+      console.error('Erro ao fazer upload:', err);
+      alert('Erro ao enviar imagem. Tente novamente.');
+    } finally {
+      setUploading(false);
+    }
   };
 
   const handleSend = async (campaign) => {
     if (!confirm(`Enviar "${campaign.subject}" para ${subscribers.length} inscritos?`)) return;
     setSending(campaign.id);
-    await base44.functions.invoke('sendNewsletter', { campaignId: campaign.id });
-    queryClient.invalidateQueries({ queryKey: ['campaigns'] });
-    setSending(null);
+    try {
+      await base44.functions.invoke('sendNewsletter', { campaignId: campaign.id });
+      queryClient.invalidateQueries({ queryKey: ['campaigns'] });
+    } catch (err) {
+      console.error('Erro ao enviar campanha:', err);
+      alert('Erro ao enviar campanha. Tente novamente.');
+    } finally {
+      setSending(null);
+    }
   };
 
   const labelStyle = { fontFamily: 'Montserrat, sans-serif', fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#A17C7C', display: 'block', marginBottom: '0.4rem' };
