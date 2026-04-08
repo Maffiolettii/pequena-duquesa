@@ -17,7 +17,11 @@ const EMPTY_FORM = {
   stock_quantity: 0,
 };
 
-const ALL_SIZES = ['RN', 'P', 'M', 'G', '1', '2', '3', '4', '5', '6'];
+const ALL_SIZES = [
+  { id: 'P baby', label: 'P baby', sub: '2-5 meses' },
+  { id: 'M baby', label: 'M baby', sub: '5-7 meses' },
+  { id: 'G baby', label: 'G baby', sub: '7-12 meses' },
+];
 
 export default function ProductFormModal({ product, onClose, onSuccess }) {
   const [form, setForm] = useState(product ? { ...product } : EMPTY_FORM);
@@ -26,10 +30,10 @@ export default function ProductFormModal({ product, onClose, onSuccess }) {
 
   const set = (field, value) => setForm(f => ({ ...f, [field]: value }));
 
-  const toggleSize = (size) => {
-    set('sizes', form.sizes.includes(size)
-      ? form.sizes.filter(s => s !== size)
-      : [...form.sizes, size]
+  const toggleSize = (sizeId) => {
+    set('sizes', form.sizes.includes(sizeId)
+      ? form.sizes.filter(s => s !== sizeId)
+      : [...form.sizes, sizeId]
     );
   };
 
@@ -134,17 +138,19 @@ export default function ProductFormModal({ product, onClose, onSuccess }) {
           {/* Sizes */}
           <div>
             <label className="label-style">Tamanhos Disponíveis</label>
-            <div className="flex flex-wrap gap-2 mt-2">
+            <div className="flex flex-wrap gap-3 mt-2">
               {ALL_SIZES.map(s => (
-                <button key={s} type="button" onClick={() => toggleSize(s)}
-                  className="w-10 h-10 text-xs velvet-transition border"
+                <button key={s.id} type="button" onClick={() => toggleSize(s.id)}
+                  className="flex flex-col items-center justify-center px-4 py-2 text-xs velvet-transition border"
                   style={{
                     fontFamily: 'Montserrat, sans-serif',
-                    backgroundColor: form.sizes.includes(s) ? '#7A5A5A' : 'transparent',
-                    color: form.sizes.includes(s) ? 'white' : '#A17C7C',
-                    borderColor: form.sizes.includes(s) ? '#7A5A5A' : 'rgba(161,124,124,0.3)',
+                    backgroundColor: form.sizes.includes(s.id) ? '#7A5A5A' : 'transparent',
+                    color: form.sizes.includes(s.id) ? 'white' : '#A17C7C',
+                    borderColor: form.sizes.includes(s.id) ? '#7A5A5A' : 'rgba(161,124,124,0.3)',
+                    minWidth: '100px',
                   }}>
-                  {s}
+                  <span className="font-semibold">{s.label}</span>
+                  <span className="text-[10px] opacity-80 mt-0.5">{s.sub}</span>
                 </button>
               ))}
             </div>
