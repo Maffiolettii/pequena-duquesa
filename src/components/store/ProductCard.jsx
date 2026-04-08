@@ -36,11 +36,11 @@ export default function ProductCard({ product, index = 0, imgPosition = 'center 
 
         {/* INFO DO PRODUTO */}
         <div className="mt-4 text-center px-1 w-full">
-          <h3 className="font-sans text-[9px] sm:text-[10px] tracking-[0.15em] sm:tracking-[0.25em] uppercase text-[#4A3A3A] font-semibold mb-1.5 opacity-90 leading-tight">
+          <h3 className="font-sans text-[9px] sm:text-[10px] tracking-[0.15em] sm:tracking-[0.25em] uppercase text-[#2A1A1A] font-bold mb-1.5 leading-tight">
             {product.name}
           </h3>
 
-          <p className="font-serif italic text-sm sm:text-base md:text-lg text-[#6B5252] mb-3 sm:mb-5">
+          <p className="font-serif italic text-sm sm:text-base md:text-lg text-[#3A2020] mb-3 sm:mb-5">
             {new Intl.NumberFormat('pt-BR', {
               style: 'currency',
               currency: 'BRL'

@@ -188,16 +188,16 @@ export default function AdminProducts() {
                         </span>
                       </div>
                     </td>
-                    <td className="py-3 pr-4 text-xs capitalize" style={{ color: '#A17C7C', fontFamily: 'Montserrat, sans-serif' }}>
+                    <td className="py-3 pr-4 text-xs capitalize font-medium" style={{ color: '#4A2A2A', fontFamily: 'Montserrat, sans-serif' }}>
                       {product.category || '—'}
                     </td>
-                    <td className="py-3 pr-4 text-xs capitalize" style={{ color: '#A17C7C', fontFamily: 'Montserrat, sans-serif' }}>
+                    <td className="py-3 pr-4 text-xs capitalize font-medium" style={{ color: '#4A2A2A', fontFamily: 'Montserrat, sans-serif' }}>
                       {product.collection || '—'}
                     </td>
-                    <td className="py-3 pr-4 text-sm" style={{ color: '#7A5A5A', fontFamily: 'Cormorant Garamond, serif' }}>
+                    <td className="py-3 pr-4 text-sm font-semibold" style={{ color: '#3A2A2A', fontFamily: 'Cormorant Garamond, serif' }}>
                       R$ {Number(product.price).toFixed(2)}
                     </td>
-                    <td className="py-3 pr-4 text-xs" style={{ color: '#A17C7C', fontFamily: 'Montserrat, sans-serif' }}>
+                    <td className="py-3 pr-4 text-xs font-medium" style={{ color: '#4A2A2A', fontFamily: 'Montserrat, sans-serif' }}>
                       {(product.sizes || []).join(', ') || '—'}
                     </td>
                     <td className="py-3 pr-4">
