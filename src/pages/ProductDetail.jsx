@@ -125,18 +125,24 @@ export default function ProductDetail() {
                     Tamanho
                   </p>
                   <div className="flex gap-3 flex-wrap">
-                    {product.sizes.map(size => (
+                    {product.sizes.map(size => {
+                      const SIZE_SUBS = { 'RN': '0-1 mês', 'P baby': '2-5 meses', 'M baby': '5-7 meses', 'G baby': '7-12 meses' };
+                      const sub = SIZE_SUBS[size];
+                      return (
                       <button key={size} onClick={() => setSelectedSize(size)}
-                        className="min-w-[44px] min-h-[44px] px-5 py-2 text-[10px] uppercase rounded-full transition-all duration-300 font-sans border"
+                        className="min-h-[44px] px-5 py-2 text-[10px] uppercase rounded-full transition-all duration-300 font-sans border flex flex-col items-center justify-center"
                         style={{
                           letterSpacing: '0.1em',
                           backgroundColor: selectedSize === size ? '#D4A5A5' : '#FFFAF0',
                           color: selectedSize === size ? '#FFFFFF' : '#6B5252',
                           borderColor: selectedSize === size ? '#D4A5A5' : '#C9A77C',
+                          minWidth: sub ? '90px' : '44px',
                         }}>
-                        {size}
+                        <span className="font-semibold">{size}</span>
+                        {sub && <span className="text-[9px] mt-0.5 opacity-80 normal-case tracking-normal">{sub}</span>}
                       </button>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               )}
