@@ -18,7 +18,7 @@ const EMPTY_FORM = {
 };
 
 const ALL_SIZES = [
-  { id: 'RN', label: 'RN', sub: '' },
+  { id: 'RN', label: 'RN', sub: '0-1 mês' },
   { id: 'P baby', label: 'P baby', sub: '2-5 meses' },
   { id: 'M baby', label: 'M baby', sub: '5-7 meses' },
   { id: 'G baby', label: 'G baby', sub: '7-12 meses' },
