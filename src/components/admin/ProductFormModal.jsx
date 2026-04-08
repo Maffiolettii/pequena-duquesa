@@ -18,9 +18,16 @@ const EMPTY_FORM = {
 };
 
 const ALL_SIZES = [
+  { id: 'RN', label: 'RN', sub: '' },
   { id: 'P baby', label: 'P baby', sub: '2-5 meses' },
   { id: 'M baby', label: 'M baby', sub: '5-7 meses' },
   { id: 'G baby', label: 'G baby', sub: '7-12 meses' },
+  { id: '1', label: '1', sub: '' },
+  { id: '2', label: '2', sub: '' },
+  { id: '3', label: '3', sub: '' },
+  { id: '4', label: '4', sub: '' },
+  { id: '5', label: '5', sub: '' },
+  { id: '6', label: '6', sub: '' },
 ];
 
 export default function ProductFormModal({ product, onClose, onSuccess }) {
