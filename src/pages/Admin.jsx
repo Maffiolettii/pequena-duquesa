@@ -66,37 +66,37 @@ export default function Admin() {
   const newMessages = messages.filter(m => m.status === 'novo').length;
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#FBFAF5' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#F0EBE3' }}>
       {/* Header */}
-      <div className="pt-16 sm:pt-24 pb-6 px-4 sm:px-6 border-b" style={{ borderColor: 'rgba(161,124,124,0.15)' }}>
+      <div className="pt-16 sm:pt-24 pb-6 px-4 sm:px-6 border-b" style={{ borderColor: 'rgba(107,82,82,0.3)', backgroundColor: '#F0EBE3' }}>
         <div className="max-w-7xl mx-auto">
-          <p className="text-xs tracking-[0.3em] uppercase mb-1" style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C' }}>
+          <p className="text-xs tracking-[0.3em] uppercase mb-1 font-semibold" style={{ fontFamily: 'Montserrat, sans-serif', color: '#6B4F4F' }}>
             Painel de Controle
           </p>
-          <h1 className="text-3xl sm:text-4xl" style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontStyle: 'italic', color: '#7A5A5A' }}>
+          <h1 className="text-3xl sm:text-4xl" style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 500, fontStyle: 'italic', color: '#3A2A2A' }}>
             Administração
           </h1>
 
           {/* Stats */}
           <div className="mt-4 sm:mt-6 grid grid-cols-3 gap-3 sm:gap-4">
-            <div className="p-3 sm:p-4 border" style={{ borderColor: 'rgba(161,124,124,0.2)', backgroundColor: 'white' }}>
-              <p className="text-[9px] sm:text-xs tracking-widest uppercase" style={{ color: '#A17C7C', fontFamily: 'Montserrat, sans-serif' }}>Produtos</p>
-              <p className="text-2xl sm:text-3xl mt-1" style={{ fontFamily: 'Cormorant Garamond, serif', color: '#7A5A5A' }}>{products.length}</p>
+            <div className="p-3 sm:p-4 border-2" style={{ borderColor: 'rgba(107,82,82,0.35)', backgroundColor: '#FFF8F0' }}>
+              <p className="text-[9px] sm:text-xs tracking-widest uppercase font-semibold" style={{ color: '#5A3A3A', fontFamily: 'Montserrat, sans-serif' }}>Produtos</p>
+              <p className="text-2xl sm:text-3xl mt-1 font-semibold" style={{ fontFamily: 'Cormorant Garamond, serif', color: '#3A2A2A' }}>{products.length}</p>
             </div>
-            <div className="p-3 sm:p-4 border" style={{ borderColor: 'rgba(161,124,124,0.2)', backgroundColor: 'white' }}>
-              <p className="text-[9px] sm:text-xs tracking-widest uppercase" style={{ color: '#A17C7C', fontFamily: 'Montserrat, sans-serif' }}>Em Estoque</p>
-              <p className="text-2xl sm:text-3xl mt-1" style={{ fontFamily: 'Cormorant Garamond, serif', color: '#7A5A5A' }}>{products.filter(p => p.in_stock).length}</p>
+            <div className="p-3 sm:p-4 border-2" style={{ borderColor: 'rgba(107,82,82,0.35)', backgroundColor: '#FFF8F0' }}>
+              <p className="text-[9px] sm:text-xs tracking-widest uppercase font-semibold" style={{ color: '#5A3A3A', fontFamily: 'Montserrat, sans-serif' }}>Em Estoque</p>
+              <p className="text-2xl sm:text-3xl mt-1 font-semibold" style={{ fontFamily: 'Cormorant Garamond, serif', color: '#3A2A2A' }}>{products.filter(p => p.in_stock).length}</p>
             </div>
-            <div className="p-3 sm:p-4 border" style={{ borderColor: 'rgba(161,124,124,0.2)', backgroundColor: 'white' }}>
-              <p className="text-[9px] sm:text-xs tracking-widest uppercase" style={{ color: '#A17C7C', fontFamily: 'Montserrat, sans-serif' }}>Mensagens</p>
-              <p className="text-2xl sm:text-3xl mt-1" style={{ fontFamily: 'Cormorant Garamond, serif', color: '#7A5A5A' }}>{newMessages}</p>
+            <div className="p-3 sm:p-4 border-2" style={{ borderColor: 'rgba(107,82,82,0.35)', backgroundColor: '#FFF8F0' }}>
+              <p className="text-[9px] sm:text-xs tracking-widest uppercase font-semibold" style={{ color: '#5A3A3A', fontFamily: 'Montserrat, sans-serif' }}>Mensagens</p>
+              <p className="text-2xl sm:text-3xl mt-1 font-semibold" style={{ fontFamily: 'Cormorant Garamond, serif', color: '#3A2A2A' }}>{newMessages}</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Tabs */}
-      <div className="border-b overflow-x-auto" style={{ borderColor: 'rgba(161,124,124,0.15)' }}>
+      <div className="border-b-2 overflow-x-auto" style={{ borderColor: 'rgba(107,82,82,0.3)', backgroundColor: '#E8DDD4' }}>
         <div className="max-w-7xl mx-auto flex min-w-max px-4 sm:px-6">
           {TABS.map(tab => {
             const Icon = tab.icon;
@@ -104,19 +104,19 @@ export default function Admin() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className="flex items-center gap-2 px-4 sm:px-6 py-4 text-[10px] sm:text-xs tracking-[0.15em] uppercase velvet-transition border-b-2 whitespace-nowrap min-h-[44px]"
+                className="flex items-center gap-2 px-4 sm:px-6 py-4 text-[11px] sm:text-xs tracking-[0.15em] uppercase velvet-transition border-b-2 whitespace-nowrap min-h-[44px]"
                 style={{
                   fontFamily: 'Montserrat, sans-serif',
-                  color: activeTab === tab.id ? '#7A5A5A' : '#A17C7C',
-                  borderBottomColor: activeTab === tab.id ? '#7A5A5A' : 'transparent',
-                  fontWeight: activeTab === tab.id ? 400 : 300,
+                  color: activeTab === tab.id ? '#3A2A2A' : '#6B4F4F',
+                  borderBottomColor: activeTab === tab.id ? '#3A2A2A' : 'transparent',
+                  fontWeight: activeTab === tab.id ? 700 : 500,
                 }}
               >
                 <Icon size={14} />
                 {tab.label}
                 {tab.id === 'messages' && newMessages > 0 && (
-                  <span className="w-4 h-4 rounded-full text-[10px] flex items-center justify-center"
-                    style={{ backgroundColor: '#A17C7C', color: 'white' }}>
+                  <span className="w-4 h-4 rounded-full text-[10px] flex items-center justify-center font-bold"
+                    style={{ backgroundColor: '#7A3A3A', color: 'white' }}>
                     {newMessages}
                   </span>
                 )}

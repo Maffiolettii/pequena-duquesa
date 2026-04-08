@@ -62,7 +62,7 @@ export default function AdminProducts() {
   ];
 
   if (isLoading) {
-    return <div className="text-center py-20" style={{ color: '#A17C7C', fontFamily: 'Cormorant Garamond, serif', fontStyle: 'italic', fontSize: '1.25rem' }}>Carregando produtos...</div>;
+    return <div className="text-center py-20" style={{ color: '#5A3A3A', fontFamily: 'Cormorant Garamond, serif', fontStyle: 'italic', fontSize: '1.25rem' }}>Carregando produtos...</div>;
   }
 
   return (
@@ -164,7 +164,7 @@ export default function AdminProducts() {
                 <tr className="border-b" style={{ borderColor: 'rgba(161,124,124,0.2)' }}>
                   {['Produto', 'Categoria', 'Coleção', 'Preço', 'Tamanhos', 'Estoque', 'Ações'].map(h => (
                     <th key={h} className="text-left py-3 pr-4 text-xs tracking-[0.15em] uppercase"
-                      style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C', fontWeight: 400 }}>
+                      style={{ fontFamily: 'Montserrat, sans-serif', color: '#3A2A2A', fontWeight: 700 }}>
                       {h}
                     </th>
                   ))}
@@ -183,7 +183,7 @@ export default function AdminProducts() {
                             <Package size={16} color="#A17C7C" />
                           </div>
                         )}
-                        <span className="text-sm font-medium max-w-[160px]" style={{ fontFamily: 'Cormorant Garamond, serif', color: '#7A5A5A' }}>
+                        <span className="text-sm font-semibold max-w-[160px]" style={{ fontFamily: 'Cormorant Garamond, serif', color: '#3A2A2A' }}>
                           {product.name}
                         </span>
                       </div>

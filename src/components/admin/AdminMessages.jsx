@@ -28,11 +28,11 @@ export default function AdminMessages() {
   });
 
   if (isLoading) {
-    return <div className="text-center py-20" style={{ color: '#A17C7C', fontFamily: 'Cormorant Garamond, serif', fontStyle: 'italic', fontSize: '1.25rem' }}>Carregando mensagens...</div>;
+    return <div className="text-center py-20" style={{ color: '#5A3A3A', fontFamily: 'Cormorant Garamond, serif', fontStyle: 'italic', fontSize: '1.25rem' }}>Carregando mensagens...</div>;
   }
 
   if (messages.length === 0) {
-    return <div className="text-center py-20" style={{ color: '#A17C7C', fontFamily: 'Cormorant Garamond, serif', fontStyle: 'italic', fontSize: '1.25rem' }}>Nenhuma mensagem recebida ainda.</div>;
+    return <div className="text-center py-20" style={{ color: '#5A3A3A', fontFamily: 'Cormorant Garamond, serif', fontStyle: 'italic', fontSize: '1.25rem' }}>Nenhuma mensagem recebida ainda.</div>;
   }
 
   return (
@@ -40,20 +40,20 @@ export default function AdminMessages() {
       {messages.map(msg => {
         const s = STATUS_COLORS[msg.status] || STATUS_COLORS.novo;
         return (
-          <div key={msg.id} className="border p-5 sm:p-6" style={{ borderColor: 'rgba(161,124,124,0.2)', backgroundColor: 'white' }}>
+          <div key={msg.id} className="border-2 p-5 sm:p-6" style={{ borderColor: 'rgba(107,82,82,0.35)', backgroundColor: 'white' }}>
             <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
               <div>
-                <h3 className="text-lg font-medium" style={{ fontFamily: 'Cormorant Garamond, serif', color: '#7A5A5A' }}>
+                <h3 className="text-lg font-semibold" style={{ fontFamily: 'Cormorant Garamond, serif', color: '#3A2A2A' }}>
                   {msg.name}
                 </h3>
                 <div className="flex flex-wrap gap-4 mt-1">
-                  <a href={`mailto:${msg.email}`} className="flex items-center gap-1 text-xs hover:opacity-70 velvet-transition"
-                    style={{ color: '#A17C7C', fontFamily: 'Montserrat, sans-serif' }}>
+                  <a href={`mailto:${msg.email}`} className="flex items-center gap-1 text-xs hover:opacity-70 velvet-transition font-medium"
+                    style={{ color: '#5A3A3A', fontFamily: 'Montserrat, sans-serif' }}>
                     <Mail size={11} /> {msg.email}
                   </a>
                   {msg.phone && (
-                    <a href={`tel:${msg.phone}`} className="flex items-center gap-1 text-xs hover:opacity-70 velvet-transition"
-                      style={{ color: '#A17C7C', fontFamily: 'Montserrat, sans-serif' }}>
+                    <a href={`tel:${msg.phone}`} className="flex items-center gap-1 text-xs hover:opacity-70 velvet-transition font-medium"
+                      style={{ color: '#5A3A3A', fontFamily: 'Montserrat, sans-serif' }}>
                       <Phone size={11} /> {msg.phone}
                     </a>
                   )}
@@ -69,7 +69,7 @@ export default function AdminMessages() {
               </div>
             </div>
 
-            <p className="text-sm leading-relaxed mb-4" style={{ color: '#7A5A5A', fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}>
+            <p className="text-sm leading-relaxed mb-4" style={{ color: '#3A2A2A', fontFamily: 'Montserrat, sans-serif', fontWeight: 400 }}>
               {msg.message}
             </p>
 
