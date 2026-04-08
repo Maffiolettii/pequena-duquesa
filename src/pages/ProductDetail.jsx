@@ -154,7 +154,7 @@ export default function ProductDetail() {
               <div className="mt-10 pt-8" style={{ borderTop: '0.5px solid rgba(161,124,124,0.2)' }}>
                 <div className="grid grid-cols-2 gap-y-4 text-xs"
                   style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300, color: '#A17C7C', letterSpacing: '0.05em' }}>
-                  <span>Tecido</span><span>Linho / Algodão Natural</span>
+                  <span>Tecido</span><span>Tricoline 100% Algodão</span>
                   <span>Bordado</span><span>Artesanal à mão</span>
                   <span>Cuidados</span><span>Lavar à mão, secar à sombra</span>
                 </div>
