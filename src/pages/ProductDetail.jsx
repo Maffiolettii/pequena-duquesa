@@ -109,7 +109,7 @@ export default function ProductDetail() {
               </h1>
 
               <p className="mt-6 text-sm leading-relaxed"
-                style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C', fontWeight: 300, letterSpacing: '0.05em' }}>
+                style={{ fontFamily: 'Montserrat, sans-serif', color: '#3A2020', fontWeight: 400, letterSpacing: '0.03em' }}>
                 {product.description}
               </p>
 
