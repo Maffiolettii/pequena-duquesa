@@ -59,6 +59,7 @@ export default function Products() {
               { id: 'conjuntos', name: 'Conjuntos' },
               { id: 'acessorios', name: 'Acessórios' },
               { id: 'calcados', name: 'Calçados' },
+              { id: 'romper', name: 'Romper' },
             ]}
             activeCategory={activeCategory}
             onCategoryChange={setActiveCategory}

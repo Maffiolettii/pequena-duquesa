@@ -20,7 +20,8 @@
         "vestidos",
         "conjuntos",
         "acessorios",
-        "calcados"
+        "calcados",
+        "romper"
       ],
       "description": "Categoria do produto"
     },

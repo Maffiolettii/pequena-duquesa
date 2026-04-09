@@ -129,6 +129,7 @@ export default function ProductFormModal({ product, onClose, onSuccess }) {
                 <option value="conjuntos">Conjuntos</option>
                 <option value="acessorios">Acessórios</option>
                 <option value="calcados">Calçados</option>
+                <option value="romper">Romper</option>
               </select>
             </div>
             <div>
