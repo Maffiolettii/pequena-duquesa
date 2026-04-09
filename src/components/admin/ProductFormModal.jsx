@@ -91,7 +91,7 @@ export default function ProductFormModal({ product, onClose, onSuccess }) {
       <div className="w-full sm:max-w-2xl max-h-[92vh] sm:max-h-[90vh] overflow-y-auto rounded-t-[20px] sm:rounded-none" style={{ backgroundColor: '#FBFAF5' }}>
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b" style={{ borderColor: 'rgba(161,124,124,0.2)' }}>
-          <h2 className="text-2xl" style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontStyle: 'italic', color: '#7A5A5A' }}>
+          <h2 className="text-2xl" style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontStyle: 'italic', color: '#2A1A1A' }}>
             {product ? 'Editar Produto' : 'Novo Produto'}
           </h2>
           <button onClick={onClose} className="p-1 velvet-transition hover:opacity-60">
@@ -194,11 +194,11 @@ export default function ProductFormModal({ product, onClose, onSuccess }) {
 
           {/* Flags */}
           <div className="flex gap-6">
-            <label className="flex items-center gap-2 cursor-pointer text-xs" style={{ fontFamily: 'Montserrat, sans-serif', color: '#7A5A5A' }}>
+            <label className="flex items-center gap-2 cursor-pointer text-xs" style={{ fontFamily: 'Montserrat, sans-serif', color: '#4A3A3A' }}>
               <input type="checkbox" checked={form.in_stock} onChange={e => set('in_stock', e.target.checked)} />
               Em estoque
             </label>
-            <label className="flex items-center gap-2 cursor-pointer text-xs" style={{ fontFamily: 'Montserrat, sans-serif', color: '#7A5A5A' }}>
+            <label className="flex items-center gap-2 cursor-pointer text-xs" style={{ fontFamily: 'Montserrat, sans-serif', color: '#4A3A3A' }}>
               <input type="checkbox" checked={form.featured} onChange={e => set('featured', e.target.checked)} />
               Produto em destaque
             </label>
@@ -223,9 +223,9 @@ export default function ProductFormModal({ product, onClose, onSuccess }) {
       </div>
 
       <style>{`
-        .label-style { display: block; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: #A17C7C; font-family: Montserrat, sans-serif; margin-bottom: 0.4rem; }
-        .input-style { background: white; border: 1px solid rgba(161,124,124,0.25); padding: 0.5rem 0.75rem; font-size: 0.875rem; color: #7A5A5A; font-family: Montserrat, sans-serif; outline: none; transition: border-color 0.3s; }
-        .input-style:focus { border-color: #A17C7C; }
+        .label-style { display: block; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: #6B4F4F; font-family: Montserrat, sans-serif; margin-bottom: 0.4rem; }
+        .input-style { background: white; border: 1px solid rgba(161,124,124,0.25); padding: 0.5rem 0.75rem; font-size: 0.875rem; color: #4A3A3A; font-family: Montserrat, sans-serif; outline: none; transition: border-color 0.3s; }
+        .input-style:focus { border-color: #6B4F4F; }
       `}</style>
     </div>
   );

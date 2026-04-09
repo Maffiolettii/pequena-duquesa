@@ -116,13 +116,13 @@ export default function AdminProducts() {
                   </div>
                 )}
                 <div className="flex-1 min-w-0">
-                  <p className="text-base truncate" style={{ fontFamily: 'Cormorant Garamond, serif', color: '#7A5A5A' }}>
+                  <p className="text-base truncate" style={{ fontFamily: 'Cormorant Garamond, serif', color: '#2A1A1A' }}>
                     {product.name}
                   </p>
-                  <p className="text-xs mt-0.5 capitalize" style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C', fontWeight: 300 }}>
+                  <p className="text-xs mt-0.5 capitalize" style={{ fontFamily: 'Montserrat, sans-serif', color: '#6B4F4F', fontWeight: 400 }}>
                     {product.category || '—'} · {product.collection || '—'}
                   </p>
-                  <p className="text-sm mt-1" style={{ fontFamily: 'Cormorant Garamond, serif', color: '#7A5A5A' }}>
+                  <p className="text-sm mt-1" style={{ fontFamily: 'Cormorant Garamond, serif', color: '#3A2A2A' }}>
                     R$ {Number(product.price).toFixed(2).replace('.', ',')}
                   </p>
                 </div>
@@ -183,15 +183,15 @@ export default function AdminProducts() {
                             <Package size={16} color="#A17C7C" />
                           </div>
                         )}
-                        <span className="text-sm font-semibold max-w-[160px]" style={{ fontFamily: 'Cormorant Garamond, serif', color: '#3A2A2A' }}>
+                        <span className="text-sm font-semibold max-w-[160px]" style={{ fontFamily: 'Cormorant Garamond, serif', color: '#2A1A1A' }}>
                           {product.name}
                         </span>
                       </div>
                     </td>
-                    <td className="py-3 pr-4 text-xs capitalize font-medium" style={{ color: '#4A2A2A', fontFamily: 'Montserrat, sans-serif' }}>
+                    <td className="py-3 pr-4 text-xs capitalize font-medium" style={{ color: '#4A3A3A', fontFamily: 'Montserrat, sans-serif' }}>
                       {product.category || '—'}
                     </td>
-                    <td className="py-3 pr-4 text-xs capitalize font-medium" style={{ color: '#4A2A2A', fontFamily: 'Montserrat, sans-serif' }}>
+                    <td className="py-3 pr-4 text-xs capitalize font-medium" style={{ color: '#4A3A3A', fontFamily: 'Montserrat, sans-serif' }}>
                       {product.collection || '—'}
                     </td>
                     <td className="py-3 pr-4 text-sm font-semibold" style={{ color: '#3A2A2A', fontFamily: 'Cormorant Garamond, serif' }}>

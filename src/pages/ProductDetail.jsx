@@ -99,21 +99,21 @@ export default function ProductDetail() {
             <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
               className="flex flex-col justify-center">
               <p className="text-xs tracking-[0.3em] uppercase mb-3"
-                style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C' }}>
+                style={{ fontFamily: 'Montserrat, sans-serif', color: '#6B4F4F' }}>
                 {COLLECTION_LABELS[product.collection] || ''}
               </p>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-tight"
-                style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontStyle: 'italic', color: '#7A5A5A' }}>
+                style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontStyle: 'italic', color: '#2A1A1A' }}>
                 {product.name}
               </h1>
 
               <p className="mt-6 text-sm leading-relaxed"
-                style={{ fontFamily: 'Montserrat, sans-serif', color: '#3A2020', fontWeight: 400, letterSpacing: '0.03em' }}>
+                style={{ fontFamily: 'Montserrat, sans-serif', color: '#4A3A3A', fontWeight: 400, letterSpacing: '0.03em' }}>
                 {product.description}
               </p>
 
-              <p className="mt-8 text-2xl" style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 400, color: '#7A5A5A' }}>
+              <p className="mt-8 text-2xl" style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 400, color: '#3A2A2A' }}>
                 R$ {Number(product.price).toFixed(2).replace('.', ',')}
               </p>
 
@@ -121,7 +121,7 @@ export default function ProductDetail() {
               {product.sizes && product.sizes.length > 0 && (
                 <div className="mt-8">
                   <p className="text-xs tracking-[0.15em] uppercase mb-4"
-                    style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C' }}>
+                    style={{ fontFamily: 'Montserrat, sans-serif', color: '#6B4F4F' }}>
                     Tamanho
                   </p>
                   <div className="flex gap-3 flex-wrap">
@@ -159,7 +159,7 @@ export default function ProductDetail() {
 
               <div className="mt-10 pt-8" style={{ borderTop: '0.5px solid rgba(161,124,124,0.2)' }}>
                 <div className="grid grid-cols-2 gap-y-4 text-xs"
-                  style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300, color: '#A17C7C', letterSpacing: '0.05em' }}>
+                  style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 400, color: '#6B4F4F', letterSpacing: '0.05em' }}>
                   <span>Tecido</span><span>Tricoline 100% Algodão</span>
                   <span>Bordado</span><span>Artesanal à mão</span>
                   <span>Cuidados</span><span>Lavar à mão, secar à sombra</span>
@@ -171,7 +171,7 @@ export default function ProductDetail() {
           {related.length > 0 && (
             <div className="mt-20 sm:mt-28">
               <h3 className="text-center text-2xl sm:text-3xl mb-12"
-                style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontStyle: 'italic', color: '#7A5A5A' }}>
+                style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontStyle: 'italic', color: '#2A1A1A' }}>
                 Você também pode gostar
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">

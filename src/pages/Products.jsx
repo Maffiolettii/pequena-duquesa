@@ -39,11 +39,11 @@ export default function Products() {
           transition={{ duration: 0.8 }}
         >
           <p className="text-xs tracking-[0.3em] uppercase mb-3 font-semibold"
-            style={{ fontFamily: 'Montserrat, sans-serif', color: '#6B3A3A' }}>
+            style={{ fontFamily: 'Montserrat, sans-serif', color: '#6B4F4F' }}>
             Coleção Completa
           </p>
           <h1 className="text-4xl sm:text-6xl"
-            style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 400, fontStyle: 'italic', color: '#3A2020' }}>
+            style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 400, fontStyle: 'italic', color: '#2A1A1A' }}>
             Nossos Vestidos
           </h1>
         </motion.div>

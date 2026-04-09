@@ -40,11 +40,11 @@ export default function Contact() {
             className="text-center mb-16"
           >
             <p className="text-xs tracking-[0.3em] uppercase mb-3"
-              style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C' }}>
+              style={{ fontFamily: 'Montserrat, sans-serif', color: '#6B4F4F' }}>
               Fale Conosco
             </p>
             <h1 className="text-4xl sm:text-6xl"
-              style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontStyle: 'italic', color: '#7A5A5A' }}>
+              style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontStyle: 'italic', color: '#2A1A1A' }}>
               Estamos aqui para você
             </h1>
           </motion.div>
@@ -57,7 +57,7 @@ export default function Contact() {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <p className="text-sm leading-relaxed mb-10"
-                style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C', fontWeight: 300, letterSpacing: '0.05em' }}>
+                style={{ fontFamily: 'Montserrat, sans-serif', color: '#4A3A3A', fontWeight: 300, letterSpacing: '0.05em' }}>
                 Dúvidas sobre tamanhos, encomendas ou coleções? Fale com a gente.
               </p>
 
@@ -68,7 +68,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-xs tracking-[0.15em] uppercase mb-1"
-                      style={{ fontFamily: 'Montserrat, sans-serif', color: '#7A5A5A', fontWeight: 400 }}>
+                      style={{ fontFamily: 'Montserrat, sans-serif', color: '#6B4F4F', fontWeight: 500 }}>
                       Instagram
                     </p>
                     <a
@@ -76,8 +76,7 @@ export default function Contact() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm velvet-transition hover:opacity-70"
-                      style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C', fontWeight: 300 }}
-                    >
+                      style={{ fontFamily: 'Montserrat, sans-serif', color: '#7A5A5A', fontWeight: 400 }}>
                       @pequenaduquesa_
                     </a>
                   </div>
@@ -97,8 +96,7 @@ export default function Contact() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm velvet-transition hover:opacity-70"
-                      style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C', fontWeight: 300 }}
-                    >
+                      style={{ fontFamily: 'Montserrat, sans-serif', color: '#7A5A5A', fontWeight: 400 }}>
                       (81) 99265-6652
                     </a>
                   </div>
@@ -113,7 +111,7 @@ export default function Contact() {
                       style={{ fontFamily: 'Montserrat, sans-serif', color: '#7A5A5A', fontWeight: 400 }}>
                       Atelier
                     </p>
-                    <p className="text-sm" style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C', fontWeight: 300 }}>
+                    <p className="text-sm" style={{ fontFamily: 'Montserrat, sans-serif', color: '#7A5A5A', fontWeight: 400 }}>
                       Recife, Brasil<br />
                       Atendimento por agendamento
                     </p>
@@ -144,10 +142,10 @@ export default function Contact() {
                       style={{ backgroundColor: '#F4E2E2' }}>
                       <Send size={18} color="#A17C7C" />
                     </div>
-                    <h3 className="text-2xl mb-3" style={{ fontFamily: 'Cormorant Garamond, serif', fontStyle: 'italic', color: '#7A5A5A' }}>
+                    <h3 className="text-2xl mb-3" style={{ fontFamily: 'Cormorant Garamond, serif', fontStyle: 'italic', color: '#2A1A1A' }}>
                       Mensagem enviada
                     </h3>
-                    <p className="text-sm" style={{ fontFamily: 'Montserrat, sans-serif', color: '#A17C7C', fontWeight: 300 }}>
+                    <p className="text-sm" style={{ fontFamily: 'Montserrat, sans-serif', color: '#4A3A3A', fontWeight: 400 }}>
                       Obrigada pelo contato! Responderemos em breve.
                     </p>
                   </div>
