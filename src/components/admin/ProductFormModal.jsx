@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { base44 } from '@/api/base44Client';
-import { X, Upload, Loader2, Sparkles } from 'lucide-react';
+import { X, Upload, Loader2, Wand2 } from 'lucide-react';
 
 
 const EMPTY_FORM = {
@@ -35,29 +35,30 @@ export default function ProductFormModal({ product, onClose, onSuccess }) {
   const [form, setForm] = useState(product ? { ...product } : EMPTY_FORM);
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
-  const [generating, setGenerating] = useState(false);
 
-  const generateNameAndDescription = async () => {
-    if (!form.image_url) return alert('Adicione uma imagem primeiro.');
-    setGenerating(true);
-    const result = await base44.integrations.Core.InvokeLLM({
-      prompt: `Você é especialista em moda infantil de luxo. Com base nesta imagem de roupa infantil, crie:
-1. Um nome de produto elegante e poético (máx. 6 palavras)
-2. Uma descrição curta e encantadora (2-3 frases) destacando detalhes do tecido, bordados ou estilo.
-Categoria: ${form.category}, Coleção: ${form.collection}.
-Responda em português brasileiro.`,
-      file_urls: [form.image_url],
-      response_json_schema: {
-        type: 'object',
-        properties: {
-          name: { type: 'string' },
-          description: { type: 'string' },
-        }
-      }
-    });
-    if (result.name) set('name', result.name);
-    if (result.description) set('description', result.description);
-    setGenerating(false);
+  const NAMES = {
+    vestidos: ['Vestido Plissado com Laço', 'Vestido Bordado Artesanal', 'Vestido de Festa com Renda', 'Vestido Florido com Babado', 'Vestido Romântico com Detalhes em Fita'],
+    conjuntos: ['Conjunto de Calça e Blusa Bordada', 'Conjunto Temático com Detalhes Dourados', 'Conjunto Casaco e Macacão', 'Conjunto Saia e Blusa Floral'],
+    acessorios: ['Faixa de Cabelo com Laço de Cetim', 'Tiara Bordada com Pérolas', 'Meia-Calça com Detalhes de Renda'],
+    calcados: ['Sapatilha de Couro com Laço', 'Sandália Infantil com Fivela Dourada', 'Mocassim de Couro Legítimo'],
+    romper: ['Romper de Algodão com Bordado', 'Romper Festivo com Laço na Costas', 'Romper Leve com Detalhes Florais'],
+  };
+
+  const DESCS = {
+    vestidos: 'Confeccionado em tecido de alta qualidade, este vestido encanta pelos detalhes artesanais e pelo caimento suave. Ideal para momentos especiais, ele combina delicadeza e conforto para a sua pequena duquesa.',
+    conjuntos: 'Conjunto elegante com acabamento impecável, desenvolvido com tecidos naturais e macios. Peça versátil que une estilo e conforto para o dia a dia ou ocasiões especiais.',
+    acessorios: 'Acessório artesanal feito com materiais premium. O toque final perfeito para complementar o look da sua pequena com charme e delicadeza.',
+    calcados: 'Calçado infantil desenvolvido para oferecer conforto e estilo. Solado flexível e materiais macios que respeitam o desenvolvimento dos pezinhos da sua bebê.',
+    romper: 'Romper confeccionado em tecido leve e respirável, com detalhes bordados a mão. Perfeito para o dia a dia com muito charme e conforto.',
+  };
+
+  const generateSuggestion = () => {
+    const cat = form.category || 'vestidos';
+    const names = NAMES[cat] || NAMES.vestidos;
+    const suggestedName = names[Math.floor(Math.random() * names.length)];
+    const suggestedDesc = DESCS[cat] || DESCS.vestidos;
+    if (!form.name) set('name', suggestedName);
+    if (!form.description) set('description', suggestedDesc);
   };
 
   const set = (field, value) => setForm(f => ({ ...f, [field]: value }));
@@ -128,12 +129,12 @@ Responda em português brasileiro.`,
           <div>
             <div className="flex items-center justify-between mb-1">
               <label className="label-style" style={{marginBottom:0}}>Nome do Produto *</label>
-              <button type="button" onClick={generateNameAndDescription} disabled={generating || !form.image_url}
-                className="flex items-center gap-1 text-[10px] tracking-[0.1em] uppercase px-3 py-1.5 border velvet-transition hover:opacity-80 disabled:opacity-40"
+              <button type="button" onClick={generateSuggestion}
+                className="flex items-center gap-1 text-[10px] tracking-[0.1em] uppercase px-3 py-1.5 border velvet-transition hover:opacity-80"
                 style={{ borderColor: 'rgba(161,124,124,0.3)', color: '#A17C7C', fontFamily: 'Montserrat, sans-serif' }}
-                title={!form.image_url ? 'Adicione uma imagem primeiro' : 'Gerar nome e descrição com IA'}>
-                {generating ? <Loader2 size={11} className="animate-spin" /> : <Sparkles size={11} />}
-                Gerar com IA
+                title="Sugerir nome e descrição">
+                <Wand2 size={11} />
+                Sugerir
               </button>
             </div>
             <input required value={form.name} onChange={e => set('name', e.target.value)}
