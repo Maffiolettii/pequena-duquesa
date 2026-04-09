@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { base44 } from '@/api/base44Client';
 import { X, Upload, Loader2 } from 'lucide-react';
+import ProductAIValidation from './ProductAIValidation';
 
 const EMPTY_FORM = {
   name: '',
@@ -195,6 +196,14 @@ export default function ProductFormModal({ product, onClose, onSuccess }) {
               Produto em destaque
             </label>
           </div>
+
+          {/* AI Validation (only for existing products with image) */}
+          {product && product.image_url && (
+            <ProductAIValidation
+              product={{ ...product, ...form }}
+              onDescriptionApproved={(desc) => set('description', desc)}
+            />
+          )}
 
           {/* Actions */}
           <div className="flex flex-col-reverse sm:flex-row sm:justify-end gap-3 pt-2 pb-2">

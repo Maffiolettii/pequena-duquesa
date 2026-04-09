@@ -68,6 +68,25 @@
       "type": "number",
       "description": "Quantidade dispon\u00edvel em estoque",
       "default": 0
+    },
+    "suggested_description": {
+      "type": "string",
+      "description": "Descri\u00e7\u00e3o sugerida pela IA com base na imagem"
+    },
+    "description_validation_status": {
+      "type": "string",
+      "enum": [
+        "ok",
+        "inconsistent",
+        "pending_review",
+        "analyzing"
+      ],
+      "default": "pending_review",
+      "description": "Status da valida\u00e7\u00e3o da descri\u00e7\u00e3o pela IA"
+    },
+    "inconsistency_details": {
+      "type": "string",
+      "description": "Detalhes sobre inconsist\u00eancias encontradas pela IA"
     }
   },
   "required": [
