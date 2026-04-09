@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { base44 } from '@/api/base44Client';
-import { X, Upload, Loader2 } from 'lucide-react';
+import { X, Upload, Loader2, Sparkles } from 'lucide-react';
 
 
 const EMPTY_FORM = {
@@ -35,6 +35,30 @@ export default function ProductFormModal({ product, onClose, onSuccess }) {
   const [form, setForm] = useState(product ? { ...product } : EMPTY_FORM);
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [generating, setGenerating] = useState(false);
+
+  const generateNameAndDescription = async () => {
+    if (!form.image_url) return alert('Adicione uma imagem primeiro.');
+    setGenerating(true);
+    const result = await base44.integrations.Core.InvokeLLM({
+      prompt: `Você é especialista em moda infantil de luxo. Com base nesta imagem de roupa infantil, crie:
+1. Um nome de produto elegante e poético (máx. 6 palavras)
+2. Uma descrição curta e encantadora (2-3 frases) destacando detalhes do tecido, bordados ou estilo.
+Categoria: ${form.category}, Coleção: ${form.collection}.
+Responda em português brasileiro.`,
+      file_urls: [form.image_url],
+      response_json_schema: {
+        type: 'object',
+        properties: {
+          name: { type: 'string' },
+          description: { type: 'string' },
+        }
+      }
+    });
+    if (result.name) set('name', result.name);
+    if (result.description) set('description', result.description);
+    setGenerating(false);
+  };
 
   const set = (field, value) => setForm(f => ({ ...f, [field]: value }));
 
@@ -100,9 +124,18 @@ export default function ProductFormModal({ product, onClose, onSuccess }) {
         </div>
 
         <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-5">
-          {/* Name */}
+          {/* Name + AI Button */}
           <div>
-            <label className="label-style">Nome do Produto *</label>
+            <div className="flex items-center justify-between mb-1">
+              <label className="label-style" style={{marginBottom:0}}>Nome do Produto *</label>
+              <button type="button" onClick={generateNameAndDescription} disabled={generating || !form.image_url}
+                className="flex items-center gap-1 text-[10px] tracking-[0.1em] uppercase px-3 py-1.5 border velvet-transition hover:opacity-80 disabled:opacity-40"
+                style={{ borderColor: 'rgba(161,124,124,0.3)', color: '#A17C7C', fontFamily: 'Montserrat, sans-serif' }}
+                title={!form.image_url ? 'Adicione uma imagem primeiro' : 'Gerar nome e descrição com IA'}>
+                {generating ? <Loader2 size={11} className="animate-spin" /> : <Sparkles size={11} />}
+                Gerar com IA
+              </button>
+            </div>
             <input required value={form.name} onChange={e => set('name', e.target.value)}
               className="input-style w-full" placeholder="Ex: Vestido Floral com Gola Bordada" />
           </div>
