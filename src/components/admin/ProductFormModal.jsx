@@ -50,8 +50,15 @@ export default function ProductFormModal({ product, onClose, onSuccess }) {
     if (!file) return;
     setUploading(true);
     try {
-      const { file_url } = await base44.integrations.Core.UploadFile({ file });
-      set(field, file_url);
+      // Convert to base64
+      const base64 = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result.split(',')[1]);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+      const response = await base44.functions.invoke('uploadImage', { image_base64: base64 });
+      set(field, response.data.file_url);
     } catch (err) {
       console.error('Erro ao fazer upload:', err);
       alert('Erro ao enviar imagem. Tente novamente.');
