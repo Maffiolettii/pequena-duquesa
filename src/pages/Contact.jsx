@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Send, MapPin, Phone, Instagram } from 'lucide-react';
 import NewsletterFooter from '../components/store/NewsletterFooter';
 import { base44 } from '@/api/base44Client';
+import EnchantedMailbox from '../components/store/EnchantedMailbox';
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
@@ -119,13 +120,9 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Decorative Image */}
-              <div className="mt-10 hidden lg:block w-full aspect-[3/4] overflow-hidden rounded-[20px] shadow-sm">
-                <img
-                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68bc37bca4385f82fa4d811b/595be2187_photo_18_2026-03-10_14-31-56.jpg"
-                  alt="Vestido artesanal Pequena Duquesa"
-                  className="w-full h-full object-cover object-center"
-                />
+              {/* Enchanted Garden Mailbox */}
+              <div className="mt-10 hidden lg:block w-full aspect-[3/4] overflow-hidden rounded-[20px] shadow-sm relative" style={{ backgroundColor: '#FFFAF0' }}>
+                <EnchantedMailbox />
               </div>
             </motion.div>
 
