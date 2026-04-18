@@ -6,7 +6,7 @@ import { createPageUrl } from '@/utils';
 // ── SVG Elements ──────────────────────────────────────────────────────────────
 
 const Butterfly = ({ size = 28, color = '#D4A5A5', style = {} }) => (
-  <svg width={size} height={size * 0.75} viewBox="0 0 40 30" fill="none" stroke={color} strokeWidth="0.5" style={style}>
+  <svg width={size} height={size * 0.75} viewBox="0 0 40 30" fill="none" stroke={color} strokeWidth="1" style={style}>
     {/* Left wings */}
     <path d="M20 15 C14 8, 4 6, 2 12 C0 18, 10 20, 20 15Z" />
     <path d="M20 15 C15 20, 6 24, 4 20 C2 16, 10 14, 20 15Z" />
@@ -27,7 +27,7 @@ const Butterfly = ({ size = 28, color = '#D4A5A5', style = {} }) => (
 );
 
 const Flower = ({ size = 18, color = '#C9A77C', style = {} }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="0.5" style={style}>
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1" style={style}>
     <ellipse cx="12" cy="7" rx="2.5" ry="4" />
     <ellipse cx="12" cy="7" rx="2.5" ry="4" transform="rotate(45 12 12)" />
     <ellipse cx="12" cy="7" rx="2.5" ry="4" transform="rotate(90 12 12)" />
@@ -39,7 +39,7 @@ const Flower = ({ size = 18, color = '#C9A77C', style = {} }) => (
 );
 
 const SmallFlower = ({ size = 12, color = '#D4A5A5', style = {} }) => (
-  <svg width={size} height={size} viewBox="0 0 16 16" fill="none" stroke={color} strokeWidth="0.5" style={style}>
+  <svg width={size} height={size} viewBox="0 0 16 16" fill="none" stroke={color} strokeWidth="1" style={style}>
     <circle cx="8" cy="4" r="1.8" />
     <circle cx="12" cy="8" r="1.8" />
     <circle cx="8" cy="12" r="1.8" />
@@ -49,25 +49,25 @@ const SmallFlower = ({ size = 12, color = '#D4A5A5', style = {} }) => (
 );
 
 const FairyDust = ({ color = '#C9A77C', style = {} }) => (
-  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke={color} strokeWidth="0.4" style={style}>
-    <circle cx="8" cy="32" r="1" />
-    <circle cx="15" cy="25" r="0.6" />
-    <circle cx="24" cy="18" r="1.2" />
-    <circle cx="30" cy="10" r="0.7" />
-    <circle cx="36" cy="5" r="0.9" />
+  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke={color} strokeWidth="0.8" style={style}>
+    <circle cx="8" cy="32" r="1.2" />
+    <circle cx="15" cy="25" r="0.9" />
+    <circle cx="24" cy="18" r="1.5" />
+    <circle cx="30" cy="10" r="1" />
+    <circle cx="36" cy="5" r="1.1" />
     {/* mini stars */}
-    <path d="M12 20 L12.5 18.5 L13 20 L14.5 20 L13.3 21 L13.8 22.5 L12.5 21.5 L11.2 22.5 L11.7 21 L10.5 20Z" strokeWidth="0.3" />
-    <path d="M28 28 L28.4 27 L28.8 28 L29.8 28 L29 28.7 L29.3 29.7 L28.4 29.1 L27.5 29.7 L27.8 28.7 L27 28Z" strokeWidth="0.3" />
+    <path d="M12 20 L12.5 18.5 L13 20 L14.5 20 L13.3 21 L13.8 22.5 L12.5 21.5 L11.2 22.5 L11.7 21 L10.5 20Z" strokeWidth="0.6" />
+    <path d="M28 28 L28.4 27 L28.8 28 L29.8 28 L29 28.7 L29.3 29.7 L28.4 29.1 L27.5 29.7 L27.8 28.7 L27 28Z" strokeWidth="0.6" />
   </svg>
 );
 
 const Leaf = ({ size = 20, color = '#C9A77C', style = {} }) => (
-  <svg width={size} height={size} viewBox="0 0 20 20" fill="none" stroke={color} strokeWidth="0.5" style={style}>
+  <svg width={size} height={size} viewBox="0 0 20 20" fill="none" stroke={color} strokeWidth="1" style={style}>
     <path d="M10 18 C4 14, 2 8, 6 4 C10 0, 16 4, 14 10 C12 16, 10 18, 10 18Z" />
-    <line x1="10" y1="18" x2="10" y2="4" strokeWidth="0.4" />
-    <line x1="10" y1="14" x2="7" y2="10" strokeWidth="0.3" />
-    <line x1="10" y1="11" x2="13" y2="8" strokeWidth="0.3" />
-    <line x1="10" y1="8" x2="8" y2="6" strokeWidth="0.3" />
+    <line x1="10" y1="18" x2="10" y2="4" strokeWidth="0.7" />
+    <line x1="10" y1="14" x2="7" y2="10" strokeWidth="0.6" />
+    <line x1="10" y1="11" x2="13" y2="8" strokeWidth="0.6" />
+    <line x1="10" y1="8" x2="8" y2="6" strokeWidth="0.6" />
   </svg>
 );
 
@@ -86,53 +86,53 @@ export default function HeroSection() {
         {/* ── Garden decorations ── */}
 
         {/* Bottom-left cluster */}
-        <Flower size={22} color="#C9A77C" style={{ position:'absolute', bottom:'10%', left:'3%', opacity:0.55 }} />
-        <Leaf size={18} color="#C9A77C" style={{ position:'absolute', bottom:'18%', left:'7%', opacity:0.4, transform:'rotate(-20deg)' }} />
-        <SmallFlower size={10} color="#D4A5A5" style={{ position:'absolute', bottom:'30%', left:'5%', opacity:0.5 }} />
-        <FairyDust color="#C9A77C" style={{ position:'absolute', bottom:'5%', left:'12%', opacity:0.5 }} />
-        <SmallFlower size={8} color="#C9A77C" style={{ position:'absolute', bottom:'40%', left:'2%', opacity:0.35 }} />
-        <Leaf size={14} color="#D4A5A5" style={{ position:'absolute', bottom:'50%', left:'9%', opacity:0.3, transform:'rotate(15deg)' }} />
+        <Flower size={26} color="#C9A77C" style={{ position:'absolute', bottom:'10%', left:'3%', opacity:0.8 }} />
+        <Leaf size={22} color="#C9A77C" style={{ position:'absolute', bottom:'18%', left:'7%', opacity:0.7, transform:'rotate(-20deg)' }} />
+        <SmallFlower size={14} color="#D4A5A5" style={{ position:'absolute', bottom:'30%', left:'5%', opacity:0.75 }} />
+        <FairyDust color="#C9A77C" style={{ position:'absolute', bottom:'5%', left:'12%', opacity:0.75 }} />
+        <SmallFlower size={12} color="#C9A77C" style={{ position:'absolute', bottom:'40%', left:'2%', opacity:0.65 }} />
+        <Leaf size={18} color="#D4A5A5" style={{ position:'absolute', bottom:'50%', left:'9%', opacity:0.6, transform:'rotate(15deg)' }} />
 
         {/* Mid-left */}
-        <Flower size={14} color="#D4A5A5" style={{ position:'absolute', top:'35%', left:'14%', opacity:0.4, transform:'rotate(-10deg)' }} />
-        <FairyDust color="#D4A5A5" style={{ position:'absolute', top:'20%', left:'8%', opacity:0.45 }} />
-        <SmallFlower size={9} color="#C9A77C" style={{ position:'absolute', top:'55%', left:'18%', opacity:0.35 }} />
+        <Flower size={18} color="#D4A5A5" style={{ position:'absolute', top:'35%', left:'14%', opacity:0.7, transform:'rotate(-10deg)' }} />
+        <FairyDust color="#D4A5A5" style={{ position:'absolute', top:'20%', left:'8%', opacity:0.7 }} />
+        <SmallFlower size={13} color="#C9A77C" style={{ position:'absolute', top:'55%', left:'18%', opacity:0.65 }} />
 
         {/* Top-left */}
-        <Flower size={16} color="#C9A77C" style={{ position:'absolute', top:'8%', left:'16%', opacity:0.4, transform:'rotate(10deg)' }} />
-        <Leaf size={12} color="#C9A77C" style={{ position:'absolute', top:'15%', left:'22%', opacity:0.35, transform:'rotate(-30deg)' }} />
-        <FairyDust color="#C9A77C" style={{ position:'absolute', top:'5%', left:'28%', opacity:0.4 }} />
+        <Flower size={20} color="#C9A77C" style={{ position:'absolute', top:'8%', left:'16%', opacity:0.7, transform:'rotate(10deg)' }} />
+        <Leaf size={16} color="#C9A77C" style={{ position:'absolute', top:'15%', left:'22%', opacity:0.65, transform:'rotate(-30deg)' }} />
+        <FairyDust color="#C9A77C" style={{ position:'absolute', top:'5%', left:'28%', opacity:0.65 }} />
 
         {/* Top-right */}
-        <Flower size={18} color="#D4A5A5" style={{ position:'absolute', top:'6%', right:'18%', opacity:0.45, transform:'rotate(-15deg)' }} />
-        <Leaf size={14} color="#C9A77C" style={{ position:'absolute', top:'14%', right:'24%', opacity:0.35, transform:'rotate(25deg)' }} />
-        <FairyDust color="#D4A5A5" style={{ position:'absolute', top:'3%', right:'30%', opacity:0.4 }} />
-        <SmallFlower size={10} color="#D4A5A5" style={{ position:'absolute', top:'22%', right:'14%', opacity:0.4 }} />
+        <Flower size={22} color="#D4A5A5" style={{ position:'absolute', top:'6%', right:'18%', opacity:0.75, transform:'rotate(-15deg)' }} />
+        <Leaf size={18} color="#C9A77C" style={{ position:'absolute', top:'14%', right:'24%', opacity:0.65, transform:'rotate(25deg)' }} />
+        <FairyDust color="#D4A5A5" style={{ position:'absolute', top:'3%', right:'30%', opacity:0.65 }} />
+        <SmallFlower size={14} color="#D4A5A5" style={{ position:'absolute', top:'22%', right:'14%', opacity:0.7 }} />
 
         {/* Mid-right */}
-        <Flower size={15} color="#C9A77C" style={{ position:'absolute', top:'40%', right:'10%', opacity:0.4, transform:'rotate(8deg)' }} />
-        <FairyDust color="#C9A77C" style={{ position:'absolute', top:'25%', right:'6%', opacity:0.45 }} />
-        <Leaf size={16} color="#D4A5A5" style={{ position:'absolute', top:'55%', right:'16%', opacity:0.3, transform:'rotate(-20deg)' }} />
+        <Flower size={19} color="#C9A77C" style={{ position:'absolute', top:'40%', right:'10%', opacity:0.7, transform:'rotate(8deg)' }} />
+        <FairyDust color="#C9A77C" style={{ position:'absolute', top:'25%', right:'6%', opacity:0.7 }} />
+        <Leaf size={20} color="#D4A5A5" style={{ position:'absolute', top:'55%', right:'16%', opacity:0.6, transform:'rotate(-20deg)' }} />
 
         {/* Bottom-right cluster */}
-        <Flower size={20} color="#D4A5A5" style={{ position:'absolute', bottom:'12%', right:'5%', opacity:0.5 }} />
-        <Leaf size={18} color="#C9A77C" style={{ position:'absolute', bottom:'22%', right:'9%', opacity:0.4, transform:'rotate(20deg)' }} />
-        <SmallFlower size={11} color="#C9A77C" style={{ position:'absolute', bottom:'35%', right:'4%', opacity:0.45 }} />
-        <FairyDust color="#D4A5A5" style={{ position:'absolute', bottom:'8%', right:'18%', opacity:0.5 }} />
-        <SmallFlower size={8} color="#D4A5A5" style={{ position:'absolute', bottom:'48%', right:'20%', opacity:0.3 }} />
+        <Flower size={24} color="#D4A5A5" style={{ position:'absolute', bottom:'12%', right:'5%', opacity:0.78 }} />
+        <Leaf size={22} color="#C9A77C" style={{ position:'absolute', bottom:'22%', right:'9%', opacity:0.7, transform:'rotate(20deg)' }} />
+        <SmallFlower size={15} color="#C9A77C" style={{ position:'absolute', bottom:'35%', right:'4%', opacity:0.72 }} />
+        <FairyDust color="#D4A5A5" style={{ position:'absolute', bottom:'8%', right:'18%', opacity:0.75 }} />
+        <SmallFlower size={12} color="#D4A5A5" style={{ position:'absolute', bottom:'48%', right:'20%', opacity:0.6 }} />
 
         {/* ── Animated butterflies ── */}
         <motion.div style={{ position:'absolute', top:'12%', left:'30%' }} {...floatAnim(5, 7)}>
-          <Butterfly size={22} color="#D4A5A5" style={{ opacity:0.55 }} />
+          <Butterfly size={28} color="#D4A5A5" style={{ opacity:0.8 }} />
         </motion.div>
         <motion.div style={{ position:'absolute', bottom:'25%', left:'22%' }} {...floatAnim(6.5, 5)}>
-          <Butterfly size={18} color="#C9A77C" style={{ opacity:0.45, transform:'rotate(-10deg)' }} />
+          <Butterfly size={24} color="#C9A77C" style={{ opacity:0.72, transform:'rotate(-10deg)' }} />
         </motion.div>
         <motion.div style={{ position:'absolute', top:'18%', right:'28%' }} {...floatAnim(4.5, 8)}>
-          <Butterfly size={26} color="#D4A5A5" style={{ opacity:0.5, transform:'scaleX(-1)' }} />
+          <Butterfly size={32} color="#D4A5A5" style={{ opacity:0.75, transform:'scaleX(-1)' }} />
         </motion.div>
         <motion.div style={{ position:'absolute', bottom:'20%', right:'32%' }} {...floatAnim(7, 6)}>
-          <Butterfly size={16} color="#C9A77C" style={{ opacity:0.4, transform:'rotate(8deg) scaleX(-1)' }} />
+          <Butterfly size={22} color="#C9A77C" style={{ opacity:0.68, transform:'rotate(8deg) scaleX(-1)' }} />
         </motion.div>
 
         {/* ── Content ── */}
