@@ -158,11 +158,40 @@ export default function ProductDetail() {
               </button>
 
               <div className="mt-10 pt-8" style={{ borderTop: '0.5px solid rgba(161,124,124,0.2)' }}>
-                <div className="grid grid-cols-2 gap-y-4 text-xs"
+                <div className="grid grid-cols-2 gap-y-4 text-xs mb-8"
                   style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 400, color: '#6B4F4F', letterSpacing: '0.05em' }}>
                   <span>Tecido</span><span>Tricoline 100% Algodão</span>
                   <span>Bordado</span><span>Artesanal à mão</span>
                   <span>Cuidados</span><span>Lavar à mão, secar à sombra</span>
+                </div>
+
+                {/* Tabela de Medidas */}
+                <div className="pt-6" style={{ borderTop: '0.5px solid rgba(161,124,124,0.2)' }}>
+                  <p className="text-xs tracking-[0.2em] uppercase mb-4"
+                    style={{ fontFamily: 'Montserrat, sans-serif', color: '#6B4F4F', fontWeight: 600 }}>
+                    Medidas por Tamanho
+                  </p>
+                  <div className="space-y-3">
+                    {[
+                      { size: 'RN', label: 'RN (0–1 mês)', busto: 40, comp: 34 },
+                      { size: 'P baby', label: 'P (3–6 meses)', busto: 46, comp: 40 },
+                      { size: 'M baby', label: 'M (6–9 meses)', busto: 50, comp: 43 },
+                      { size: 'G baby', label: 'G (9–12 meses)', busto: 54, comp: 44 },
+                      { size: '1', label: '1 ano', busto: 56, comp: 49 },
+                      { size: '2', label: '2 anos', busto: 60, comp: 53 },
+                      { size: '3', label: '3 anos', busto: 64, comp: 60 },
+                      { size: '4', label: '4 anos', busto: 64, comp: 64 },
+                      { size: '5', label: '5 anos', busto: 68, comp: 68 },
+                      { size: '6', label: '6 anos', busto: 72, comp: 73 },
+                    ].filter(row => !product.sizes?.length || product.sizes.includes(row.size))
+                     .map(row => (
+                      <div key={row.size} className="flex items-start gap-3 text-xs"
+                        style={{ fontFamily: 'Montserrat, sans-serif', color: '#4A3A3A' }}>
+                        <span className="font-semibold min-w-[90px]" style={{ color: '#6B4F4F' }}>{row.label}</span>
+                        <span className="opacity-75">Busto: {row.busto} cm · Comprimento: {row.comp} cm</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </motion.div>

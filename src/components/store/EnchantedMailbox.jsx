@@ -108,8 +108,8 @@ const floatAnim = (duration = 4, yRange = 6) => ({
 // ── Component ──────────────────────────────────────────────────────────────────
 export default function EnchantedMailbox() {
   return (
-    <div className="relative w-full h-full flex items-center justify-center overflow-hidden"
-      style={{ backgroundColor: '#FFFAF0', minHeight: 320 }}>
+    <div className="relative w-full flex items-center justify-center overflow-hidden"
+      style={{ backgroundColor: '#FFFAF0', minHeight: 320, height: '100%' }}>
 
       {/* Garden decorations — scattered around */}
       <Flower size={20} color="#C9A77C" style={{ position:'absolute', top:'6%', left:'5%', opacity:0.75 }} />

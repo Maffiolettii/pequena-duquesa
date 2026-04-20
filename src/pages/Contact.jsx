@@ -121,7 +121,7 @@ export default function Contact() {
               </div>
 
               {/* Enchanted Garden Mailbox */}
-              <div className="mt-10 hidden lg:block w-full aspect-[3/4] overflow-hidden rounded-[20px] shadow-sm relative" style={{ backgroundColor: '#FFFAF0' }}>
+              <div className="mt-10 w-full overflow-hidden rounded-[20px] shadow-sm relative" style={{ backgroundColor: '#FFFAF0', minHeight: 320 }}>
                 <EnchantedMailbox />
               </div>
             </motion.div>
