@@ -79,6 +79,7 @@ export default function NewsletterFooter() {
           <div className="flex gap-10 font-sans text-[9px] tracking-[0.2em] uppercase">
             <a href="https://www.instagram.com/pequenaduquesa_" target="_blank" rel="noopener noreferrer" className="hover:text-[#D4A5A5] transition-colors">Instagram</a>
             <a href="https://wa.me/5581992656652" target="_blank" rel="noopener noreferrer" className="hover:text-[#D4A5A5] transition-colors">WhatsApp</a>
+            <a href="/PoliticaTroca" className="hover:text-[#D4A5A5] transition-colors">Trocas e Devoluções</a>
           </div>
         </div>
       </div>
