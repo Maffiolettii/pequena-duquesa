@@ -12,7 +12,7 @@ const Section = ({ title, children }) => (
     </h2>
     <div
       className="space-y-3 text-sm leading-relaxed"
-      style={{ fontFamily: 'Montserrat, sans-serif', color: '#4A3A3A', fontWeight: 300, letterSpacing: '0.03em' }}
+      style={{ fontFamily: 'Montserrat, sans-serif', color: '#2A1A1A', fontWeight: 400, letterSpacing: '0.03em' }}
     >
       {children}
     </div>
@@ -42,7 +42,7 @@ export default function PoliticaTroca() {
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
 
             <p className="text-sm leading-relaxed mb-12"
-              style={{ fontFamily: 'Montserrat, sans-serif', color: '#4A3A3A', fontWeight: 300, letterSpacing: '0.03em' }}>
+              style={{ fontFamily: 'Montserrat, sans-serif', color: '#2A1A1A', fontWeight: 400, letterSpacing: '0.03em' }}>
               Nosso compromisso é assegurar a plena satisfação de cada cliente Pequena Duquesa. Nossa política tem como base o Código de Defesa do Consumidor. Para evitar contratempos, recomendamos a leitura atenta das descrições e tabelas de medidas de cada produto.
             </p>
 
@@ -58,7 +58,7 @@ export default function PoliticaTroca() {
                 <p>O envio da peça para troca deve ser feito pelos Correios via PAC. Fretes por Sedex a cobrar não serão recebidos.</p>
                 <p>Produtos devolvidos devem estar em estado original, sem danos ou alterações, acompanhados de nota fiscal, etiquetas e embalagem original.</p>
                 <p>A mercadoria será analisada e em até 30 (trinta) dias será apresentada a solução ao cliente. Confirmado o defeito de fabricação, o reenvio não terá custo algum para o cliente.</p>
-                <p style={{ color: '#A17C7C', fontStyle: 'italic' }}>
+                <p style={{ color: '#7A4F4F', fontStyle: 'italic', fontWeight: 500 }}>
                   Atenção: O frete de retorno será reembolsado somente nos casos de troca por defeito comprovado de fabricação.
                 </p>
               </Section>
@@ -68,7 +68,7 @@ export default function PoliticaTroca() {
                   <p><span style={{ color: '#6B4F4F', fontWeight: 500 }}>Prazo:</span> 7 (sete) dias corridos a partir da data de recebimento do produto.</p>
                   <p>A mercadoria deve ser enviada em sua embalagem original, em perfeito estado e acompanhada da nota fiscal. Qualquer indício de uso indevido isenta a Pequena Duquesa de aceitar a solicitação.</p>
                   <p>Caso o produto desejado para troca não esteja disponível em estoque, oferecemos um vale-troca no valor da peça para uso em nova compra.</p>
-                  <p style={{ color: '#A17C7C', fontStyle: 'italic' }}>
+                  <p style={{ color: '#7A4F4F', fontStyle: 'italic', fontWeight: 500 }}>
                     O frete de envio para troca por insatisfação é de responsabilidade do cliente.
                   </p>
                 </Section>
@@ -79,7 +79,7 @@ export default function PoliticaTroca() {
                   <p>A restituição de valores será realizada <span style={{ color: '#6B4F4F', fontWeight: 500 }}>exclusivamente em casos de defeito de fabricação</span>, mediante análise da peça.</p>
                   <p>Não realizamos devoluções ou reembolsos por motivos de arrependimento, escolha incorreta de tamanho, modelo ou preferência pessoal.</p>
                   <p>O reembolso será feito na conta bancária do titular do pedido, em até 30 dias após confirmação do defeito.</p>
-                  <p style={{ color: '#A17C7C', fontStyle: 'italic' }}>
+                  <p style={{ color: '#7A4F4F', fontStyle: 'italic', fontWeight: 500 }}>
                     Não serão efetuados ressarcimentos em contas de terceiros.
                   </p>
                 </Section>
