@@ -126,7 +126,7 @@ export default function ProductDetail() {
                   </p>
                   <div className="flex gap-3 flex-wrap">
                     {product.sizes.map(size => {
-                      const SIZE_SUBS = { 'RN': '0-1 mês', 'P baby': '2-5 meses', 'M baby': '5-7 meses', 'G baby': '7-12 meses' };
+                      const SIZE_SUBS = { 'RN': '0–1 mês', 'P baby': '3–6 meses', 'M baby': '6–9 meses', 'G baby': '9–12 meses' };
                       const sub = SIZE_SUBS[size];
                       return (
                       <button key={size} onClick={() => setSelectedSize(size)}
@@ -174,9 +174,9 @@ export default function ProductDetail() {
                   <div className="space-y-3">
                     {[
                       { size: 'RN', label: 'RN (0–1 mês)', busto: 40, comp: 34 },
-                      { size: 'P baby', label: 'P (3–6 meses)', busto: 46, comp: 40 },
-                      { size: 'M baby', label: 'M (6–9 meses)', busto: 50, comp: 43 },
-                      { size: 'G baby', label: 'G (9–12 meses)', busto: 54, comp: 44 },
+                      { size: 'P baby', label: 'P baby (3–6 meses)', busto: 46, comp: 40 },
+                      { size: 'M baby', label: 'M baby (6–9 meses)', busto: 50, comp: 43 },
+                      { size: 'G baby', label: 'G baby (9–12 meses)', busto: 54, comp: 44 },
                       { size: '1', label: '1 ano', busto: 56, comp: 49 },
                       { size: '2', label: '2 anos', busto: 60, comp: 53 },
                       { size: '3', label: '3 anos', busto: 64, comp: 60 },
